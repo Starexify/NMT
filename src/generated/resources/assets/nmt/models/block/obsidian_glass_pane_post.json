@@ -2,7 +2,7 @@
   "parent": "minecraft:block/template_glass_pane_post",
   "render_type": "minecraft:translucent",
   "textures": {
-    "edge": "nmt:block/obsidian_glass",
+    "edge": "nmt:block/obsidian_glass_pane_top",
     "pane": "nmt:block/obsidian_glass"
   }
 }

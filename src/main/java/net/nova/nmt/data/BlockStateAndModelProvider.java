@@ -34,15 +34,15 @@ public class BlockStateAndModelProvider extends BlockStateProvider {
     }
 
     public void createGlassBlock(Block glassBlock, Block paneBlock) {
-        simpleBlockWithItem(glassBlock, models().cubeAll(name(glassBlock), modLoc("block/" + name(glassBlock))).renderType(RenderType.TRANSLUCENT.name));
-
         ResourceLocation glassBlockTexture = modLoc("block/" + name(glassBlock));
         ResourceLocation paneTexture = modLoc("block/" + name(paneBlock) + "_top");
-        ModelBuilder<?> postModel = models().panePost(name(paneBlock) + "_post", paneTexture, paneTexture).renderType(RenderType.TRANSLUCENT.name);
-        ModelBuilder<?> sideModel = models().paneSide(name(paneBlock) + "_side", paneTexture, paneTexture).renderType(RenderType.TRANSLUCENT.name);
-        ModelBuilder<?> sideAltModel = models().paneSideAlt(name(paneBlock) + "_side_alt", paneTexture, paneTexture).renderType(RenderType.TRANSLUCENT.name);
-        ModelBuilder<?> noSideModel = models().paneNoSide(name(paneBlock) + "_noside", paneTexture).renderType(RenderType.TRANSLUCENT.name);
-        ModelBuilder<?> noSideAltModel = models().paneNoSideAlt(name(paneBlock) + "_noside_alt", paneTexture).renderType(RenderType.TRANSLUCENT.name);
+        simpleBlockWithItem(glassBlock, models().cubeAll(name(glassBlock), glassBlockTexture).renderType(RenderType.TRANSLUCENT.name));
+
+        ModelBuilder<?> postModel = models().panePost(name(paneBlock) + "_post", glassBlockTexture, paneTexture).renderType(RenderType.TRANSLUCENT.name);
+        ModelBuilder<?> sideModel = models().paneSide(name(paneBlock) + "_side", glassBlockTexture, paneTexture).renderType(RenderType.TRANSLUCENT.name);
+        ModelBuilder<?> sideAltModel = models().paneSideAlt(name(paneBlock) + "_side_alt", glassBlockTexture, paneTexture).renderType(RenderType.TRANSLUCENT.name);
+        ModelBuilder<?> noSideModel = models().paneNoSide(name(paneBlock) + "_noside", glassBlockTexture).renderType(RenderType.TRANSLUCENT.name);
+        ModelBuilder<?> noSideAltModel = models().paneNoSideAlt(name(paneBlock) + "_noside_alt", glassBlockTexture).renderType(RenderType.TRANSLUCENT.name);
 
         itemModels().getBuilder(name(paneBlock))
                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
