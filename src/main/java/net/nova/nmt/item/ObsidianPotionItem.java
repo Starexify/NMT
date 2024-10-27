@@ -16,6 +16,7 @@ import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.nova.nmt.init.NMTItems;
+import net.nova.nmt.init.NMTPotions;
 
 import java.util.List;
 
@@ -29,10 +30,9 @@ public class ObsidianPotionItem extends Item {
     @Override
     public ItemStack getDefaultInstance() {
         ItemStack itemstack = super.getDefaultInstance();
-        itemstack.set(DataComponents.POTION_CONTENTS, new PotionContents(Potions.WATER));
+        itemstack.set(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.BURN));
         return itemstack;
     }
-
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entityLiving) {
