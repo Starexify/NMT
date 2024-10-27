@@ -28,6 +28,7 @@ public class DataGenerators {
 
             generator.addProvider(true, new LangProvider(output));
 
+            generator.addProvider(true, new NMTItemModelProvider(output, existingFileHelper));
             generator.addProvider(true, new BlockStateAndModelProvider(output, existingFileHelper));
 
             generator.addProvider(true, new NMTRecipeProvider(output, lookupProvider));

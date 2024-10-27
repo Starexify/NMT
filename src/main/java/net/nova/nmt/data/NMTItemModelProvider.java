@@ -21,7 +21,6 @@ public class NMTItemModelProvider extends ItemModelProvider {
     }
 
     // Models
-
     public String getItemName(Item item) {
         return BuiltInRegistries.ITEM.getKey(item).toString().replace(MODID + ":", "");
     }

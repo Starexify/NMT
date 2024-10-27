@@ -23,6 +23,10 @@ public class CreativeTab {
                 output.accept(NMTBlocks.OBSIDIAN_GLASS);
                 output.accept(NMTBlocks.OBSIDIAN_GLASS_PANE);
 
+                // Items
+                output.accept(NMTItems.OBSIDIAN_GLASS_BOTTLE);
+                output.accept(NMTItems.LAVA_BOTTLE);
+
             }).build()
     );
 }

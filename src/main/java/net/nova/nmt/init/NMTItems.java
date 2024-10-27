@@ -11,6 +11,7 @@ import static net.nova.nmt.NoMoreThings.MODID;
 public class NMTItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
 
-    public static DeferredItem<Item> OBSIDIAN_GLASS_BOTTLE = ITEMS.register("obsidian_glass_bottle", () -> new ObsidianBottleItem(new Item.Properties()));
-    public static DeferredItem<Item> LAVA_BOTTLE = ITEMS.register("lava_bottle", () -> new ObsidianPotionItem(new Item.Properties()));
+    public static DeferredItem<Item> OBSIDIAN_GLASS_BOTTLE = ITEMS.register("obsidian_glass_bottle", () -> new ObsidianBottleItem(new Item.Properties().fireResistant()));
+    public static DeferredItem<Item> LAVA_BOTTLE = ITEMS.register("lava_bottle", () -> new ObsidianPotionItem(new Item.Properties().stacksTo(1).fireResistant()));
+
 }
