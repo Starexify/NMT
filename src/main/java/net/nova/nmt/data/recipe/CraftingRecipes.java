@@ -9,6 +9,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.nova.nmt.init.NMTBlocks;
+import net.nova.nmt.init.NMTItems;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -21,6 +22,7 @@ public class CraftingRecipes extends NMTRecipeProvider {
     }
 
     public void build() {
+        // Obsidian Glass
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, NMTBlocks.OBSIDIAN_GLASS)
                 .group(getItemName(NMTBlocks.OBSIDIAN_GLASS))
                 .define('#', Items.OBSIDIAN)
@@ -32,5 +34,13 @@ public class CraftingRecipes extends NMTRecipeProvider {
                 .save(recipeOutput);
 
         stainedGlassPaneFromStainedGlass(recipeOutput, NMTBlocks.OBSIDIAN_GLASS_PANE, NMTBlocks.OBSIDIAN_GLASS);
+
+        // Obsidian Bottle
+        ShapedRecipeBuilder.shaped(RecipeCategory.BREWING, NMTItems.OBSIDIAN_GLASS_BOTTLE, 3)
+                .define('#', NMTBlocks.OBSIDIAN_GLASS)
+                .pattern("# #")
+                .pattern(" # ")
+                .unlockedBy("has_" + getItemName(NMTBlocks.OBSIDIAN_GLASS), has(NMTBlocks.OBSIDIAN_GLASS))
+                .save(recipeOutput);
     }
 }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_obsidian_glass": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nmt:obsidian_glass"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "nmt:obsidian_glass_bottle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_obsidian_glass"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "nmt:obsidian_glass_bottle"
+    ]
+  }
+}
