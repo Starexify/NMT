@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "obsidian_glass",
+  "key": {
+    "#": {
+      "item": "minecraft:obsidian"
+    },
+    "O": {
+      "tag": "c:glass_blocks/cheap"
+    }
+  },
+  "pattern": [
+    "###",
+    "#O#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nmt:obsidian_glass"
+  }
+}
