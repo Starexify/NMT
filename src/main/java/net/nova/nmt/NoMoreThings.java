@@ -9,7 +9,7 @@ import static net.nova.nmt.NoMoreThings.MODID;
 
 @Mod(MODID)
 public class NoMoreThings {
-    public static final String MODID = "nomorethings";
+    public static final String MODID = "nmt";
     public static final Logger logger = LoggerFactory.getLogger(NoMoreThings.class);
 
     public NoMoreThings(IEventBus bus) {
