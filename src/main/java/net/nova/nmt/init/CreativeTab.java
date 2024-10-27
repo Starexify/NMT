@@ -21,6 +21,7 @@ public class CreativeTab {
             .displayItems((itemDisplayParameters, output) -> {
                 // Blocks
                 output.accept(NMTBlocks.OBSIDIAN_GLASS);
+                output.accept(NMTBlocks.OBSIDIAN_GLASS_PANE);
 
             }).build()
     );

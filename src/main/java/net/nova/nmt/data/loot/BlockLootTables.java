@@ -21,7 +21,7 @@ public class BlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
         dropSelf(NMTBlocks.OBSIDIAN_GLASS.get());
-
+        dropWhenSilkTouch(NMTBlocks.OBSIDIAN_GLASS_PANE.get());
     }
 
     // Loot method

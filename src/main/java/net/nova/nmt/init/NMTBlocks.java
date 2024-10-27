@@ -9,6 +9,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StainedGlassBlock;
+import net.minecraft.world.level.block.StainedGlassPaneBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -35,6 +36,14 @@ public class NMTBlocks {
             .isRedstoneConductor(NMTBlocks::never)
             .isSuffocating(NMTBlocks::never)
             .isViewBlocking(NMTBlocks::never)
+    ));
+
+    public static final DeferredBlock<Block> OBSIDIAN_GLASS_PANE = registerBlock("obsidian_glass_pane", () -> new StainedGlassPaneBlock(DyeColor.PURPLE, BlockBehaviour.Properties.of()
+            .instrument(NoteBlockInstrument.HAT)
+            .strength(25.0F, 1200.0F)
+            .sound(SoundType.GLASS)
+            .requiresCorrectToolForDrops()
+            .noOcclusion()
     ));
 
     // Methods
