@@ -25,8 +25,7 @@ public class LangProvider extends LanguageProvider {
         // Items
         addItem(NMTItems.OBSIDIAN_GLASS_BOTTLE, "Obsidian Glass Bottle");
         /// Obsidian Potions
- /*       addObsidianPotion(NMTItems.LAVA_BOTTLE, NMTPotions.LAVA, "Lava Bottle");*/
-        add(NMTItems.LAVA_BOTTLE.getRegisteredName(), "Lava Bottle");
+        addObsidianPotion(NMTItems.LAVA_BOTTLE, NMTPotions.LAVA, "Lava Bottle");
 
         // Creative Tab
         add(CreativeTab.NO_MORE_THINGS_TAB_TITLE, "No More Things");
