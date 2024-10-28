@@ -4,6 +4,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.Potions;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 import net.nova.nmt.init.*;
 
@@ -26,6 +27,7 @@ public class LangProvider extends LanguageProvider {
         addItem(NMTItems.OBSIDIAN_GLASS_BOTTLE, "Obsidian Glass Bottle");
         /// Obsidian Potions
         addObsidianPotion(NMTItems.LAVA_BOTTLE, NMTPotions.LAVA, "Lava Bottle");
+        addObsidianPotion(NMTItems.AWFULLY_POTION, NMTPotions.AWFULLY, "Awfully Potion");
 
         // Creative Tab
         add(CreativeTab.NO_MORE_THINGS_TAB_TITLE, "No More Things");

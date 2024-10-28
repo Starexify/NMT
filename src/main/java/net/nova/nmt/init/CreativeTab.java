@@ -26,6 +26,7 @@ public class CreativeTab {
                 // Items
                 output.accept(NMTItems.OBSIDIAN_GLASS_BOTTLE);
                 output.accept(NMTItems.LAVA_BOTTLE);
+                output.accept(NMTItems.AWFULLY_POTION);
 
             }).build()
     );

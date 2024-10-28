@@ -18,6 +18,7 @@ public class NMTItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         basicItem(NMTItems.OBSIDIAN_GLASS_BOTTLE.get());
         basicItem(NMTItems.LAVA_BOTTLE.get());
+        basicItem(NMTItems.AWFULLY_POTION.get());
     }
 
     // Models
