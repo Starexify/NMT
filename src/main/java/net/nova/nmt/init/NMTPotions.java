@@ -12,17 +12,16 @@ import static net.nova.nmt.NoMoreThings.MODID;
 public class NMTPotions {
     public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(Registries.POTION, MODID);
 
-    public static final Holder<Potion> AWFULLY = registerPotion("awfully");
-
-    public static final Holder<Potion> LAVA = registerPotion("lava", new MobEffectInstance(NMTEffects.BURN, 900));
-
-    // Method
-    public static Holder<Potion> registerPotion(String name, MobEffectInstance... effects) {
-        return POTIONS.register(name, () -> new Potion(effects) {
-            @Override
-            public boolean isEnabled(FeatureFlagSet enabledFeatures) {
-                return false;
-            }
-        });
-    }
+    public static final Holder<Potion> AWFULLY = POTIONS.register("awfully", () -> new Potion() {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            return false;
+        }
+    });
+    public static final Holder<Potion> LAVA = POTIONS.register("lava", () -> new Potion(new MobEffectInstance(NMTEffects.BURN, 900)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            return false;
+        }
+    });
 }

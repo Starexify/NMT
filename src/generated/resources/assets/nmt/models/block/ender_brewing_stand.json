@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/brewing_stand",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "base": "nmt:block/ender_brewing_stand_base",
+    "particle": "nmt:block/ender_brewing_stand",
+    "stand": "nmt:block/ender_brewing_stand"
+  }
+}

@@ -6,10 +6,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.StainedGlassBlock;
-import net.minecraft.world.level.block.StainedGlassPaneBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -17,6 +14,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.nova.nmt.block.EnderBrewingStandBlock;
 
 import java.util.function.Supplier;
 
@@ -25,6 +23,7 @@ import static net.nova.nmt.NoMoreThings.MODID;
 public class NMTBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
 
+    // Obsidian Glass
     public static DeferredBlock<Block> OBSIDIAN_GLASS = registerBlock("obsidian_glass", () -> new StainedGlassBlock(DyeColor.PURPLE, BlockBehaviour.Properties.of()
             .mapColor(MapColor.COLOR_BLACK)
             .instrument(NoteBlockInstrument.HAT)
@@ -43,6 +42,13 @@ public class NMTBlocks {
             .strength(25.0F, 1200.0F)
             .sound(SoundType.GLASS)
             .requiresCorrectToolForDrops()
+            .noOcclusion()
+    ));
+
+    public static final DeferredBlock<Block> ENDER_BREWING_STAND = registerBlock("ender_brewing_stand", () -> new EnderBrewingStandBlock(BlockBehaviour.Properties.of()
+            .mapColor(MapColor.COLOR_BLACK)
+            .requiresCorrectToolForDrops()
+            .strength(0.5F).lightLevel(light -> 12)
             .noOcclusion()
     ));
 

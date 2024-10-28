@@ -1,6 +1,8 @@
 {
+  "block.nmt.ender_brewing_stand": "Ender Brewing Stand",
   "block.nmt.obsidian_glass": "Obsidian Glass",
   "block.nmt.obsidian_glass_pane": "Obsidian Glass Pane",
+  "container.ender_brewing": "Ender Brewing Stand",
   "effect.nmt.burn": "Burn",
   "item.nmt.awfully_potion.effect.awfully": "Awfully Potion",
   "item.nmt.lava_bottle.effect.lava": "Lava Bottle",

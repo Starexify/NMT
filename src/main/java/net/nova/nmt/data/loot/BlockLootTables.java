@@ -5,6 +5,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.nova.nmt.init.NMTBlocks;
 
 import java.util.Optional;
@@ -22,6 +23,7 @@ public class BlockLootTables extends BlockLootSubProvider {
     protected void generate() {
         dropSelf(NMTBlocks.OBSIDIAN_GLASS.get());
         dropWhenSilkTouch(NMTBlocks.OBSIDIAN_GLASS_PANE.get());
+        add(NMTBlocks.ENDER_BREWING_STAND.get(), this::createNameableBlockEntityTable);
     }
 
     // Loot method

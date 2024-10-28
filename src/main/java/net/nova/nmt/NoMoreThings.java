@@ -20,6 +20,7 @@ public class NoMoreThings {
         CreativeTab.CREATIVE_TAB.register(bus);
         NMTPotions.POTIONS.register(bus);
         NMTEffects.MOB_EFFECTS.register(bus);
+        NMTBlockEntities.BLOCK_ENTITIES.register(bus);
 
         bus.addListener(DataGenerators::gatherData);
     }

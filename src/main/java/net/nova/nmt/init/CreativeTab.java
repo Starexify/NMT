@@ -22,6 +22,7 @@ public class CreativeTab {
                 // Blocks
                 output.accept(NMTBlocks.OBSIDIAN_GLASS);
                 output.accept(NMTBlocks.OBSIDIAN_GLASS_PANE);
+                output.accept(NMTBlocks.ENDER_BREWING_STAND);
 
                 // Items
                 output.accept(NMTItems.OBSIDIAN_GLASS_BOTTLE);

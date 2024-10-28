@@ -22,6 +22,7 @@ public class LangProvider extends LanguageProvider {
         // Blocks
         addBlock(NMTBlocks.OBSIDIAN_GLASS, "Obsidian Glass");
         addBlock(NMTBlocks.OBSIDIAN_GLASS_PANE, "Obsidian Glass Pane");
+        addBlock(NMTBlocks.ENDER_BREWING_STAND, "Ender Brewing Stand");
 
         // Items
         addItem(NMTItems.OBSIDIAN_GLASS_BOTTLE, "Obsidian Glass Bottle");
@@ -34,6 +35,9 @@ public class LangProvider extends LanguageProvider {
 
         // Mob Effects
         addEffect(NMTEffects.BURN::value, "Burn");
+
+        // Block Entity
+        add("container.ender_brewing", "Ender Brewing Stand");
     }
 
     public void addObsidianPotion(Supplier<? extends Item> key, Holder<Potion> potionName, String name) {
