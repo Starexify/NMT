@@ -19,6 +19,7 @@ import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.nova.nmt.gui.EnderBrewingStandMenu;
 import net.nova.nmt.init.NMTBlockEntities;
 import net.nova.nmt.init.NMTItems;
 
@@ -151,6 +152,6 @@ public class EnderBrewingStandBlockEntity extends BaseContainerBlockEntity imple
 
     @Override
     protected AbstractContainerMenu createMenu(int id, Inventory player) {
-        return new BrewingStandMenu(id, player, this, this.dataAccess);
+        return new EnderBrewingStandMenu(id, player, this, this.dataAccess);
     }
 }
