@@ -11,7 +11,7 @@ public class BurnMobEffect extends MobEffect {
 
     @Override
     public boolean applyEffectTick(LivingEntity livingEntity, int amplifier) {
-        livingEntity.igniteForTicks(20);
+        livingEntity.igniteForTicks(40);
         return super.applyEffectTick(livingEntity, amplifier);
     }
 

@@ -1,7 +1,7 @@
 {
   "block.nmt.obsidian_glass": "Obsidian Glass",
   "block.nmt.obsidian_glass_pane": "Obsidian Glass Pane",
-  "item.nmt.lava_bottle": "Lava Bottle",
+  "effect.nmt.burn": "Burn",
   "item.nmt.obsidian_glass_bottle": "Obsidian Glass Bottle",
   "nmt.creativetab": "No More Things"
 }
