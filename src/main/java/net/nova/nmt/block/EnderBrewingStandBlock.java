@@ -83,7 +83,7 @@ public class EnderBrewingStandBlock extends BaseEntityBlock {
         } else {
             BlockEntity blockentity = level.getBlockEntity(pos);
             if (blockentity instanceof EnderBrewingStandBlockEntity) {
-                player.openMenu((EnderBrewingStandBlockEntity)blockentity);
+                player.openMenu((EnderBrewingStandBlockEntity) blockentity);
                 player.awardStat(Stats.INTERACT_WITH_BREWINGSTAND);
             }
 
@@ -93,10 +93,10 @@ public class EnderBrewingStandBlock extends BaseEntityBlock {
 
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        double d0 = (double)pos.getX() + 0.4 + (double)random.nextFloat() * 0.2;
-        double d1 = (double)pos.getY() + 0.7 + (double)random.nextFloat() * 0.3;
-        double d2 = (double)pos.getZ() + 0.4 + (double)random.nextFloat() * 0.2;
-        level.addParticle(ParticleTypes.SMOKE, d0, d1, d2, 0.0, 0.0, 0.0);
+        double d0 = (double) pos.getX() + 0.4 + (double) random.nextFloat() * 0.2;
+        double d1 = (double) pos.getY() + 0.7 + (double) random.nextFloat() * 0.3;
+        double d2 = (double) pos.getZ() + 0.4 + (double) random.nextFloat() * 0.2;
+        level.addParticle(ParticleTypes.END_ROD, d0, d1, d2, 0.0, 0.0, 0.0);
     }
 
     @Override
