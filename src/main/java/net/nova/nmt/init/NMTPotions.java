@@ -11,5 +11,5 @@ import static net.nova.nmt.NoMoreThings.MODID;
 public class NMTPotions {
     public static final DeferredRegister<Potion> POTIONS = DeferredRegister.create(Registries.POTION, MODID);
 
-    public static final Holder<Potion> BURN = POTIONS.register("lava", () -> new Potion(new MobEffectInstance(NMTEffects.BURN, 3600)));
+    public static final Holder<Potion> LAVA = POTIONS.register("lava", () -> new Potion(new MobEffectInstance(NMTEffects.BURN, 900)));
 }
