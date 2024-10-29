@@ -21,6 +21,7 @@ public class NMTGameEventBus {
             ItemStack itemstack = event.getItem();
             PotionContents potioncontents = itemstack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
 
+            // Remove Burn Effect
             if (itemstack.getItem() == Items.POTION && potioncontents.is(Potions.WATER)) {
                 player.removeEffect(NMTEffects.BURN);
             }

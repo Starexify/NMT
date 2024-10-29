@@ -7,10 +7,8 @@ import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.PotionItem;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionContents;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.brewing.BrewingRecipeRegistry;
 import net.neoforged.neoforge.common.brewing.IBrewingRecipe;
@@ -159,6 +157,7 @@ public class EnderPotionBrewing {
     public static void addEnderMixes(EnderPotionBrewing.Builder builder) {
         builder.addContainer(NMTItems.LAVA_BOTTLE.get());
         builder.addMix(NMTPotions.LAVA, Items.NETHER_WART, NMTPotions.AWFULLY);
+        // builder.addContainerRecipe(NMTItems.LAVA_BOTTLE.get(), Items.NETHER_WART, NMTItems.AWFULLY_POTION.get());
     }
 
     public static class Builder {
@@ -180,8 +179,8 @@ public class EnderPotionBrewing {
 
         public void addContainerRecipe(Item input, Item reagent, Item result) {
             if (input.isEnabled(this.enabledFeatures) && reagent.isEnabled(this.enabledFeatures) && result.isEnabled(this.enabledFeatures)) {
-                //expectPotion(input);
-                //expectPotion(result);
+                expectPotion(input);
+                expectPotion(result);
                 this.containerMixes
                         .add(new EnderPotionBrewing.Mix<>(input.builtInRegistryHolder(), Ingredient.of(reagent), result.builtInRegistryHolder()));
             }
@@ -189,7 +188,7 @@ public class EnderPotionBrewing {
 
         public void addContainer(Item container) {
             if (container.isEnabled(this.enabledFeatures)) {
-                //expectPotion(container);
+                expectPotion(container);
                 this.containers.add(Ingredient.of(container));
             }
         }
