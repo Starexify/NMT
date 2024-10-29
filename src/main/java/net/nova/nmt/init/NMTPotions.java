@@ -15,12 +15,24 @@ public class NMTPotions {
     public static final Holder<Potion> AWFULLY = POTIONS.register("awfully", () -> new Potion() {
         @Override
         public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
             return false;
         }
     });
     public static final Holder<Potion> LAVA = POTIONS.register("lava", () -> new Potion(new MobEffectInstance(NMTEffects.BURN, 900)) {
         @Override
         public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
             return false;
         }
     });

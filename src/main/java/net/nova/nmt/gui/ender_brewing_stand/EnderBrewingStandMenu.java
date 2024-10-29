@@ -1,8 +1,9 @@
-package net.nova.nmt.gui;
+package net.nova.nmt.gui.ender_brewing_stand;
 
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -12,37 +13,32 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.PotionContents;
+import net.neoforged.neoforge.event.EventHooks;
+import net.nova.nmt.NoMoreThings;
+import net.nova.nmt.init.NMTItems;
+import net.nova.nmt.init.NMTMenuType;
+import net.nova.nmt.recipe.EnderPotionBrewing;
 
 import java.util.Optional;
 
 public class EnderBrewingStandMenu extends AbstractContainerMenu {
-    private static final int BOTTLE_SLOT_START = 0;
-    private static final int BOTTLE_SLOT_END = 2;
-    private static final int INGREDIENT_SLOT = 3;
-    private static final int FUEL_SLOT = 4;
-    private static final int SLOT_COUNT = 5;
-    private static final int DATA_COUNT = 2;
-    private static final int INV_SLOT_START = 5;
-    private static final int INV_SLOT_END = 32;
-    private static final int USE_ROW_SLOT_START = 32;
-    private static final int USE_ROW_SLOT_END = 41;
     private final Container brewingStand;
     private final ContainerData brewingStandData;
     private final Slot ingredientSlot;
 
-    public EnderBrewingStandMenu(int containerId, Inventory playerInventory) {
+    public EnderBrewingStandMenu(int containerId, Inventory playerInventory, FriendlyByteBuf extraData) {
         this(containerId, playerInventory, new SimpleContainer(5), new SimpleContainerData(2));
     }
 
     public EnderBrewingStandMenu(int containerId, Inventory playerInventory, Container brewingStandContainer, ContainerData brewingStandData) {
-        super(MenuType.BREWING_STAND, containerId);
+        super(NMTMenuType.ENDER_BREWING_STAND.get(), containerId);
         checkContainerSize(brewingStandContainer, 5);
         checkContainerDataCount(brewingStandData, 2);
         this.brewingStand = brewingStandContainer;
         this.brewingStandData = brewingStandData;
-        PotionBrewing potionbrewing = playerInventory.player.level().potionBrewing();
+        EnderPotionBrewing potionbrewing = NoMoreThings.getEnderBrewing();
+
         this.addSlot(new EnderBrewingStandMenu.PotionSlot(potionbrewing, brewingStandContainer, 0, 56, 51));
         this.addSlot(new EnderBrewingStandMenu.PotionSlot(potionbrewing, brewingStandContainer, 1, 79, 58));
         this.addSlot(new EnderBrewingStandMenu.PotionSlot(potionbrewing, brewingStandContainer, 2, 102, 51));
@@ -83,7 +79,7 @@ public class EnderBrewingStandMenu extends AbstractContainerMenu {
                     if (!this.moveItemStackTo(itemstack1, 3, 4, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (EnderBrewingStandMenu.PotionSlot.mayPlaceItem(player.level().potionBrewing(), itemstack)) {
+                } else if (EnderBrewingStandMenu.PotionSlot.mayPlaceItem(NoMoreThings.getEnderBrewing(), itemstack)) {
                     if (!this.moveItemStackTo(itemstack1, 0, 3, false)) {
                         return ItemStack.EMPTY;
                     }
@@ -122,6 +118,14 @@ public class EnderBrewingStandMenu extends AbstractContainerMenu {
         return itemstack;
     }
 
+    public int getFuel() {
+        return this.brewingStandData.get(1);
+    }
+
+    public int getBrewingTicks() {
+        return this.brewingStandData.get(0);
+    }
+
     static class FuelSlot extends Slot {
         public FuelSlot(Container container, int slot, int x, int y) {
             super(container, slot, x, y);
@@ -133,14 +137,14 @@ public class EnderBrewingStandMenu extends AbstractContainerMenu {
         }
 
         public static boolean mayPlaceItem(ItemStack itemStack) {
-            return itemStack.is(Items.BLAZE_POWDER);
+            return itemStack.is(Items.WIND_CHARGE);
         }
     }
 
     static class IngredientsSlot extends Slot {
-        private final PotionBrewing potionBrewing;
+        private final EnderPotionBrewing potionBrewing;
 
-        public IngredientsSlot(PotionBrewing potionBrewing, Container container, int slot, int x, int y) {
+        public IngredientsSlot(EnderPotionBrewing potionBrewing, Container container, int slot, int x, int y) {
             super(container, slot, x, y);
             this.potionBrewing = potionBrewing;
         }
@@ -152,13 +156,13 @@ public class EnderBrewingStandMenu extends AbstractContainerMenu {
     }
 
     static class PotionSlot extends Slot {
-        private final PotionBrewing potionBrewing;
+        private final EnderPotionBrewing potionBrewing;
 
         public PotionSlot(Container container, int slot, int x, int y) {
-            this(PotionBrewing.EMPTY, container, slot, x, y);
+            this(EnderPotionBrewing.EMPTY, container, slot, x, y);
         }
 
-        public PotionSlot(PotionBrewing potionBrewing, Container p_39123_, int p_39124_, int p_39125_, int p_39126_) {
+        public PotionSlot(EnderPotionBrewing potionBrewing, Container p_39123_, int p_39124_, int p_39125_, int p_39126_) {
             super(p_39123_, p_39124_, p_39125_, p_39126_);
             this.potionBrewing = potionBrewing;
         }
@@ -177,20 +181,15 @@ public class EnderBrewingStandMenu extends AbstractContainerMenu {
         public void onTake(Player player, ItemStack stack) {
             Optional<Holder<Potion>> optional = stack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).potion();
             if (optional.isPresent() && player instanceof ServerPlayer serverplayer) {
-                net.neoforged.neoforge.event.EventHooks.onPlayerBrewedPotion(player, stack);
+                EventHooks.onPlayerBrewedPotion(player, stack);
                 CriteriaTriggers.BREWED_POTION.trigger(serverplayer, optional.get());
             }
 
             super.onTake(player, stack);
         }
 
-        @Deprecated
-        public static boolean mayPlaceItem(ItemStack stack) {
-            return stack.is(Items.POTION) || stack.is(Items.SPLASH_POTION) || stack.is(Items.LINGERING_POTION) || stack.is(Items.GLASS_BOTTLE);
-        }
-
-        public static boolean mayPlaceItem(PotionBrewing potionBrewing, ItemStack p_39134_) {
-            return potionBrewing.isInput(p_39134_) || p_39134_.is(Items.GLASS_BOTTLE);
+        public static boolean mayPlaceItem(EnderPotionBrewing potionBrewing, ItemStack p_39134_) {
+            return potionBrewing.isInput(p_39134_) || p_39134_.is(NMTItems.OBSIDIAN_GLASS_BOTTLE);
         }
     }
 }
