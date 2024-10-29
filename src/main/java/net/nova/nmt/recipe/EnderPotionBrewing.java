@@ -157,7 +157,7 @@ public class EnderPotionBrewing {
     public static void addEnderMixes(EnderPotionBrewing.Builder builder) {
         builder.addContainer(NMTItems.LAVA_BOTTLE.get());
         builder.addMix(NMTPotions.LAVA, Items.NETHER_WART, NMTPotions.AWFULLY);
-        builder.addContainerRecipe(NMTItems.LAVA_BOTTLE.get(), Items.NETHER_WART, NMTItems.AWFULLY_POTION.get());
+        // builder.addContainerRecipe(NMTItems.LAVA_BOTTLE.get(), Items.NETHER_WART, NMTItems.AWFULLY_POTION.get());
     }
 
     public static class Builder {
