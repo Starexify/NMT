@@ -49,9 +49,9 @@ public class EnderBrewingStandBlock extends BaseEntityBlock {
         this.registerDefaultState(
                 this.stateDefinition
                         .any()
-                        .setValue(HAS_BOTTLE[0], Boolean.valueOf(false))
-                        .setValue(HAS_BOTTLE[1], Boolean.valueOf(false))
-                        .setValue(HAS_BOTTLE[2], Boolean.valueOf(false))
+                        .setValue(HAS_BOTTLE[0], Boolean.FALSE)
+                        .setValue(HAS_BOTTLE[1], Boolean.FALSE)
+                        .setValue(HAS_BOTTLE[2], Boolean.FALSE)
         );
     }
 

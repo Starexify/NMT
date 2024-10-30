@@ -66,7 +66,7 @@ public class EnderBrewingStandMenu extends AbstractContainerMenu {
     public ItemStack quickMoveStack(Player player, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
-        if (slot != null && slot.hasItem()) {
+        if (slot.hasItem()) {
             ItemStack itemstack1 = slot.getItem();
             itemstack = itemstack1.copy();
             if ((index < 0 || index > 2) && index != 3 && index != 4) {
@@ -158,12 +158,8 @@ public class EnderBrewingStandMenu extends AbstractContainerMenu {
     static class PotionSlot extends Slot {
         private final EnderPotionBrewing potionBrewing;
 
-        public PotionSlot(Container container, int slot, int x, int y) {
-            this(EnderPotionBrewing.EMPTY, container, slot, x, y);
-        }
-
-        public PotionSlot(EnderPotionBrewing potionBrewing, Container p_39123_, int p_39124_, int p_39125_, int p_39126_) {
-            super(p_39123_, p_39124_, p_39125_, p_39126_);
+        public PotionSlot(EnderPotionBrewing potionBrewing, Container container, int p_39124_, int p_39125_, int p_39126_) {
+            super(container, p_39124_, p_39125_, p_39126_);
             this.potionBrewing = potionBrewing;
         }
 

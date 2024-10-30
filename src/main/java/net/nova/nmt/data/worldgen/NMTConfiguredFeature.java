@@ -6,12 +6,10 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.nova.nmt.NoMoreThings;
-import net.nova.nmt.init.NMTBlocks;
 import net.nova.nmt.init.NMTFeature;
 import net.nova.nmt.world.features.configurations.StructureFeatureConfiguration;
 

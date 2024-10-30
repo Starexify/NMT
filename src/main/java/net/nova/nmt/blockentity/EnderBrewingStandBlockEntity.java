@@ -18,7 +18,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.event.EventHooks;
 import net.nova.nmt.NoMoreThings;
 import net.nova.nmt.block.EnderBrewingStandBlock;
 import net.nova.nmt.gui.ender_brewing_stand.EnderBrewingStandMenu;
@@ -100,7 +99,7 @@ public class EnderBrewingStandBlockEntity extends BaseContainerBlockEntity imple
     public static void serverTick(Level level, BlockPos pos, BlockState state, EnderBrewingStandBlockEntity blockEntity) {
         ItemStack itemstack = blockEntity.items.get(4);
         if (blockEntity.fuel <= 0 && itemstack.is(Items.WIND_CHARGE)) {
-            blockEntity.fuel = 20;
+            blockEntity.fuel = FUEL_USES;
             itemstack.shrink(1);
             setChanged(level, pos, state);
         }
@@ -185,7 +184,7 @@ public class EnderBrewingStandBlockEntity extends BaseContainerBlockEntity imple
             if (itemstack.isEmpty()) {
                 itemstack = itemstack1;
             } else {
-                Containers.dropItemStack(level, (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), itemstack1);
+                Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), itemstack1);
             }
         }
         else itemstack.shrink(1);

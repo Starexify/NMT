@@ -209,7 +209,7 @@ public class EnderPotionBrewing {
         }
     }
 
-    static record Mix<T>(Holder<T> from, Ingredient ingredient, Holder<T> to, boolean preserveEffect) {
+    record Mix<T>(Holder<T> from, Ingredient ingredient, Holder<T> to, boolean preserveEffect) {
         public Mix(Holder<T> from, Ingredient ingredient, Holder<T> to) {
             this(from, ingredient, to, false);
         }

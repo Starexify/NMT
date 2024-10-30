@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.nova.nmt.block.EnderBrewingStandBlock;
 import net.nova.nmt.block.EnderWartCrop;
@@ -56,7 +55,7 @@ public class NMTBlocks {
     ));
 
     // Ender Wart
-    public static final DeferredBlock<Block> ENDER_WART = registerCrop("ender_wart", () -> new EnderWartCrop(BlockBehaviour.Properties.of()
+    public static final DeferredBlock<Block> ENDER_WART = BLOCKS.register("ender_wart", () -> new EnderWartCrop(BlockBehaviour.Properties.of()
             .mapColor(MapColor.COLOR_PURPLE)
             .noCollission()
             .randomTicks()
@@ -78,18 +77,13 @@ public class NMTBlocks {
     }
 
     // Registers
-    public static <T extends Block> DeferredBlock<T> registerCrop(String name, Supplier<T> block) {
-        DeferredBlock<T> toReturn = BLOCKS.register(name, block);
-        return toReturn;
-    }
-
     public static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
         registerBlockItems(name, toReturn);
         return toReturn;
     }
 
-    public static <T extends Block> DeferredItem<Item> registerBlockItems(String name, DeferredBlock<T> block) {
-        return NMTItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    public static <T extends Block> void registerBlockItems(String name, DeferredBlock<T> block) {
+        NMTItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 }

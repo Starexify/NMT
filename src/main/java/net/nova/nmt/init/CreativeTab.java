@@ -1,14 +1,11 @@
 package net.nova.nmt.init;
 
 import net.minecraft.core.Holder;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -40,29 +37,17 @@ public class CreativeTab {
                 // Obsidian Glass Bottle
                 output.accept(NMTItems.OBSIDIAN_GLASS_BOTTLE);
                 /// Obsidian Pots
-                itemDisplayParameters.holders()
-                        .lookup(Registries.POTION)
-                        .ifPresent(
-                                builder -> {
-                                    generatePotionEffectTypes(
-                                            output, NMTItems.OBSIDIAN_POTION.get(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
-                                    );
-                                    generatePotionEffectTypes(
-                                            output,
-                                            NMTItems.SPLASH_OBSIDIAN_POTION.get(),
-                                            CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
-                                    );
-                                    generatePotionEffectTypes(
-                                            output,
-                                            NMTItems.LINGERING_OBSIDIAN_POTION.get(),
-                                            CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
-                                    );
-                                });
+                itemDisplayParameters.holders().lookup(Registries.POTION)
+                        .ifPresent(builder -> {
+                            generatePotionEffectTypes(output, NMTItems.OBSIDIAN_POTION.get());
+                            generatePotionEffectTypes(output, NMTItems.SPLASH_OBSIDIAN_POTION.get());
+                            generatePotionEffectTypes(output, NMTItems.LINGERING_OBSIDIAN_POTION.get());
+                        });
 
             }).build()
     );
 
-    private static void generatePotionEffectTypes(CreativeModeTab.Output output, Item item, CreativeModeTab.TabVisibility tabVisibility) {
+    private static void generatePotionEffectTypes(CreativeModeTab.Output output, Item item) {
         List<Holder<Potion>> nmtPotions = Arrays.asList(
                 NMTPotions.LAVA,
                 NMTPotions.AWFULLY
@@ -70,6 +55,6 @@ public class CreativeTab {
 
         nmtPotions.stream()
                 .map(potion -> PotionContents.createItemStack(item, potion))
-                .forEach(itemStack -> output.accept(itemStack, tabVisibility));
+                .forEach(itemStack -> output.accept(itemStack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS));
     }
 }
