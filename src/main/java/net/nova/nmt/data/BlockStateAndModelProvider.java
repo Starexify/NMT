@@ -26,6 +26,7 @@ public class BlockStateAndModelProvider extends BlockStateProvider {
         createGlassBlock(NMTBlocks.OBSIDIAN_GLASS.get(), NMTBlocks.OBSIDIAN_GLASS_PANE.get());
         createBrewingStand(NMTBlocks.ENDER_BREWING_STAND.get());
         createCropBlock(NMTBlocks.ENDER_WART.get(), BlockStateProperties.AGE_3, 0, 1, 1, 2);
+        normalBlock(NMTBlocks.ENDER_WART_BLOCK.get());
     }
 
     // Methods
@@ -133,6 +134,11 @@ public class BlockStateAndModelProvider extends BlockStateProvider {
                 .addModel().condition(BlockStateProperties.WEST, false)
                 .end();
     }
+
+    public void normalBlock(Block block) {
+        simpleBlockWithItem(block, models().cubeAll(name(block), modLoc("block/" + name(block))));
+    }
+
 
     // Other stuff
     public ResourceLocation key(Block block) {

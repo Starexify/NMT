@@ -30,6 +30,7 @@ public class CreativeTab {
                 output.accept(NMTItems.AWFULLY_POTION);
 
                 // Ender Wart
+                output.accept(NMTBlocks.ENDER_WART_BLOCK);
                 output.accept(NMTItems.ENDER_WART);
 
             }).build()

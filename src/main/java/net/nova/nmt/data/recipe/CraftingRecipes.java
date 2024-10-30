@@ -42,5 +42,8 @@ public class CraftingRecipes extends NMTRecipeProvider {
                 .pattern(" # ")
                 .unlockedBy("has_" + getItemName(NMTBlocks.OBSIDIAN_GLASS), has(NMTBlocks.OBSIDIAN_GLASS))
                 .save(recipeOutput);
+
+        // Ender Wart
+        threeByThreePacker(recipeOutput, RecipeCategory.BUILDING_BLOCKS, NMTBlocks.ENDER_WART_BLOCK, NMTItems.ENDER_WART);
     }
 }

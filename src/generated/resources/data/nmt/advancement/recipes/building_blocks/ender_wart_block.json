@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ender_wart": {
+      "conditions": {
+        "items": [
+          {
+            "items": "nmt:ender_wart"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "nmt:ender_wart_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_ender_wart"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "nmt:ender_wart_block"
+    ]
+  }
+}

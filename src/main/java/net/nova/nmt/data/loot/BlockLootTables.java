@@ -56,6 +56,7 @@ public class BlockLootTables extends BlockLootSubProvider {
                                 )
                         )
         )));
+        dropSelf(NMTBlocks.ENDER_WART_BLOCK.get());
     }
 
     // Loot method

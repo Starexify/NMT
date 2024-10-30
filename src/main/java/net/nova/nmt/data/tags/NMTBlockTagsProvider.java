@@ -22,7 +22,8 @@ public class NMTBlockTagsProvider extends BlockTagsProvider {
 
         tag(BlockTags.NEEDS_DIAMOND_TOOL).add(NMTBlocks.OBSIDIAN_GLASS.get());
 
-        tag(BlockTags.MINEABLE_WITH_AXE).add(NMTBlocks.ENDER_WART.get());
+        tag(BlockTags.MINEABLE_WITH_AXE).add(NMTBlocks.ENDER_WART.get(), NMTBlocks.ENDER_WART_BLOCK.get());
         tag(BlockTags.SWORD_EFFICIENT).add(NMTBlocks.ENDER_WART.get());
+        tag(BlockTags.WART_BLOCKS).add(NMTBlocks.ENDER_WART_BLOCK.get());
     }
 }

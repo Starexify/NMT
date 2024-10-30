@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "nmt:ender_wart"
+    },
+    {
+      "item": "nmt:ender_wart"
+    },
+    {
+      "item": "nmt:ender_wart"
+    },
+    {
+      "item": "nmt:ender_wart"
+    },
+    {
+      "item": "nmt:ender_wart"
+    },
+    {
+      "item": "nmt:ender_wart"
+    },
+    {
+      "item": "nmt:ender_wart"
+    },
+    {
+      "item": "nmt:ender_wart"
+    },
+    {
+      "item": "nmt:ender_wart"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "nmt:ender_wart_block"
+  }
+}

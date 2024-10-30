@@ -11,7 +11,7 @@
               "add": false,
               "conditions": [
                 {
-                  "block": "nmt:ender_wart_crop",
+                  "block": "nmt:ender_wart",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "age": "3"
@@ -28,7 +28,7 @@
             {
               "conditions": [
                 {
-                  "block": "nmt:ender_wart_crop",
+                  "block": "nmt:ender_wart",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "age": "3"
@@ -54,5 +54,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "nmt:blocks/ender_wart_crop"
+  "random_sequence": "nmt:blocks/ender_wart"
 }

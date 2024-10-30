@@ -24,6 +24,7 @@ public class LangProvider extends LanguageProvider {
         addBlock(NMTBlocks.OBSIDIAN_GLASS_PANE, "Obsidian Glass Pane");
         addBlock(NMTBlocks.ENDER_BREWING_STAND, "Ender Brewing Stand");
         addBlock(NMTBlocks.ENDER_WART, "Ender Wart");
+        addBlock(NMTBlocks.ENDER_WART_BLOCK, "Ender Wart Block");
 
         // Items
         addItem(NMTItems.OBSIDIAN_GLASS_BOTTLE, "Obsidian Glass Bottle");

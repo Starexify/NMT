@@ -64,6 +64,10 @@ public class NMTBlocks {
             .pushReaction(PushReaction.DESTROY)
     ));
 
+    public static final DeferredBlock<Block> ENDER_WART_BLOCK = registerBlock(
+            "ender_wart_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).strength(1.0F).sound(SoundType.WART_BLOCK).lightLevel(light -> 8))
+    );
+
     // Methods
     private static boolean never(BlockState state, BlockGetter blockGetter, BlockPos pos) {
         return false;
