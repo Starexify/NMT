@@ -8,11 +8,13 @@ import net.minecraft.world.item.alchemy.Potion;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.nova.nmt.NoMoreThings;
 import net.nova.nmt.client.renderer.NMTItemProperties;
 import net.nova.nmt.init.NMTItems;
 import net.nova.nmt.init.NMTPotions;
 
+import java.util.List;
 import java.util.Map;
 
 import static net.nova.nmt.NoMoreThings.MODID;
@@ -38,7 +40,6 @@ public class NMTItemModelProvider extends ItemModelProvider {
     // Models
     public void potionItem(Item item) {
         String itemName = getItemName(item);
-        float potionTypePredicate = 0.0f;
 
         String prefix = "";
         if (itemName.startsWith("splash_")) {
@@ -53,7 +54,16 @@ public class NMTItemModelProvider extends ItemModelProvider {
                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
                 .texture("layer0", NoMoreThings.rl("item/" + baseTexture));
 
-        for (Holder<Potion> potionHolder : NMTPotions.POTIONS.getEntries().stream().toList()) {
+        // Sort potions to ensure lava (1.0) comes before awfully (2.0)
+        List<DeferredHolder<Potion, ? extends Potion>> sortedPotions = NMTPotions.POTIONS.getEntries().stream()
+                .sorted((a, b) -> {
+                    float predA = POTION_PREDICATES.getOrDefault(a.getKey().location().getPath(), 0.0f);
+                    float predB = POTION_PREDICATES.getOrDefault(b.getKey().location().getPath(), 0.0f);
+                    return Float.compare(predA, predB); // Normal order to get 1.0 before 2.0
+                })
+                .toList();
+
+        for (Holder<Potion> potionHolder : sortedPotions) {
             String potion = potionHolder.getKey().location().getPath();
             String potionName = switch (potion) {
                 case "lava" -> prefix + potion + "_bottle";
@@ -62,14 +72,16 @@ public class NMTItemModelProvider extends ItemModelProvider {
 
             float predicate = POTION_PREDICATES.getOrDefault(potion, 0.0f);
 
-            getBuilder(itemName).override()
-                    .predicate(NMTItemProperties.potionTypePredicate, potionTypePredicate + predicate)
-                    .model(new ModelFile.UncheckedModelFile(NoMoreThings.rl("item/" + potionName)))
-                    .end();
+            if (predicate > 0) {  // Only generate override for potions with predicates
+                getBuilder(itemName).override()
+                        .predicate(NMTItemProperties.potionTypePredicate, predicate)
+                        .model(new ModelFile.UncheckedModelFile(NoMoreThings.rl("item/" + potionName)))
+                        .end();
 
-            getBuilder("item/" + potionName)
-                    .parent(new ModelFile.UncheckedModelFile("item/generated"))
-                    .texture("layer0", NoMoreThings.rl("item/" + potionName));
+                getBuilder("item/" + potionName)
+                        .parent(new ModelFile.UncheckedModelFile("item/generated"))
+                        .texture("layer0", NoMoreThings.rl("item/" + potionName));
+            }
         }
     }
 

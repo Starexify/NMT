@@ -2,15 +2,15 @@
   "parent": "minecraft:item/generated",
   "overrides": [
     {
-      "model": "nmt:item/lingering_awfully_potion",
-      "predicate": {
-        "nmt:potion_type": 2.0
-      }
-    },
-    {
       "model": "nmt:item/lingering_lava_bottle",
       "predicate": {
         "nmt:potion_type": 1.0
+      }
+    },
+    {
+      "model": "nmt:item/lingering_awfully_potion",
+      "predicate": {
+        "nmt:potion_type": 2.0
       }
     }
   ],

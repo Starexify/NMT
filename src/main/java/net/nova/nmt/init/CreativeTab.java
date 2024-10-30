@@ -33,9 +33,13 @@ public class CreativeTab {
                 output.accept(NMTBlocks.OBSIDIAN_GLASS_PANE);
                 output.accept(NMTBlocks.ENDER_BREWING_STAND);
 
-                // Items
-                output.accept(NMTItems.OBSIDIAN_GLASS_BOTTLE);
+                // Ender Wart
+                output.accept(NMTBlocks.ENDER_WART_BLOCK);
+                output.accept(NMTItems.ENDER_WART);
 
+                // Obsidian Glass Bottle
+                output.accept(NMTItems.OBSIDIAN_GLASS_BOTTLE);
+                /// Obsidian Pots
                 itemDisplayParameters.holders()
                         .lookup(Registries.POTION)
                         .ifPresent(
@@ -54,10 +58,6 @@ public class CreativeTab {
                                             CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
                                     );
                                 });
-
-                // Ender Wart
-                output.accept(NMTBlocks.ENDER_WART_BLOCK);
-                output.accept(NMTItems.ENDER_WART);
 
             }).build()
     );
