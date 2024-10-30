@@ -141,12 +141,12 @@ public class EnderPotionBrewing {
     }
 
     public static void addEnderMixes(EnderPotionBrewing.Builder builder) {
-        builder.addContainer(NMTItems.LAVA_BOTTLE.get());
+        builder.addContainer(NMTItems.OBSIDIAN_POTION.get());
         builder.addContainer(NMTItems.SPLASH_LAVA_BOTTLE.get());
         builder.addContainer(NMTItems.LINGERING_LAVA_BOTTLE.get());
-        builder.addContainerRecipe(NMTItems.LAVA_BOTTLE.get(), Items.GUNPOWDER, NMTItems.SPLASH_LAVA_BOTTLE.get());
+        builder.addContainerRecipe(NMTItems.OBSIDIAN_POTION.get(), Items.GUNPOWDER, NMTItems.SPLASH_LAVA_BOTTLE.get());
         builder.addContainerRecipe(NMTItems.SPLASH_LAVA_BOTTLE.get(), Items.DRAGON_BREATH, NMTItems.LINGERING_LAVA_BOTTLE.get());
-        builder.addContainerRecipe(NMTItems.LAVA_BOTTLE.get(), NMTItems.ENDER_WART.get(), NMTItems.AWFULLY_POTION.get());
+        builder.addMix(NMTPotions.LAVA, NMTItems.ENDER_WART.get(), NMTPotions.AWFULLY);
     }
 
     public static class Builder {

@@ -29,10 +29,10 @@ public class LangProvider extends LanguageProvider {
         // Items
         addItem(NMTItems.OBSIDIAN_GLASS_BOTTLE, "Obsidian Glass Bottle");
         /// Obsidian Potions
-        addObsidianPotion(NMTItems.LAVA_BOTTLE, NMTPotions.LAVA, "Lava Bottle");
+        addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.LAVA, "Lava Bottle");
+        addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.AWFULLY, "Awfully Potion");
         addObsidianPotion(NMTItems.SPLASH_LAVA_BOTTLE, NMTPotions.LAVA, "Splash Lava Bottle");
         addObsidianPotion(NMTItems.LINGERING_LAVA_BOTTLE, NMTPotions.LAVA, "Lingering Lava Bottle");
-        addObsidianPotion(NMTItems.AWFULLY_POTION, NMTPotions.AWFULLY, "Awfully Potion");
 
         addItem(NMTItems.ENDER_WART, "Ender Wart");
 
