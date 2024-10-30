@@ -38,6 +38,10 @@ public class DataGenerators {
 
             generator.addProvider(true, new NMTLootTableProvider(output, lookupProvider));
 
+            generator.addProvider(true, new NMTDataMapProvider(output, lookupProvider));
+
+            generator.addProvider(true, new DatapackProvider(output, lookupProvider));
+
         } catch (RuntimeException e) {
             NoMoreThings.logger.error("No More Things failed to gather data", e);
         }

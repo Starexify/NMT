@@ -1,0 +1,21 @@
+{
+  "feature": "nmt:end_farm",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 2000
+    },
+    {
+      "type": "minecraft:surface_relative_threshold_filter",
+      "heightmap": "WORLD_SURFACE_WG",
+      "max_inclusive": 80,
+      "min_inclusive": 8
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

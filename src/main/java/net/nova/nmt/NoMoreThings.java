@@ -31,6 +31,7 @@ public class NoMoreThings {
         NMTEffects.MOB_EFFECTS.register(bus);
         NMTBlockEntities.BLOCK_ENTITIES.register(bus);
         NMTMenuType.MENUS.register(bus);
+        NMTFeature.FEATURES.register(bus);
 
         bus.addListener(DataGenerators::gatherData);
         bus.addListener(this::onRegisterComplete);
