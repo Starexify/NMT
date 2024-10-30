@@ -33,6 +33,7 @@ public class NMTPlacedFeatures {
                 BiomeFilter.biome(),
                 BlockPredicateFilter.forPredicate(BlockPredicate.allOf(
                         BlockPredicate.matchesBlocks(new Vec3i(0, -1, 0), Blocks.END_STONE),
+                        BlockPredicate.ONLY_IN_AIR_PREDICATE,
                         BlockPredicate.noFluid(),
                         BlockPredicate.insideWorld(new Vec3i(0, 0, 0))
                 ))
