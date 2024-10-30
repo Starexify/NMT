@@ -14,6 +14,8 @@ public class NMTItemProperties {
 
     public static void addCustomItemProperties() {
         makePotion(NMTItems.OBSIDIAN_POTION.get());
+        makePotion(NMTItems.SPLASH_OBSIDIAN_POTION.get());
+        makePotion(NMTItems.LINGERING_OBSIDIAN_POTION.get());
     }
 
     private static void makePotion(Item item) {

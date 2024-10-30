@@ -39,13 +39,21 @@ public class CreativeTab {
                 itemDisplayParameters.holders()
                         .lookup(Registries.POTION)
                         .ifPresent(
-                                builder -> generateNMTPotionEffectTypes(
-                                        output, NMTItems.OBSIDIAN_POTION.get(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
-                                )
-                        );
-
-                output.accept(NMTItems.SPLASH_LAVA_BOTTLE);
-                output.accept(NMTItems.LINGERING_LAVA_BOTTLE);
+                                builder -> {
+                                    generatePotionEffectTypes(
+                                            output, NMTItems.OBSIDIAN_POTION.get(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+                                    );
+                                    generatePotionEffectTypes(
+                                            output,
+                                            NMTItems.SPLASH_OBSIDIAN_POTION.get(),
+                                            CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+                                    );
+                                    generatePotionEffectTypes(
+                                            output,
+                                            NMTItems.LINGERING_OBSIDIAN_POTION.get(),
+                                            CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+                                    );
+                                });
 
                 // Ender Wart
                 output.accept(NMTBlocks.ENDER_WART_BLOCK);
@@ -54,7 +62,7 @@ public class CreativeTab {
             }).build()
     );
 
-    private static void generateNMTPotionEffectTypes(CreativeModeTab.Output output, Item item, CreativeModeTab.TabVisibility tabVisibility) {
+    private static void generatePotionEffectTypes(CreativeModeTab.Output output, Item item, CreativeModeTab.TabVisibility tabVisibility) {
         List<Holder<Potion>> nmtPotions = Arrays.asList(
                 NMTPotions.LAVA,
                 NMTPotions.AWFULLY

@@ -25,8 +25,8 @@ public class NMTItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         basicItem(NMTItems.OBSIDIAN_GLASS_BOTTLE.get());
         potionItem(NMTItems.OBSIDIAN_POTION.get());
-        basicItem(NMTItems.SPLASH_LAVA_BOTTLE.get());
-        basicItem(NMTItems.LINGERING_LAVA_BOTTLE.get());
+        potionItem(NMTItems.SPLASH_OBSIDIAN_POTION.get());
+        potionItem(NMTItems.LINGERING_OBSIDIAN_POTION.get());
     }
 
     // Models
@@ -34,9 +34,18 @@ public class NMTItemModelProvider extends ItemModelProvider {
         String itemName = getItemName(item);
         float potionTypePredicate = 0.0f;
 
+        String prefix = "";
+        if (itemName.startsWith("splash_")) {
+            prefix = "splash_";
+        } else if (itemName.startsWith("lingering_")) {
+            prefix = "lingering_";
+        }
+
+        String baseTexture = prefix + "lava_bottle";
+
         getBuilder(itemName)
                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
-                .texture("layer0", NoMoreThings.rl("item/lava_bottle"));
+                .texture("layer0", NoMoreThings.rl("item/" + baseTexture));
 
         for (Holder<Potion> potionHolder : NMTPotions.POTIONS.getEntries().stream().toList()) {
             String potion = potionHolder.getKey().location().getPath();

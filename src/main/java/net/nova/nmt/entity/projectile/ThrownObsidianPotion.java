@@ -58,6 +58,6 @@ public class ThrownObsidianPotion extends ThrownPotion {
     }
 
     private boolean isLingering() {
-        return this.getItem().is(NMTItems.LINGERING_LAVA_BOTTLE);
+        return this.getItem().is(NMTItems.LINGERING_OBSIDIAN_POTION);
     }
 }

@@ -23,7 +23,7 @@ public class NMTItems {
     public static final DeferredItem<Item> OBSIDIAN_GLASS_BOTTLE = ITEMS.register("obsidian_glass_bottle", () -> new ObsidianBottleItem(new Item.Properties().fireResistant()));
     /// Obsidian Potions
     public static final DeferredItem<Item> OBSIDIAN_POTION = ITEMS.register("obsidian_potion", () -> new ObsidianPotionItem(new Item.Properties().stacksTo(1).component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.LAVA)).fireResistant()));
-    public static final DeferredItem<Item> SPLASH_LAVA_BOTTLE = ITEMS.register("splash_lava_bottle", () -> new SplashObsidianPotionItem(new Item.Properties().stacksTo(1).component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.LAVA)).fireResistant()));
-    public static final DeferredItem<Item> LINGERING_LAVA_BOTTLE = ITEMS.register("lingering_lava_potion", () -> new LingeringObsidianPotionItem(new Item.Properties().stacksTo(1).component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.LAVA)).fireResistant()));
+    public static final DeferredItem<Item> SPLASH_OBSIDIAN_POTION = ITEMS.register("splash_obsidian_potion", () -> new SplashObsidianPotionItem(new Item.Properties().stacksTo(1).component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.LAVA)).fireResistant()));
+    public static final DeferredItem<Item> LINGERING_OBSIDIAN_POTION = ITEMS.register("lingering_obsidian_potion", () -> new LingeringObsidianPotionItem(new Item.Properties().stacksTo(1).component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.LAVA)).fireResistant()));
 
 }

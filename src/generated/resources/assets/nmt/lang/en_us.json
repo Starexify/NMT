@@ -7,10 +7,10 @@
   "container.ender_brewing": "Ender Brewing Stand",
   "effect.nmt.burn": "Burn",
   "item.nmt.ender_wart": "Ender Wart",
-  "item.nmt.lingering_lava_potion.effect.lava": "Lingering Lava Bottle",
+  "item.nmt.lingering_obsidian_potion.effect.lava": "Lingering Lava Bottle",
   "item.nmt.obsidian_glass_bottle": "Obsidian Glass Bottle",
   "item.nmt.obsidian_potion.effect.awfully": "Awfully Potion",
   "item.nmt.obsidian_potion.effect.lava": "Lava Bottle",
-  "item.nmt.splash_lava_bottle.effect.lava": "Splash Lava Bottle",
+  "item.nmt.splash_obsidian_potion.effect.lava": "Splash Lava Bottle",
   "nmt.creativetab": "No More Things"
 }
