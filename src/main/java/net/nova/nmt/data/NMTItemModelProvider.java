@@ -67,7 +67,6 @@ public class NMTItemModelProvider extends ItemModelProvider {
                     .model(new ModelFile.UncheckedModelFile(NoMoreThings.rl("item/" + potionName)))
                     .end();
 
-            // Create the individual potion model
             getBuilder("item/" + potionName)
                     .parent(new ModelFile.UncheckedModelFile("item/generated"))
                     .texture("layer0", NoMoreThings.rl("item/" + potionName));
