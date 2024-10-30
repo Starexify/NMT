@@ -15,6 +15,6 @@
     }
   ],
   "textures": {
-    "layer0": "nmt:item/lava_bottle"
+    "layer0": "nmt:item/lingering_lava_bottle"
   }
 }

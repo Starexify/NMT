@@ -14,9 +14,16 @@ import net.nova.nmt.client.renderer.NMTItemProperties;
 import net.nova.nmt.init.NMTItems;
 import net.nova.nmt.init.NMTPotions;
 
+import java.util.Map;
+
 import static net.nova.nmt.NoMoreThings.MODID;
 
 public class NMTItemModelProvider extends ItemModelProvider {
+    public static final Map<String, Float> POTION_PREDICATES = Map.of(
+            "lava", 1.0f,
+            "awfully", 2.0f
+    );
+
     public NMTItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, MODID, existingFileHelper);
     }
@@ -54,17 +61,17 @@ public class NMTItemModelProvider extends ItemModelProvider {
                 default -> potion + "_potion";
             };
 
+            float predicate = POTION_PREDICATES.getOrDefault(potion, 0.0f);
+
             getBuilder(itemName).override()
-                    .predicate(NMTItemProperties.potionTypePredicate, potionTypePredicate + 1.0f)
-                    .model(new ModelFile.UncheckedModelFile(NoMoreThings.rl("item/" + potionName)))
+                    .predicate(NMTItemProperties.potionTypePredicate, potionTypePredicate + predicate)
+                    .model(new ModelFile.UncheckedModelFile(NoMoreThings.rl("item/" + prefix + potionName)))
                     .end();
 
             // Create the individual potion model
             getBuilder("item/" + potionName)
                     .parent(new ModelFile.UncheckedModelFile("item/generated"))
-                    .texture("layer0", NoMoreThings.rl("item/" + potionName));
-
-            potionTypePredicate += 1.0f;
+                    .texture("layer0", NoMoreThings.rl("item/" + prefix + potionName));
         }
     }
 

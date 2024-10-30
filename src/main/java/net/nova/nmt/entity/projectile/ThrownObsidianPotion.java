@@ -1,6 +1,9 @@
 package net.nova.nmt.entity.projectile;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -9,8 +12,10 @@ import net.minecraft.world.entity.projectile.ThrownPotion;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.HitResult;
 import net.nova.nmt.init.NMTItems;
+import net.nova.nmt.init.NMTPotions;
 
 public class ThrownObsidianPotion extends ThrownPotion {
     public ThrownObsidianPotion(EntityType<? extends ThrownPotion> entityType, Level level) {
@@ -30,9 +35,22 @@ public class ThrownObsidianPotion extends ThrownPotion {
         super.onHit(result);
         if (!this.level().isClientSide) {
             ItemStack itemstack = this.getItem();
+            BlockPos pos = this.blockPosition();
             PotionContents potioncontents = itemstack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
             if (potioncontents.hasEffects()) {
                 if (this.isLingering()) {
+                    if (potioncontents.is(NMTPotions.LAVA)) {
+                        ServerLevel level = (ServerLevel) this.level();
+                        level.sendParticles(
+                                ParticleTypes.FLAME,
+                                pos.getX(), pos.getY(), pos.getZ(),
+                                50,
+                                1.0,
+                                0.5,
+                                1.0,
+                                0.1
+                        );
+                    }
                     this.makeAreaOfEffectCloud(potioncontents);
                 }
 
@@ -52,7 +70,7 @@ public class ThrownObsidianPotion extends ThrownPotion {
         areaeffectcloud.setRadius(3.0F);
         areaeffectcloud.setRadiusOnUse(-0.5F);
         areaeffectcloud.setWaitTime(10);
-        areaeffectcloud.setRadiusPerTick(-areaeffectcloud.getRadius() / (float)areaeffectcloud.getDuration());
+        areaeffectcloud.setRadiusPerTick(-areaeffectcloud.getRadius() / (float) areaeffectcloud.getDuration());
         areaeffectcloud.setPotionContents(potionContents);
         this.level().addFreshEntity(areaeffectcloud);
     }
