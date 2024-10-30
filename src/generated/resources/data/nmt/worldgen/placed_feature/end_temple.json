@@ -1,9 +1,9 @@
 {
-  "feature": "nmt:end_farm",
+  "feature": "nmt:end_temple",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 1500
+      "chance": 1950
     },
     {
       "type": "minecraft:in_square"

@@ -16,6 +16,8 @@ import net.nova.nmt.NoMoreThings;
 
 public class NMTBiomeModifiers {
     public static ResourceKey<BiomeModifier> END_FARM = createKey("end_farm");
+    public static ResourceKey<BiomeModifier> END_TEMPLE = createKey("end_temple");
+    public static ResourceKey<BiomeModifier> END_TOWER = createKey("end_tower");
 
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
         HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
@@ -24,6 +26,18 @@ public class NMTBiomeModifiers {
         context.register(END_FARM, new BiomeModifiers.AddFeaturesBiomeModifier(
                 HolderSet.direct(biomes.getOrThrow(Biomes.END_MIDLANDS)),
                 HolderSet.direct(placedFeatures.getOrThrow(NMTPlacedFeatures.END_FARM)),
+                GenerationStep.Decoration.RAW_GENERATION
+        ));
+
+        context.register(END_TEMPLE, new BiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(biomes.getOrThrow(Biomes.END_MIDLANDS)),
+                HolderSet.direct(placedFeatures.getOrThrow(NMTPlacedFeatures.END_TEMPLE)),
+                GenerationStep.Decoration.RAW_GENERATION
+        ));
+
+        context.register(END_TOWER, new BiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(biomes.getOrThrow(Biomes.END_MIDLANDS)),
+                HolderSet.direct(placedFeatures.getOrThrow(NMTPlacedFeatures.END_TOWER)),
                 GenerationStep.Decoration.RAW_GENERATION
         ));
     }

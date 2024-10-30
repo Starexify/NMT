@@ -1,0 +1,14 @@
+{
+  "type": "nmt:structure_feature",
+  "config": {
+    "ignored_blocks": [],
+    "offset": [
+      0,
+      -1,
+      0
+    ],
+    "random_mirror": true,
+    "random_rotation": true,
+    "structure": "nmt:end_temple"
+  }
+}

@@ -1,9 +1,9 @@
 {
-  "feature": "nmt:end_farm",
+  "feature": "nmt:end_tower",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 1500
+      "chance": 2450
     },
     {
       "type": "minecraft:in_square"
