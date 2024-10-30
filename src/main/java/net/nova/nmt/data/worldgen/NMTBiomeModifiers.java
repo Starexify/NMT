@@ -5,7 +5,6 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
@@ -23,7 +22,7 @@ public class NMTBiomeModifiers {
         HolderGetter<Biome> biomes = context.lookup(Registries.BIOME);
 
         context.register(END_FARM, new BiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(BiomeTags.IS_END),
+                HolderSet.direct(biomes.getOrThrow(Biomes.END_MIDLANDS)),
                 HolderSet.direct(placedFeatures.getOrThrow(NMTPlacedFeatures.END_FARM)),
                 GenerationStep.Decoration.RAW_GENERATION
         ));

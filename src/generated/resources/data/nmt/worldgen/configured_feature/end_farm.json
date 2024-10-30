@@ -1,10 +1,10 @@
 {
   "type": "nmt:structure_feature",
   "config": {
-    "ignored_blocks": "minecraft:air",
+    "ignored_blocks": [],
     "offset": [
       0,
-      -2,
+      -1,
       0
     ],
     "random_mirror": true,

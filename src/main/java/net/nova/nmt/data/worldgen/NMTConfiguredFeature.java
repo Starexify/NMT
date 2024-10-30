@@ -19,10 +19,10 @@ public class NMTConfiguredFeature {
     public static ResourceKey<ConfiguredFeature<?, ?>> END_FARM = createKey("end_farm");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
-        HolderSet<Block> ignoredBlocks = HolderSet.direct(Block::builtInRegistryHolder, Blocks.AIR);
-        Vec3i endFarmOffset = new Vec3i(0, -2, 0);
-        register(context, END_FARM, NMTFeature.STRUCTURE_FEATURE.get(), new StructureFeatureConfiguration(NoMoreThings.rl("end_farm"), true, true, ignoredBlocks, endFarmOffset));
+        HolderSet<Block> ignoredBlocks = HolderSet.direct(Block::builtInRegistryHolder);
+        Vec3i endFarmOffset = new Vec3i(0, -1, 0);
 
+        register(context, END_FARM, NMTFeature.STRUCTURE_FEATURE.get(), new StructureFeatureConfiguration(NoMoreThings.rl("end_farm"), true, true, ignoredBlocks, endFarmOffset));
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String name) {
