@@ -29,6 +29,9 @@ public class CreativeTab {
                 output.accept(NMTItems.LAVA_BOTTLE);
                 output.accept(NMTItems.AWFULLY_POTION);
 
+                // Ender Wart
+                output.accept(NMTItems.ENDER_WART);
+
             }).build()
     );
 }

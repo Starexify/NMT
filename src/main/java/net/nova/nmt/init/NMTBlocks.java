@@ -11,10 +11,12 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.nova.nmt.block.EnderBrewingStandBlock;
+import net.nova.nmt.block.EnderWartCrop;
 
 import java.util.function.Supplier;
 
@@ -48,8 +50,18 @@ public class NMTBlocks {
     public static final DeferredBlock<Block> ENDER_BREWING_STAND = registerBlock("ender_brewing_stand", () -> new EnderBrewingStandBlock(BlockBehaviour.Properties.of()
             .mapColor(MapColor.COLOR_BLACK)
             .requiresCorrectToolForDrops()
-            .strength(0.5F).lightLevel(light -> 12)
+            .strength(0.5F)
+            .lightLevel(light -> 12)
             .noOcclusion()
+    ));
+
+    // Ender Wart
+    public static final DeferredBlock<Block> ENDER_WART = registerCrop("ender_wart", () -> new EnderWartCrop(BlockBehaviour.Properties.of()
+            .mapColor(MapColor.COLOR_PURPLE)
+            .noCollission()
+            .randomTicks()
+            .sound(SoundType.NETHER_WART)
+            .pushReaction(PushReaction.DESTROY)
     ));
 
     // Methods
@@ -62,6 +74,11 @@ public class NMTBlocks {
     }
 
     // Registers
+    public static <T extends Block> DeferredBlock<T> registerCrop(String name, Supplier<T> block) {
+        DeferredBlock<T> toReturn = BLOCKS.register(name, block);
+        return toReturn;
+    }
+
     public static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
         registerBlockItems(name, toReturn);

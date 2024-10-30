@@ -6,7 +6,9 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.ModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -23,9 +25,29 @@ public class BlockStateAndModelProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         createGlassBlock(NMTBlocks.OBSIDIAN_GLASS.get(), NMTBlocks.OBSIDIAN_GLASS_PANE.get());
         createBrewingStand(NMTBlocks.ENDER_BREWING_STAND.get());
+        createCropBlock(NMTBlocks.ENDER_WART.get(), BlockStateProperties.AGE_3, 0, 1, 1, 2);
     }
 
     // Methods
+    public void createCropBlock(Block pCropBlock, IntegerProperty pAgeProperty, int... pAgeToVisualStageMapping) {
+        if (pAgeProperty.getPossibleValues().size() != pAgeToVisualStageMapping.length) {
+            throw new IllegalArgumentException("Number of ages and visual stages must match");
+        }
+
+        getVariantBuilder(pCropBlock)
+                .forAllStates(state -> {
+                    int age = state.getValue(pAgeProperty);
+                    String stageName = "stage" + pAgeToVisualStageMapping[age];
+                    return ConfiguredModel.builder()
+                            .modelFile(models().crop(name(pCropBlock) + "_" + stageName, modLoc("block/" + name(pCropBlock) + "_" + stageName)).renderType(RenderType.CUTOUT.name))
+                            .build();
+                });
+
+        itemModels().getBuilder(name(pCropBlock))
+                .parent(new ModelFile.UncheckedModelFile("item/generated"))
+                .texture("layer0", modLoc("item/" + name(pCropBlock)));
+    }
+
     public void createBrewingStand(Block block) {
         itemModels().basicItem(block.asItem());
 
@@ -46,22 +68,22 @@ public class BlockStateAndModelProvider extends BlockStateProvider {
                         .texture("stand", "block/" + name(block)).renderType(RenderType.CUTOUT.name))
                 .addModel().condition(BlockStateProperties.HAS_BOTTLE_1, true)
                 .end()
-                .part().modelFile(models().withExistingParent(name(block)+ "_bottle2", mcLoc("brewing_stand").withSuffix("_bottle2"))
+                .part().modelFile(models().withExistingParent(name(block) + "_bottle2", mcLoc("brewing_stand").withSuffix("_bottle2"))
                         .texture("particle", "block/" + name(block))
                         .texture("stand", "block/" + name(block)).renderType(RenderType.CUTOUT.name))
                 .addModel().condition(BlockStateProperties.HAS_BOTTLE_2, true)
                 .end()
-                .part().modelFile(models().withExistingParent(name(block)+ "_empty0", mcLoc("brewing_stand").withSuffix("_empty0"))
+                .part().modelFile(models().withExistingParent(name(block) + "_empty0", mcLoc("brewing_stand").withSuffix("_empty0"))
                         .texture("particle", "block/" + name(block))
                         .texture("stand", "block/" + name(block)).renderType(RenderType.CUTOUT.name))
                 .addModel().condition(BlockStateProperties.HAS_BOTTLE_0, false)
                 .end()
-                .part().modelFile(models().withExistingParent(name(block)+ "_empty1", mcLoc("brewing_stand").withSuffix("_empty1"))
+                .part().modelFile(models().withExistingParent(name(block) + "_empty1", mcLoc("brewing_stand").withSuffix("_empty1"))
                         .texture("particle", "block/" + name(block))
                         .texture("stand", "block/" + name(block)).renderType(RenderType.CUTOUT.name))
                 .addModel().condition(BlockStateProperties.HAS_BOTTLE_1, false)
                 .end()
-                .part().modelFile(models().withExistingParent(name(block)+ "_empty2", mcLoc("brewing_stand").withSuffix("_empty2"))
+                .part().modelFile(models().withExistingParent(name(block) + "_empty2", mcLoc("brewing_stand").withSuffix("_empty2"))
                         .texture("particle", "block/" + name(block))
                         .texture("stand", "block/" + name(block)).renderType(RenderType.CUTOUT.name))
                 .addModel().condition(BlockStateProperties.HAS_BOTTLE_2, false)

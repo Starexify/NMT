@@ -23,6 +23,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
 import net.nova.nmt.init.NMTItems;
 import net.nova.nmt.init.NMTPotions;
 

@@ -23,12 +23,15 @@ public class LangProvider extends LanguageProvider {
         addBlock(NMTBlocks.OBSIDIAN_GLASS, "Obsidian Glass");
         addBlock(NMTBlocks.OBSIDIAN_GLASS_PANE, "Obsidian Glass Pane");
         addBlock(NMTBlocks.ENDER_BREWING_STAND, "Ender Brewing Stand");
+        addBlock(NMTBlocks.ENDER_WART, "Ender Wart");
 
         // Items
         addItem(NMTItems.OBSIDIAN_GLASS_BOTTLE, "Obsidian Glass Bottle");
         /// Obsidian Potions
         addObsidianPotion(NMTItems.LAVA_BOTTLE, NMTPotions.LAVA, "Lava Bottle");
         addObsidianPotion(NMTItems.AWFULLY_POTION, NMTPotions.AWFULLY, "Awfully Potion");
+
+        addItem(NMTItems.ENDER_WART, "Ender Wart");
 
         // Creative Tab
         add(CreativeTab.NO_MORE_THINGS_TAB_TITLE, "No More Things");

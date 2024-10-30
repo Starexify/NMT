@@ -18,8 +18,11 @@ public class NMTBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(NMTBlocks.OBSIDIAN_GLASS.getKey());
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(NMTBlocks.OBSIDIAN_GLASS.get());
 
-        tag(BlockTags.NEEDS_DIAMOND_TOOL).add(NMTBlocks.OBSIDIAN_GLASS.getKey());
+        tag(BlockTags.NEEDS_DIAMOND_TOOL).add(NMTBlocks.OBSIDIAN_GLASS.get());
+
+        tag(BlockTags.MINEABLE_WITH_AXE).add(NMTBlocks.ENDER_WART.get());
+        tag(BlockTags.SWORD_EFFICIENT).add(NMTBlocks.ENDER_WART.get());
     }
 }
