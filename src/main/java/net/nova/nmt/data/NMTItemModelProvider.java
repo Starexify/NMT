@@ -1,14 +1,18 @@
 package net.nova.nmt.data;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.alchemy.Potion;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.ModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.nova.nmt.NoMoreThings;
 import net.nova.nmt.client.renderer.NMTItemProperties;
 import net.nova.nmt.init.NMTItems;
+import net.nova.nmt.init.NMTPotions;
 
 import static net.nova.nmt.NoMoreThings.MODID;
 
@@ -27,23 +31,32 @@ public class NMTItemModelProvider extends ItemModelProvider {
 
     // Models
     public void potionItem(Item item) {
-        // Get the base item name
         String itemName = getItemName(item);
+        float potionTypePredicate = 0.0f;
 
-        // Create the base model builder
-        getBuilder(item.toString())
+        getBuilder(itemName)
                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
-                .texture("layer0", NoMoreThings.rl("item/lava_bottle"))
-                // Add override for Lava potion
-                .override()
-                .predicate(NMTItemProperties.potionTypePredicate, 1.0f)
-                .model(new ModelFile.UncheckedModelFile(NoMoreThings.rl("item/lava_bottle")))
-                .end()
-                // Add override for Awfully potion
-                .override()
-                .predicate(NMTItemProperties.potionTypePredicate, 2.0f)
-                .model(new ModelFile.UncheckedModelFile(NoMoreThings.rl("item/awfully_potion")))
-                .end();
+                .texture("layer0", NoMoreThings.rl("item/lava_bottle"));
+
+        for (Holder<Potion> potionHolder : NMTPotions.POTIONS.getEntries().stream().toList()) {
+            String potion = potionHolder.getKey().location().getPath();
+            String potionName = switch (potion) {
+                case "lava" -> potion + "_bottle";
+                default -> potion + "_potion";
+            };
+
+            getBuilder(itemName).override()
+                    .predicate(NMTItemProperties.potionTypePredicate, potionTypePredicate + 1.0f)
+                    .model(new ModelFile.UncheckedModelFile(NoMoreThings.rl("item/" + potionName)))
+                    .end();
+
+            // Create the individual potion model
+            getBuilder("item/" + potionName)
+                    .parent(new ModelFile.UncheckedModelFile("item/generated"))
+                    .texture("layer0", NoMoreThings.rl("item/" + potionName));
+
+            potionTypePredicate += 1.0f;
+        }
     }
 
     public String getItemName(Item item) {
