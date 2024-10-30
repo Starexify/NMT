@@ -6,8 +6,10 @@ import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.nova.nmt.item.LingeringObsidianPotionItem;
 import net.nova.nmt.item.ObsidianBottleItem;
 import net.nova.nmt.item.ObsidianPotionItem;
+import net.nova.nmt.item.SplashObsidianPotionItem;
 
 import static net.nova.nmt.NoMoreThings.MODID;
 
@@ -21,5 +23,7 @@ public class NMTItems {
     public static final DeferredItem<Item> OBSIDIAN_GLASS_BOTTLE = ITEMS.register("obsidian_glass_bottle", () -> new ObsidianBottleItem(new Item.Properties().fireResistant()));
     /// Obsidian Potions
     public static final DeferredItem<Item> LAVA_BOTTLE = ITEMS.register("lava_bottle", () -> new ObsidianPotionItem(new Item.Properties().stacksTo(1).component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.LAVA)).fireResistant()));
+    public static final DeferredItem<Item> SPLASH_LAVA_BOTTLE = ITEMS.register("splash_lava_bottle", () -> new SplashObsidianPotionItem(new Item.Properties().stacksTo(1).component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.LAVA)).fireResistant()));
+    public static final DeferredItem<Item> LINGERING_LAVA_BOTTLE = ITEMS.register("lingering_lava_potion", () -> new LingeringObsidianPotionItem(new Item.Properties().stacksTo(1).component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.LAVA)).fireResistant()));
     public static final DeferredItem<Item> AWFULLY_POTION = ITEMS.register("awfully_potion", () -> new ObsidianPotionItem(new Item.Properties().stacksTo(1).component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.AWFULLY)).fireResistant()));
 }

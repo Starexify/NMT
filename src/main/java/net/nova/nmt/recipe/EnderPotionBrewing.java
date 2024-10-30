@@ -62,7 +62,6 @@ public class EnderPotionBrewing {
                 return true;
             }
         }
-
         return false;
     }
 
@@ -118,8 +117,9 @@ public class EnderPotionBrewing {
             } else {
                 for (EnderPotionBrewing.Mix<Item> mix : this.containerMixes) {
                     if (potionItem.is(mix.from) && mix.ingredient.test(potion)) {
-                        //return PotionContents.createItemStack(mix.to.value(), optional.get());
-                        return new ItemStack(mix.to.value());
+                        return mix.preserveEffect ?
+                                PotionContents.createItemStack(mix.to.value(), optional.get()) :
+                                new ItemStack(mix.to.value());
                     }
                 }
 
@@ -142,6 +142,10 @@ public class EnderPotionBrewing {
 
     public static void addEnderMixes(EnderPotionBrewing.Builder builder) {
         builder.addContainer(NMTItems.LAVA_BOTTLE.get());
+        builder.addContainer(NMTItems.SPLASH_LAVA_BOTTLE.get());
+        builder.addContainer(NMTItems.LINGERING_LAVA_BOTTLE.get());
+        builder.addContainerRecipe(NMTItems.LAVA_BOTTLE.get(), Items.GUNPOWDER, NMTItems.SPLASH_LAVA_BOTTLE.get());
+        builder.addContainerRecipe(NMTItems.SPLASH_LAVA_BOTTLE.get(), Items.DRAGON_BREATH, NMTItems.LINGERING_LAVA_BOTTLE.get());
         builder.addContainerRecipe(NMTItems.LAVA_BOTTLE.get(), NMTItems.ENDER_WART.get(), NMTItems.AWFULLY_POTION.get());
     }
 
@@ -162,13 +166,16 @@ public class EnderPotionBrewing {
             }
         }
 
-        public void addContainerRecipe(Item input, Item reagent, Item result) {
+        public void addContainerRecipe(Item input, Item reagent, Item result, boolean preserveEffect) {
             if (input.isEnabled(this.enabledFeatures) && reagent.isEnabled(this.enabledFeatures) && result.isEnabled(this.enabledFeatures)) {
                 expectPotion(input);
                 expectPotion(result);
-                this.containerMixes
-                        .add(new EnderPotionBrewing.Mix<>(input.builtInRegistryHolder(), Ingredient.of(reagent), result.builtInRegistryHolder()));
+                this.containerMixes.add(new EnderPotionBrewing.Mix<>(input.builtInRegistryHolder(), Ingredient.of(reagent), result.builtInRegistryHolder(), preserveEffect));
             }
+        }
+
+        public void addContainerRecipe(Item input, Item reagent, Item result) {
+            addContainerRecipe(input, reagent, result, false);
         }
 
         public void addContainer(Item container) {
@@ -193,10 +200,18 @@ public class EnderPotionBrewing {
         }
 
         public EnderPotionBrewing build() {
-            return new EnderPotionBrewing(List.copyOf(this.containers), List.copyOf(this.potionMixes), List.copyOf(this.containerMixes), List.copyOf(this.recipes));
+            return new EnderPotionBrewing(
+                    List.copyOf(this.containers),
+                    List.copyOf(this.potionMixes),
+                    List.copyOf(this.containerMixes),
+                    List.copyOf(this.recipes)
+            );
         }
     }
 
-    static record Mix<T>(Holder<T> from, Ingredient ingredient, Holder<T> to) {
+    static record Mix<T>(Holder<T> from, Ingredient ingredient, Holder<T> to, boolean preserveEffect) {
+        public Mix(Holder<T> from, Ingredient ingredient, Holder<T> to) {
+            this(from, ingredient, to, false);
+        }
     }
 }
