@@ -6,7 +6,6 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.alchemy.Potion;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
-import net.neoforged.neoforge.client.model.generators.ModelBuilder;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.nova.nmt.NoMoreThings;
@@ -57,21 +56,21 @@ public class NMTItemModelProvider extends ItemModelProvider {
         for (Holder<Potion> potionHolder : NMTPotions.POTIONS.getEntries().stream().toList()) {
             String potion = potionHolder.getKey().location().getPath();
             String potionName = switch (potion) {
-                case "lava" -> potion + "_bottle";
-                default -> potion + "_potion";
+                case "lava" -> prefix + potion + "_bottle";
+                default -> prefix + potion + "_potion";
             };
 
             float predicate = POTION_PREDICATES.getOrDefault(potion, 0.0f);
 
             getBuilder(itemName).override()
                     .predicate(NMTItemProperties.potionTypePredicate, potionTypePredicate + predicate)
-                    .model(new ModelFile.UncheckedModelFile(NoMoreThings.rl("item/" + prefix + potionName)))
+                    .model(new ModelFile.UncheckedModelFile(NoMoreThings.rl("item/" + potionName)))
                     .end();
 
             // Create the individual potion model
             getBuilder("item/" + potionName)
                     .parent(new ModelFile.UncheckedModelFile("item/generated"))
-                    .texture("layer0", NoMoreThings.rl("item/" + prefix + potionName));
+                    .texture("layer0", NoMoreThings.rl("item/" + potionName));
         }
     }
 

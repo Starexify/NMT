@@ -4,13 +4,13 @@
     {
       "model": "nmt:item/awfully_potion",
       "predicate": {
-        "nmt:potion_type": 1.0
+        "nmt:potion_type": 2.0
       }
     },
     {
       "model": "nmt:item/lava_bottle",
       "predicate": {
-        "nmt:potion_type": 2.0
+        "nmt:potion_type": 1.0
       }
     }
   ],

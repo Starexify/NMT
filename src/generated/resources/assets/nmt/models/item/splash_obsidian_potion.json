@@ -2,15 +2,15 @@
   "parent": "minecraft:item/generated",
   "overrides": [
     {
-      "model": "nmt:item/awfully_potion",
+      "model": "nmt:item/splash_awfully_potion",
       "predicate": {
-        "nmt:potion_type": 1.0
+        "nmt:potion_type": 2.0
       }
     },
     {
-      "model": "nmt:item/lava_bottle",
+      "model": "nmt:item/splash_lava_bottle",
       "predicate": {
-        "nmt:potion_type": 2.0
+        "nmt:potion_type": 1.0
       }
     }
   ],
