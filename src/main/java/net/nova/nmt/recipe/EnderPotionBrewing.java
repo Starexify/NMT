@@ -21,7 +21,6 @@ import java.util.List;
 import java.util.Optional;
 
 public class EnderPotionBrewing {
-    public static final int BREWING_TIME_SECONDS = 20;
     public static final EnderPotionBrewing EMPTY = new EnderPotionBrewing(List.of(), List.of(), List.of());
     private final List<Ingredient> containers;
     private final List<EnderPotionBrewing.Mix<Potion>> potionMixes;
@@ -47,10 +46,6 @@ public class EnderPotionBrewing {
         return this.registry.isValidInput(stack) || isContainer(stack);
     }
 
-    public List<IBrewingRecipe> getRecipes() {
-        return registry.recipes();
-    }
-
     private boolean isContainer(ItemStack stack) {
         for (Ingredient ingredient : this.containers) {
             if (ingredient.test(stack)) {
@@ -74,16 +69,6 @@ public class EnderPotionBrewing {
     public boolean isPotionIngredient(ItemStack stack) {
         for (EnderPotionBrewing.Mix<Potion> mix : this.potionMixes) {
             if (mix.ingredient.test(stack)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public boolean isBrewablePotion(Holder<Potion> potion) {
-        for (EnderPotionBrewing.Mix<Potion> mix : this.potionMixes) {
-            if (mix.to.is(potion)) {
                 return true;
             }
         }
@@ -133,7 +118,8 @@ public class EnderPotionBrewing {
             } else {
                 for (EnderPotionBrewing.Mix<Item> mix : this.containerMixes) {
                     if (potionItem.is(mix.from) && mix.ingredient.test(potion)) {
-                        return PotionContents.createItemStack(mix.to.value(), optional.get());
+                        //return PotionContents.createItemStack(mix.to.value(), optional.get());
+                        return new ItemStack(mix.to.value());
                     }
                 }
 
@@ -156,15 +142,15 @@ public class EnderPotionBrewing {
 
     public static void addEnderMixes(EnderPotionBrewing.Builder builder) {
         builder.addContainer(NMTItems.LAVA_BOTTLE.get());
-        builder.addMix(NMTPotions.LAVA, Items.NETHER_WART, NMTPotions.AWFULLY);
-        // builder.addContainerRecipe(NMTItems.LAVA_BOTTLE.get(), Items.NETHER_WART, NMTItems.AWFULLY_POTION.get());
+        //builder.addMix(NMTPotions.LAVA, Items.NETHER_WART, NMTPotions.AWFULLY);
+        builder.addContainerRecipe(NMTItems.LAVA_BOTTLE.get(), Items.NETHER_WART, NMTItems.AWFULLY_POTION.get());
     }
 
     public static class Builder {
         private final List<Ingredient> containers = new ArrayList<>();
         private final List<EnderPotionBrewing.Mix<Potion>> potionMixes = new ArrayList<>();
         private final List<EnderPotionBrewing.Mix<Item>> containerMixes = new ArrayList<>();
-        private final List<net.neoforged.neoforge.common.brewing.IBrewingRecipe> recipes = new ArrayList<>();
+        private final List<IBrewingRecipe> recipes = new ArrayList<>();
         private final FeatureFlagSet enabledFeatures;
 
         public Builder(FeatureFlagSet enabledFeatures) {
