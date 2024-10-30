@@ -33,7 +33,7 @@ public class NMTItemModelProvider extends ItemModelProvider {
         // Create the base model builder
         getBuilder(item.toString())
                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
-                .texture("layer0", NoMoreThings.rl("item/" + itemName))
+                .texture("layer0", NoMoreThings.rl("item/lava_bottle"))
                 // Add override for Lava potion
                 .override()
                 .predicate(NMTItemProperties.potionTypePredicate, 1.0f)
