@@ -1,4 +1,4 @@
-package net.nova.nmt.event;
+package net.nova.nmt.client.renderer;
 
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.component.DataComponents;

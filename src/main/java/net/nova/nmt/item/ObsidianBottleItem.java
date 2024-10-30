@@ -39,7 +39,7 @@ public class ObsidianBottleItem extends Item {
                 level.gameEvent(player, GameEvent.FLUID_PICKUP, blockpos);
 
                 return InteractionResultHolder.sidedSuccess(
-                        this.turnBottleIntoItem(itemstack, player, new ItemStack(NMTItems.LAVA_BOTTLE.get())), level.isClientSide()
+                        this.turnBottleIntoItem(itemstack, player, new ItemStack(NMTItems.OBSIDIAN_POTION.get())), level.isClientSide()
                 );
             }
         }

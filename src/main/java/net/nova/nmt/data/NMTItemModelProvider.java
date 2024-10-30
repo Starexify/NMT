@@ -1,18 +1,13 @@
 package net.nova.nmt.data;
 
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.flag.FeatureFlagSet;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionContents;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.nova.nmt.NoMoreThings;
+import net.nova.nmt.client.renderer.NMTItemProperties;
 import net.nova.nmt.init.NMTItems;
 
 import static net.nova.nmt.NoMoreThings.MODID;
@@ -32,12 +27,24 @@ public class NMTItemModelProvider extends ItemModelProvider {
 
     // Models
     public void potionItem(Item item) {
+        // Get the base item name
+        String itemName = getItemName(item);
+
+        // Create the base model builder
         getBuilder(item.toString())
                 .parent(new ModelFile.UncheckedModelFile("item/generated"))
-                .texture("layer0", NoMoreThings.rl("item/" + getItemName(item)));
+                .texture("layer0", NoMoreThings.rl("item/" + itemName))
+                // Add override for Lava potion
+                .override()
+                .predicate(NMTItemProperties.potionTypePredicate, 1.0f)
+                .model(new ModelFile.UncheckedModelFile(NoMoreThings.rl("item/lava_bottle")))
+                .end()
+                // Add override for Awfully potion
+                .override()
+                .predicate(NMTItemProperties.potionTypePredicate, 2.0f)
+                .model(new ModelFile.UncheckedModelFile(NoMoreThings.rl("item/awfully_potion")))
+                .end();
     }
-
-
 
     public String getItemName(Item item) {
         return BuiltInRegistries.ITEM.getKey(item).toString().replace(MODID + ":", "");

@@ -49,13 +49,13 @@ public class NMTEventBus {
                     BlockPos blockpos = blockSource.pos().relative(blockSource.state().getValue(DispenserBlock.FACING));
                     if (serverlevel.getFluidState(blockpos).is(FluidTags.LAVA)) {
                         this.setSuccess(true);
-                        return this.takeLiquid(blockSource, item, PotionContents.createItemStack(NMTItems.LAVA_BOTTLE.get(), NMTPotions.LAVA));
+                        return this.takeLiquid(blockSource, item, PotionContents.createItemStack(NMTItems.OBSIDIAN_POTION.get(), NMTPotions.LAVA));
                     } else {
                         return super.execute(blockSource, item);
                     }
                 }
             });
-            DispenserBlock.registerBehavior(NMTItems.LAVA_BOTTLE.asItem(), new DefaultDispenseItemBehavior() {
+            DispenserBlock.registerBehavior(NMTItems.OBSIDIAN_POTION.asItem(), new DefaultDispenseItemBehavior() {
                 private final DefaultDispenseItemBehavior defaultDispenseItemBehavior = new DefaultDispenseItemBehavior();
 
                 @Override
@@ -99,7 +99,7 @@ public class NMTEventBus {
             CauldronInteraction.LAVA.map().put(NMTItems.OBSIDIAN_GLASS_BOTTLE.get(), (state, level, pos, player, hand, emptyStack) -> {
                 if (!level.isClientSide) {
                     Item item = emptyStack.getItem();
-                    player.setItemInHand(hand, ItemUtils.createFilledResult(emptyStack, player, new ItemStack(NMTItems.LAVA_BOTTLE.get())));
+                    player.setItemInHand(hand, ItemUtils.createFilledResult(emptyStack, player, new ItemStack(NMTItems.OBSIDIAN_POTION.get())));
                     player.awardStat(Stats.USE_CAULDRON);
                     player.awardStat(Stats.ITEM_USED.get(item));
                     level.setBlockAndUpdate(pos, Blocks.CAULDRON.defaultBlockState());
@@ -108,7 +108,7 @@ public class NMTEventBus {
                 }
                 return ItemInteractionResult.sidedSuccess(level.isClientSide);
             });
-            CauldronInteraction.EMPTY.map().put(NMTItems.LAVA_BOTTLE.get(), (state, level, pos, player, hand, emptyStack) -> {
+            CauldronInteraction.EMPTY.map().put(NMTItems.OBSIDIAN_POTION.get(), (state, level, pos, player, hand, emptyStack) -> {
                 PotionContents potioncontents = emptyStack.get(DataComponents.POTION_CONTENTS);
                 if (potioncontents != null && potioncontents.is(NMTPotions.LAVA)) {
                     if (!level.isClientSide) {

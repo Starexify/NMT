@@ -5,6 +5,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.nova.nmt.client.renderer.NMTItemProperties;
 import net.nova.nmt.gui.ender_brewing_stand.EnderBrewingStandScreen;
 import net.nova.nmt.init.NMTMenuType;
 
