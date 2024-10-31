@@ -42,6 +42,30 @@
       "predicate": {
         "nmt:potion_type": 7.0
       }
+    },
+    {
+      "model": "nmt:item/lingering_cecity_potion",
+      "predicate": {
+        "nmt:potion_type": 8.0
+      }
+    },
+    {
+      "model": "nmt:item/lingering_cecity_potion",
+      "predicate": {
+        "nmt:potion_type": 9.0
+      }
+    },
+    {
+      "model": "nmt:item/lingering_dimness_potion",
+      "predicate": {
+        "nmt:potion_type": 10.0
+      }
+    },
+    {
+      "model": "nmt:item/lingering_dimness_potion",
+      "predicate": {
+        "nmt:potion_type": 11.0
+      }
     }
   ],
   "textures": {

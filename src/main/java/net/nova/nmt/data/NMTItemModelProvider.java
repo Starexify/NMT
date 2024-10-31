@@ -11,8 +11,6 @@ import net.nova.nmt.client.renderer.NMTItemProperties;
 import net.nova.nmt.init.NMTItems;
 import net.nova.nmt.init.NMTPotions;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 import static net.nova.nmt.NoMoreThings.MODID;
 
 public class NMTItemModelProvider extends ItemModelProvider {

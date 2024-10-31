@@ -86,7 +86,7 @@ public class NMTPotions {
         }
     });
     public static final Holder<Potion> STRONG_FORTIFYING = POTIONS.register("strong_fortifying", () -> new Potion("fortifying", new MobEffectInstance(MobEffects.ABSORPTION, 1800, 1)));
-    public static final Holder<Potion> BLINDNESS = POTIONS.register("fortifying", () -> new Potion(new MobEffectInstance(MobEffects.BLINDNESS, 900)) {
+    public static final Holder<Potion> CECITY = POTIONS.register("cecity", () -> new Potion(new MobEffectInstance(MobEffects.BLINDNESS, 900)) {
         @Override
         public boolean isEnabled(FeatureFlagSet enabledFeatures) {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
@@ -98,7 +98,7 @@ public class NMTPotions {
             return false;
         }
     });
-    public static final Holder<Potion> LONG_BLINDNESS = POTIONS.register("long_fortifying", () -> new Potion("fortifying", new MobEffectInstance(MobEffects.BLINDNESS, 1800)) {
+    public static final Holder<Potion> LONG_CECITY = POTIONS.register("long_cecity", () -> new Potion("cecity", new MobEffectInstance(MobEffects.BLINDNESS, 1800)) {
         @Override
         public boolean isEnabled(FeatureFlagSet enabledFeatures) {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
@@ -110,5 +110,28 @@ public class NMTPotions {
             return false;
         }
     });
-
+    public static final Holder<Potion> DIMNESS = POTIONS.register("dimness", () -> new Potion(new MobEffectInstance(MobEffects.DARKNESS, 900)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
+    public static final Holder<Potion> LONG_DIMNESS = POTIONS.register("long_dimness", () -> new Potion("dimness", new MobEffectInstance(MobEffects.DARKNESS, 1800)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
 }

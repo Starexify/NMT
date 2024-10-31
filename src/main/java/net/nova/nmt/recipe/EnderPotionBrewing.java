@@ -153,6 +153,11 @@ public class EnderPotionBrewing {
         builder.addStartMix(Items.GOLDEN_APPLE, NMTPotions.FORTIFYING);
         builder.addMix(NMTPotions.FORTIFYING, Items.REDSTONE, NMTPotions.LONG_FORTIFYING);
         builder.addMix(NMTPotions.FORTIFYING, Items.GLOWSTONE_DUST, NMTPotions.STRONG_FORTIFYING);
+        builder.addStartMix(Items.INK_SAC, NMTPotions.CECITY);
+        builder.addMix(NMTPotions.CECITY, Items.REDSTONE, NMTPotions.LONG_CECITY);
+        builder.addMix(NMTPotions.CECITY, Items.SCULK, NMTPotions.DIMNESS);
+        builder.addMix(NMTPotions.LONG_CECITY, Items.SCULK, NMTPotions.LONG_DIMNESS);
+        builder.addMix(NMTPotions.DIMNESS, Items.REDSTONE, NMTPotions.LONG_DIMNESS);
     }
 
     public static class Builder {
