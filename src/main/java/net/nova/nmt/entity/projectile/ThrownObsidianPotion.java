@@ -93,6 +93,15 @@ public class ThrownObsidianPotion extends ThrownPotion {
                 this.level().levelEvent(i, this.blockPosition(), potioncontents.getColor());
                 this.discard();
             }
+
+            if (potioncontents.is(NMTPotions.AWFULLY)) {
+                this.applySplash(
+                        potioncontents.getAllEffects(), result.getType() == HitResult.Type.ENTITY ? ((EntityHitResult) result).getEntity() : null
+                );
+                int i = potioncontents.potion().isPresent() && potioncontents.potion().get().value().hasInstantEffects() ? 2007 : 2002;
+                this.level().levelEvent(i, this.blockPosition(), potioncontents.getColor());
+                this.discard();
+            }
         }
     }
 

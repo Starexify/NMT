@@ -3,6 +3,7 @@ package net.nova.nmt.init;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.TippedArrowItem;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -22,6 +23,5 @@ public class NMTItems {
     public static final DeferredItem<Item> OBSIDIAN_POTION = ITEMS.register("obsidian_potion", () -> new ObsidianPotionItem(new Item.Properties().stacksTo(1).component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.LAVA)).fireResistant()));
     public static final DeferredItem<Item> SPLASH_OBSIDIAN_POTION = ITEMS.register("splash_obsidian_potion", () -> new SplashObsidianPotionItem(new Item.Properties().stacksTo(1).component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.LAVA)).fireResistant()));
     public static final DeferredItem<Item> LINGERING_OBSIDIAN_POTION = ITEMS.register("lingering_obsidian_potion", () -> new LingeringObsidianPotionItem(new Item.Properties().stacksTo(1).component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.LAVA)).fireResistant()));
-    public static final DeferredItem<Item> OBSIDIAN_TIPPED_ARROW = ITEMS.register("obsidian_tipped_arrow", () -> new ObsidianTippedArrowItem(new Item.Properties().component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.LAVA))));
-
+    public static final DeferredItem<Item> OBSIDIAN_TIPPED_ARROW = ITEMS.register("obsidian_tipped_arrow", () -> new TippedArrowItem(new Item.Properties().component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.LAVA))));
 }

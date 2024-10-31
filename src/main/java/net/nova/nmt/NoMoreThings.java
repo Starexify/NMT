@@ -33,6 +33,7 @@ public class NoMoreThings {
         NMTMenuType.MENUS.register(bus);
         NMTFeature.FEATURES.register(bus);
         NMTEntityType.ENTITY_TYPES.register(bus);
+        NMTRecipeSerializers.RECIPE_SERIALIZERS.register(bus);
 
         bus.addListener(DataGenerators::gatherData);
         bus.addListener(this::onRegisterComplete);
