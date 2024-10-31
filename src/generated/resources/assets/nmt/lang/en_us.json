@@ -18,6 +18,8 @@
   "item.nmt.lingering_obsidian_potion.effect.sickness": "Lingering Potion of Sickness",
   "item.nmt.lingering_obsidian_potion.effect.starvation": "Lingering Potion of Starvation",
   "item.nmt.lingering_obsidian_potion.effect.titan": "Lingering Potion of the Titan",
+  "item.nmt.lingering_obsidian_potion.effect.unluck": "Lingering Potion of Unluck",
+  "item.nmt.lingering_obsidian_potion.effect.withering": "Lingering Potion of Withering",
   "item.nmt.obsidian_glass_bottle": "Obsidian Glass Bottle",
   "item.nmt.obsidian_potion.effect.awfully": "Awfully Potion",
   "item.nmt.obsidian_potion.effect.cecity": "Potion of Cecity",
@@ -30,6 +32,8 @@
   "item.nmt.obsidian_potion.effect.sickness": "Potion of Sickness",
   "item.nmt.obsidian_potion.effect.starvation": "Potion of Starvation",
   "item.nmt.obsidian_potion.effect.titan": "Potion of the Titan",
+  "item.nmt.obsidian_potion.effect.unluck": "Potion of Unluck",
+  "item.nmt.obsidian_potion.effect.withering": "Potion of Withering",
   "item.nmt.splash_obsidian_potion.effect.awfully": "Splash Awfully Potion",
   "item.nmt.splash_obsidian_potion.effect.cecity": "Splash Potion of Cecity",
   "item.nmt.splash_obsidian_potion.effect.dimness": "Splash Potion of Dimness",
@@ -41,6 +45,8 @@
   "item.nmt.splash_obsidian_potion.effect.sickness": "Splash Potion of Sickness",
   "item.nmt.splash_obsidian_potion.effect.starvation": "Splash Potion of Starvation",
   "item.nmt.splash_obsidian_potion.effect.titan": "Splash Potion of the Titan",
+  "item.nmt.splash_obsidian_potion.effect.unluck": "Splash Potion of Unluck",
+  "item.nmt.splash_obsidian_potion.effect.withering": "Splash Potion of Withering",
   "nmt.creativetab.main": "No More Things",
   "nmt.creativetab.potions": "No More Things Potions"
 }

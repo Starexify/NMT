@@ -175,6 +175,9 @@ public class EnderPotionBrewing {
         builder.addStartMix(Items.BROWN_MUSHROOM, NMTPotions.SICKNESS);
         builder.addStartMix(Items.RED_MUSHROOM, NMTPotions.SICKNESS);
         builder.addMix(NMTPotions.SICKNESS, Items.REDSTONE, NMTPotions.LONG_SICKNESS);
+        builder.addStartMix(Items.WITHER_ROSE, NMTPotions.WITHERING);
+        builder.addMix(NMTPotions.WITHERING, Items.REDSTONE, NMTPotions.LONG_WITHERING);
+        builder.addMix(NMTPotions.WITHERING, Items.GLOWSTONE_DUST, NMTPotions.STRONG_WITHERING);
     }
 
     public static class Builder {

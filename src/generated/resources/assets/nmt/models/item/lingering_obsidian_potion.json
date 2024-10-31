@@ -176,15 +176,21 @@
       }
     },
     {
-      "model": "nmt:item/lingering_unluck_potion",
+      "model": "nmt:item/lingering_withering_potion",
       "predicate": {
         "nmt:potion_type": 30.0
       }
     },
     {
-      "model": "nmt:item/lingering_unluck_potion",
+      "model": "nmt:item/lingering_withering_potion",
       "predicate": {
         "nmt:potion_type": 31.0
+      }
+    },
+    {
+      "model": "nmt:item/lingering_withering_potion",
+      "predicate": {
+        "nmt:potion_type": 32.0
       }
     }
   ],
