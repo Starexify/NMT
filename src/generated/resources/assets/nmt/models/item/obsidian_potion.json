@@ -168,6 +168,24 @@
       "predicate": {
         "nmt:potion_type": 28.0
       }
+    },
+    {
+      "model": "nmt:item/unluck_potion",
+      "predicate": {
+        "nmt:potion_type": 29.0
+      }
+    },
+    {
+      "model": "nmt:item/unluck_potion",
+      "predicate": {
+        "nmt:potion_type": 30.0
+      }
+    },
+    {
+      "model": "nmt:item/unluck_potion",
+      "predicate": {
+        "nmt:potion_type": 31.0
+      }
     }
   ],
   "textures": {
