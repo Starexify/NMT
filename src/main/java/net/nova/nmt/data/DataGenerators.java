@@ -11,6 +11,7 @@ import net.nova.nmt.NoMoreThings;
 import net.nova.nmt.data.loot.NMTLootTableProvider;
 import net.nova.nmt.data.recipe.NMTRecipeProvider;
 import net.nova.nmt.data.tags.NMTBlockTagsProvider;
+import net.nova.nmt.data.tags.NMTItemTagsProvider;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -35,6 +36,7 @@ public class DataGenerators {
 
             NMTBlockTagsProvider modBlockTagsProvider = new NMTBlockTagsProvider(output, lookupProvider, existingFileHelper);
             generator.addProvider(true, modBlockTagsProvider);
+            generator.addProvider(true, new NMTItemTagsProvider(output, lookupProvider, modBlockTagsProvider, existingFileHelper));
 
             generator.addProvider(true, new NMTLootTableProvider(output, lookupProvider));
 
