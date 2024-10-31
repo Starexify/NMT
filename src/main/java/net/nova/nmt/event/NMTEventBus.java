@@ -16,6 +16,7 @@ import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
@@ -60,7 +61,7 @@ public class NMTEventBus {
                 @Override
                 public ItemStack execute(BlockSource blockSource, ItemStack item) {
                     PotionContents potioncontents = item.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
-                    if (!potioncontents.is(NMTPotions.LAVA)) {
+                    if (!potioncontents.is(NMTPotions.LAVA) && !potioncontents.is(NMTPotions.LONG_LAVA) && !potioncontents.is(NMTPotions.STRONG_LAVA)) {
                         return this.defaultDispenseItemBehavior.dispense(blockSource, item);
                     } else {
                         ServerLevel serverlevel = blockSource.level();
@@ -93,6 +94,8 @@ public class NMTEventBus {
                     }
                 }
             });
+            DispenserBlock.registerProjectileBehavior(NMTItems.SPLASH_OBSIDIAN_POTION);
+            DispenserBlock.registerProjectileBehavior(NMTItems.LINGERING_OBSIDIAN_POTION);
 
             // Obsidian Bottle/Lava Bottle CauldronInteractions
             CauldronInteraction.LAVA.map().put(NMTItems.OBSIDIAN_GLASS_BOTTLE.get(), (state, level, pos, player, hand, emptyStack) -> {

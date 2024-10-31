@@ -147,7 +147,7 @@ public class EnderPotionBrewing {
         builder.addMix(NMTPotions.LAVA, Items.REDSTONE, NMTPotions.LONG_LAVA);
         builder.addMix(NMTPotions.LAVA, Items.GLOWSTONE_DUST, NMTPotions.STRONG_LAVA);
         builder.addMix(NMTPotions.LAVA, NMTItems.ENDER_WART.get(), NMTPotions.AWFULLY);
-        builder.addStartMix(Items.GOLDEN_APPLE, NMTPotions.FORTIFYING);
+        builder.addStartMix(Items.ARMADILLO_SCUTE, NMTPotions.FORTIFYING);
         builder.addMix(NMTPotions.FORTIFYING, Items.REDSTONE, NMTPotions.LONG_FORTIFYING);
         builder.addMix(NMTPotions.FORTIFYING, Items.GLOWSTONE_DUST, NMTPotions.STRONG_FORTIFYING);
         builder.addStartMix(Items.INK_SAC, NMTPotions.CECITY);
@@ -164,9 +164,17 @@ public class EnderPotionBrewing {
         builder.addStartMix(Items.ROTTEN_FLESH, NMTPotions.STARVATION);
         builder.addMix(NMTPotions.STARVATION, Items.REDSTONE, NMTPotions.LONG_STARVATION);
         builder.addMix(NMTPotions.STARVATION, Items.GLOWSTONE_DUST, NMTPotions.STRONG_STARVATION);
-        builder.addStartMix(Items.FEATHER, NMTPotions.FLOATING);
+        builder.addStartMix(Items.SHULKER_SHELL, NMTPotions.FLOATING);
         builder.addMix(NMTPotions.FLOATING, Items.REDSTONE, NMTPotions.LONG_FLOATING);
         builder.addMix(NMTPotions.FLOATING, Items.GLOWSTONE_DUST, NMTPotions.STRONG_FLOATING);
+        builder.addMix(NMTPotions.QUICKNESS, Items.FERMENTED_SPIDER_EYE, NMTPotions.EXHAUSTION);
+        builder.addMix(NMTPotions.LONG_QUICKNESS, Items.FERMENTED_SPIDER_EYE, NMTPotions.LONG_EXHAUSTION);
+        builder.addMix(NMTPotions.STRONG_QUICKNESS, Items.FERMENTED_SPIDER_EYE, NMTPotions.STRONG_EXHAUSTION);
+        builder.addMix(NMTPotions.EXHAUSTION, Items.REDSTONE, NMTPotions.LONG_EXHAUSTION);
+        builder.addMix(NMTPotions.EXHAUSTION, Items.GLOWSTONE_DUST, NMTPotions.STRONG_EXHAUSTION);
+        builder.addStartMix(Items.BROWN_MUSHROOM, NMTPotions.SICKNESS);
+        builder.addStartMix(Items.RED_MUSHROOM, NMTPotions.SICKNESS);
+        builder.addMix(NMTPotions.SICKNESS, Items.REDSTONE, NMTPotions.LONG_SICKNESS);
     }
 
     public static class Builder {

@@ -289,4 +289,101 @@ public class NMTPotions {
             return false;
         }
     });
+    public static final Holder<Potion> EXHAUSTION = POTIONS.register("exhaustion", () -> new Potion(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 1800)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
+    public static final Holder<Potion> LONG_EXHAUSTION = POTIONS.register("long_exhaustion", () -> new Potion("exhaustion", new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 4800)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
+    public static final Holder<Potion> STRONG_EXHAUSTION = POTIONS.register("strong_exhaustion", () -> new Potion("exhaustion", new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 400, 1)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
+    public static final Holder<Potion> SICKNESS = POTIONS.register("sickness", () -> new Potion(new MobEffectInstance(MobEffects.CONFUSION, 1800)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
+    public static final Holder<Potion> LONG_SICKNESS = POTIONS.register("long_sickness", () -> new Potion("sickness", new MobEffectInstance(MobEffects.CONFUSION, 4800)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
+    public static final Holder<Potion> UNLUCK = POTIONS.register("unluck", () -> new Potion(new MobEffectInstance(MobEffects.UNLUCK, 1800)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
+    public static final Holder<Potion> LONG_UNLUCK = POTIONS.register("long_unluck", () -> new Potion("unluck", new MobEffectInstance(MobEffects.UNLUCK, 4800)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
+    public static final Holder<Potion> STRONG_UNLUCK = POTIONS.register("strong_unluck", () -> new Potion("unluck", new MobEffectInstance(MobEffects.UNLUCK, 400, 1)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
+
 }

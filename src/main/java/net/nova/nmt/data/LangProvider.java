@@ -37,6 +37,8 @@ public class LangProvider extends LanguageProvider {
         addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.TITAN, "Potion of the Titan");
         addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.STARVATION, "Potion of Starvation");
         addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.FLOATING, "Potion of Floating");
+        addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.EXHAUSTION, "Potion of Exhaustion");
+        addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.SICKNESS, "Potion of Sickness");
         addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.LAVA, "Splash Lava Bottle");
         addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.AWFULLY, "Splash Awfully Potion");
         addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.FORTIFYING, "Splash Potion of Fortifying");
@@ -46,6 +48,8 @@ public class LangProvider extends LanguageProvider {
         addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.TITAN, "Splash Potion of the Titan");
         addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.STARVATION, "Splash Potion of Starvation");
         addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.FLOATING, "Splash Potion of Floating");
+        addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.EXHAUSTION, "Splash Potion of Exhaustion");
+        addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.SICKNESS, "Splash Potion of Sickness");
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.LAVA, "Lingering Lava Bottle");
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.AWFULLY, "Lingering Awfully Potion");
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.FORTIFYING, "Lingering Potion of Fortifying");
@@ -55,6 +59,8 @@ public class LangProvider extends LanguageProvider {
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.TITAN, "Lingering Potion of the Titan");
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.STARVATION, "Lingering Potion of Starvation");
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.FLOATING, "Lingering Potion of Floating");
+        addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.EXHAUSTION, "Lingering Potion of Exhaustion");
+        addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.SICKNESS, "Lingering Potion of Sickness");
 
         addItem(NMTItems.ENDER_WART, "Ender Wart");
 

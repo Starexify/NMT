@@ -138,6 +138,36 @@
       "predicate": {
         "nmt:potion_type": 23.0
       }
+    },
+    {
+      "model": "nmt:item/lingering_exhaustion_potion",
+      "predicate": {
+        "nmt:potion_type": 24.0
+      }
+    },
+    {
+      "model": "nmt:item/lingering_exhaustion_potion",
+      "predicate": {
+        "nmt:potion_type": 25.0
+      }
+    },
+    {
+      "model": "nmt:item/lingering_exhaustion_potion",
+      "predicate": {
+        "nmt:potion_type": 26.0
+      }
+    },
+    {
+      "model": "nmt:item/lingering_sickness_potion",
+      "predicate": {
+        "nmt:potion_type": 27.0
+      }
+    },
+    {
+      "model": "nmt:item/lingering_sickness_potion",
+      "predicate": {
+        "nmt:potion_type": 28.0
+      }
     }
   ],
   "textures": {
