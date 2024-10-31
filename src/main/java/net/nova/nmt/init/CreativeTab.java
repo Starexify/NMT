@@ -48,12 +48,7 @@ public class CreativeTab {
     );
 
     private static void generatePotionEffectTypes(CreativeModeTab.Output output, Item item) {
-        List<Holder<Potion>> nmtPotions = Arrays.asList(
-                NMTPotions.LAVA,
-                NMTPotions.AWFULLY
-        );
-
-        nmtPotions.stream()
+        NMTPotions.POTIONS.getEntries().stream()
                 .map(potion -> PotionContents.createItemStack(item, potion))
                 .forEach(itemStack -> output.accept(itemStack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS));
     }

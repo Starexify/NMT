@@ -9,6 +9,9 @@ import net.nova.nmt.NoMoreThings;
 import net.nova.nmt.init.NMTItems;
 import net.nova.nmt.init.NMTPotions;
 
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+
 public class NMTItemProperties {
     public static ResourceLocation potionTypePredicate = NoMoreThings.rl("potion_type");
 
@@ -18,17 +21,22 @@ public class NMTItemProperties {
         makePotion(NMTItems.LINGERING_OBSIDIAN_POTION.get());
     }
 
-    private static void makePotion(Item item) {
+    public static void makePotion(Item item) {
         ItemProperties.register(item, potionTypePredicate, (stack, level, entity, seed) -> {
             PotionContents potionContents = stack.get(DataComponents.POTION_CONTENTS);
-            if (potionContents != null) {
-                if (potionContents.is(NMTPotions.LAVA)) {
-                    return 1.0F;
-                } else if (potionContents.is(NMTPotions.AWFULLY)) {
-                    return 2.0F;
+            if (potionContents == null) return 0.0F;
+
+            AtomicInteger counter = new AtomicInteger(0);
+            AtomicReference<Float> result = new AtomicReference<>(0.0F);
+
+            NMTPotions.POTIONS.getEntries().forEach(potion -> {
+                int currentId = counter.incrementAndGet();
+                if (potionContents.is(potion)) {
+                    result.set((float) currentId);
                 }
-            }
-            return 0.0F;
+            });
+
+            return result.get();
         });
     }
 }
