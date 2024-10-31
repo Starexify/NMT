@@ -6,12 +6,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionContents;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.function.Supplier;
 
 import static net.nova.nmt.NoMoreThings.MODID;
@@ -19,11 +17,12 @@ import static net.nova.nmt.NoMoreThings.MODID;
 public class CreativeTab {
     public static DeferredRegister<CreativeModeTab> CREATIVE_TAB = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-    public static String NO_MORE_THINGS_TAB_TITLE = MODID + ".creativetab";
+    public static String MAIN_TAB_TITLE = MODID + ".creativetab.main";
+    public static String POTIONS_TAB_TITLE = MODID + ".creativetab.potions";
 
-    public static final Supplier<CreativeModeTab> NO_MORE_THINGS_TAB = CREATIVE_TAB.register("big_swords_tab", () -> CreativeModeTab.builder()
-            .icon(() -> new ItemStack(NMTBlocks.OBSIDIAN_GLASS.get()))
-            .title(Component.translatable(NO_MORE_THINGS_TAB_TITLE))
+    public static final Holder<CreativeModeTab> MAIN_TAB = CREATIVE_TAB.register("no_more_things_tab", () -> CreativeModeTab.builder()
+            .icon(() -> new ItemStack(NMTBlocks.ENDER_WART_BLOCK.get())).title(Component.translatable(MAIN_TAB_TITLE))
+            .withTabsAfter(CreativeTab.POTIONS_TAB.getKey())
             .displayItems((itemDisplayParameters, output) -> {
                 // Blocks
                 output.accept(NMTBlocks.OBSIDIAN_GLASS);
@@ -34,6 +33,12 @@ public class CreativeTab {
                 output.accept(NMTBlocks.ENDER_WART_BLOCK);
                 output.accept(NMTItems.ENDER_WART);
 
+            }).build()
+    );
+
+    public static final Holder<CreativeModeTab> POTIONS_TAB = CREATIVE_TAB.register("no_more_things_potions_tab", () -> CreativeModeTab.builder()
+            .icon(() -> new ItemStack(NMTItems.OBSIDIAN_GLASS_BOTTLE.get())).title(Component.translatable(POTIONS_TAB_TITLE))
+            .displayItems((itemDisplayParameters, output) -> {
                 // Obsidian Glass Bottle
                 output.accept(NMTItems.OBSIDIAN_GLASS_BOTTLE);
                 /// Obsidian Pots

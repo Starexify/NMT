@@ -9,6 +9,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.brewing.BrewingRecipeRegistry;
 import net.neoforged.neoforge.common.brewing.IBrewingRecipe;
@@ -146,7 +147,12 @@ public class EnderPotionBrewing {
         builder.addContainer(NMTItems.LINGERING_OBSIDIAN_POTION.get());
         builder.addContainerRecipe(NMTItems.OBSIDIAN_POTION.get(), Items.GUNPOWDER, NMTItems.SPLASH_OBSIDIAN_POTION.get());
         builder.addContainerRecipe(NMTItems.SPLASH_OBSIDIAN_POTION.get(), Items.DRAGON_BREATH, NMTItems.LINGERING_OBSIDIAN_POTION.get());
+        builder.addMix(NMTPotions.LAVA, Items.REDSTONE, NMTPotions.LONG_LAVA);
+        builder.addMix(NMTPotions.LAVA, Items.GLOWSTONE_DUST, NMTPotions.STRONG_LAVA);
         builder.addMix(NMTPotions.LAVA, NMTItems.ENDER_WART.get(), NMTPotions.AWFULLY);
+        builder.addStartMix(Items.GOLDEN_APPLE, NMTPotions.FORTIFYING);
+        builder.addMix(NMTPotions.FORTIFYING, Items.REDSTONE, NMTPotions.LONG_FORTIFYING);
+        builder.addMix(NMTPotions.FORTIFYING, Items.GLOWSTONE_DUST, NMTPotions.STRONG_FORTIFYING);
     }
 
     public static class Builder {

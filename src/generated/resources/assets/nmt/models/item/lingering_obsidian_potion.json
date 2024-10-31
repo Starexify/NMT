@@ -8,9 +8,39 @@
       }
     },
     {
-      "model": "nmt:item/lingering_awfully_potion",
+      "model": "nmt:item/lingering_lava_bottle",
       "predicate": {
         "nmt:potion_type": 2.0
+      }
+    },
+    {
+      "model": "nmt:item/lingering_lava_bottle",
+      "predicate": {
+        "nmt:potion_type": 3.0
+      }
+    },
+    {
+      "model": "nmt:item/lingering_awfully_potion",
+      "predicate": {
+        "nmt:potion_type": 4.0
+      }
+    },
+    {
+      "model": "nmt:item/lingering_fortifying_potion",
+      "predicate": {
+        "nmt:potion_type": 5.0
+      }
+    },
+    {
+      "model": "nmt:item/lingering_fortifying_potion",
+      "predicate": {
+        "nmt:potion_type": 6.0
+      }
+    },
+    {
+      "model": "nmt:item/lingering_fortifying_potion",
+      "predicate": {
+        "nmt:potion_type": 7.0
       }
     }
   ],

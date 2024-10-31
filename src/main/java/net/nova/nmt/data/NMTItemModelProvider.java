@@ -50,6 +50,10 @@ public class NMTItemModelProvider extends ItemModelProvider {
 
         NMTPotions.POTIONS.getEntries().forEach(potionHolder -> {
             String potion = potionHolder.getKey().location().getPath();
+            if (potion.startsWith("long_") || potion.startsWith("strong_")) {
+                potion = potion.substring(potion.indexOf('_') + 1);
+            }
+
             String potionName = switch (potion) {
                 case "lava" -> prefix + potion + "_bottle";
                 default -> prefix + potion + "_potion";

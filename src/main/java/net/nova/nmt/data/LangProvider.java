@@ -30,18 +30,19 @@ public class LangProvider extends LanguageProvider {
         /// Obsidian Potions
         addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.LAVA, "Lava Bottle");
         addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.AWFULLY, "Awfully Potion");
-        addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.ABSORPTION, "Absorption Potion");
+        addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.FORTIFYING, "Potion of Fortifying");
         addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.LAVA, "Splash Lava Bottle");
         addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.AWFULLY, "Splash Awfully Potion");
-        addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.ABSORPTION, "Splash Absorption Potion");
+        addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.FORTIFYING, "Splash Potion of Fortifying");
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.LAVA, "Lingering Lava Bottle");
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.AWFULLY, "Lingering Awfully Potion");
-        addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.ABSORPTION, "Lingering Absorption Potion");
+        addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.FORTIFYING, "Lingering Potion of Fortifying");
 
         addItem(NMTItems.ENDER_WART, "Ender Wart");
 
         // Creative Tab
-        add(CreativeTab.NO_MORE_THINGS_TAB_TITLE, "No More Things");
+        add(CreativeTab.MAIN_TAB_TITLE, "No More Things");
+        add(CreativeTab.POTIONS_TAB_TITLE, "No More Things Potions");
 
         // Mob Effects
         addEffect(NMTEffects.BURN::value, "Burn");
