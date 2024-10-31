@@ -20,7 +20,7 @@
 <table align="center" style="border-collapse: collapse; margin: 20px auto; width: 80%;">
   <tr>
     <td align="center" style="border: none; padding: 10px;">
-      <a href="#%EF%B8%8F-no-more-things-news" style="text-decoration: none; color: #808080; font-size: 1.2em; font-weight: bold; transition: color 0.3s ease;">
+      <a href="#%EF%B8%8F-no-more-news" style="text-decoration: none; color: #808080; font-size: 1.2em; font-weight: bold; transition: color 0.3s ease;">
         🗞️ News
       </a>
     </td>
@@ -47,40 +47,25 @@
   </tr>
 </table>
 
-<p align="center">
-    <strong>
-        ⚠️Please note that this is just a beta version, so expect that features may be buggy or not fully implemented yet.
-        We would appreciate your feedback and ideas as we work on this project!
-    </strong>
-</p>
+## 🗞️ No More News
 
-## 🗞️ No More Things News
-
-Version 1.1.0-beta RELEASED!
+Version 1.0.0 RELEASED!
 
 ## ℹ️ About
 
-No More Things is a brand-new meteors mod for minecraft, inspired by the nostalgia of the old Falling Meteors mod, but with more content.
+No More Things is a brand-new minecraft mod, which adds some things, such as things, thing and other things.
 
 ## ✨ Features
 
 <table align="center" style="border-collapse: collapse;">
   <tbody>
     <tr>
-      <td style="padding: 10px; text-align: left; border: none;"><strong>🏛️ Structures</strong></td>
-      <td style="padding: 10px; text-align: left; border: none;">Three <strong>Fallen Meteor Sites</strong> where you can find the new meteors and <em>lore</em>.</td>
+      <td style="padding: 10px; text-align: left; border: none;"><strong>️🌱 Crops</strong></td>
+      <td style="padding: 10px; text-align: left; border: none;">New crop, <strong>Ender Wart</strong>.</td>
     </tr>
     <tr>
-      <td style="padding: 10px; text-align: left; border: none;"><strong>🪨 New Materials</strong></td>
-      <td style="padding: 10px; text-align: left; border: none;"><strong>Titanium</strong> and <strong>Infernium</strong> are two new materials.</td>
-    </tr>
-    <tr>
-      <td style="padding: 10px; text-align: left; border: none;"><strong>⚙️ Machines</strong></td>
-      <td style="padding: 10px; text-align: left; border: none;"><strong>Two New Crushing Machines</strong> are added to crush the meteors to a crust.</td>
-    </tr>
-    <tr>
-      <td style="padding: 10px; text-align: left; border: none;"><strong>☄️ METEORS!!</strong></td>
-      <td style="padding: 10px; text-align: left; border: none;">Three new types of meteors: <strong>Achondrite</strong>, <strong>Meteorite</strong>, and <strong>Pallasite</strong>.</td>
+      <td style="padding: 10px; text-align: left; border: none;"><strong> Brewing</strong></td>
+      <td style="padding: 10px; text-align: left; border: none;">New Brewing Stand which lets you brew a new variety of Potions.</td>
     </tr>
   </tbody>
 </table>
