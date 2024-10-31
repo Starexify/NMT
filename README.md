@@ -53,7 +53,7 @@ Version 1.0.0 RELEASED!
 
 ## ℹ️ About
 
-No More Things is a brand-new minecraft mod, which adds some things, such as things, thing and other things.
+No More Things just adds some things to minecraft, look at Features to see the new things added.
 
 ## ✨ Features
 
