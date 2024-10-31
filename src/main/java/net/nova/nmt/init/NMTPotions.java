@@ -36,4 +36,16 @@ public class NMTPotions {
             return false;
         }
     });
+    public static final Holder<Potion> ABSORPTION = POTIONS.register("absorption", () -> new Potion() {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
 }
