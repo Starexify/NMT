@@ -10,16 +10,16 @@ displayName="${mod_name}"
 # A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
 #updateJSONURL="https://change.me.example.invalid/updates.json"
 
-displayURL="https://github.com/Starexify/BigSwordsR"
-issueTrackerURL="https://github.com/Starexify/BigSwordsR/issues"
-logoFile="big_swords_r_logo.png"
+displayURL="https://github.com/Starexify/NMT"
+issueTrackerURL="https://github.com/Starexify/NMT/issues"
+logoFile="nmt_logo.png"
 #credits=""
 authors="${mod_authors}"
 description='''${mod_description}'''
 
 [modproperties.modmenu]
-links=["big_swords_r.modrinth=modrinth.com/mod/big-swords-r", "big_swords_r.curseforge=www.curseforge.com/minecraft/mc-mods/big-swords-r", "big_swords_r.wiki=https://github.com/Starexify/BigSwordsR/wiki"]
-sources="https://github.com/Starexify/BigSwordsR"
+#links=["big_swords_r.modrinth=modrinth.com/mod/big-swords-r", "big_swords_r.curseforge=www.curseforge.com/minecraft/mc-mods/big-swords-r", "big_swords_r.wiki=https://github.com/Starexify/BigSwordsR/wiki"]
+sources="https://github.com/Starexify/NMT"
 
 # The [[accessTransformers]] block allows you to declare where your AT file is.
 # If this block is omitted, a fallback attempt will be made to load an AT from META-INF/accesstransformer.cfg
