@@ -66,6 +66,24 @@
       "predicate": {
         "nmt:potion_type": 11.0
       }
+    },
+    {
+      "model": "nmt:item/splash_quickness_potion",
+      "predicate": {
+        "nmt:potion_type": 12.0
+      }
+    },
+    {
+      "model": "nmt:item/splash_quickness_potion",
+      "predicate": {
+        "nmt:potion_type": 13.0
+      }
+    },
+    {
+      "model": "nmt:item/splash_quickness_potion",
+      "predicate": {
+        "nmt:potion_type": 14.0
+      }
     }
   ],
   "textures": {

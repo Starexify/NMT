@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:obsidian"
+    },
+    "B": {
+      "item": "minecraft:end_rod"
+    },
+    "S": {
+      "item": "minecraft:brewing_stand"
+    }
+  },
+  "pattern": [
+    " B ",
+    " S ",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "nmt:ender_brewing_stand"
+  }
+}

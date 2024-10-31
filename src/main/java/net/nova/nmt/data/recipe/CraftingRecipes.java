@@ -5,7 +5,9 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.Tags;
 import net.nova.nmt.init.NMTBlocks;
 import net.nova.nmt.init.NMTItems;
@@ -33,6 +35,17 @@ public class CraftingRecipes extends NMTRecipeProvider {
                 .save(recipeOutput);
 
         stainedGlassPaneFromStainedGlass(recipeOutput, NMTBlocks.OBSIDIAN_GLASS_PANE, NMTBlocks.OBSIDIAN_GLASS);
+
+        // Brewing Stand
+        ShapedRecipeBuilder.shaped(RecipeCategory.BREWING, NMTBlocks.ENDER_BREWING_STAND)
+                .define('B', Items.END_ROD)
+                .define('S', Items.BREWING_STAND)
+                .define('#', Items.OBSIDIAN)
+                .pattern(" B ")
+                .pattern(" S ")
+                .pattern("###")
+                .unlockedBy("has_" + getItemName(Items.BREWING_STAND), has(Items.BREWING_STAND))
+                .save(recipeOutput);
 
         // Obsidian Bottle
         ShapedRecipeBuilder.shaped(RecipeCategory.BREWING, NMTItems.OBSIDIAN_GLASS_BOTTLE, 3)
