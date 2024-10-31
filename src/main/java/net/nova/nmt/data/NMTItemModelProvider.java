@@ -24,9 +24,41 @@ public class NMTItemModelProvider extends ItemModelProvider {
         potionItem(NMTItems.OBSIDIAN_POTION.get());
         potionItem(NMTItems.SPLASH_OBSIDIAN_POTION.get());
         potionItem(NMTItems.LINGERING_OBSIDIAN_POTION.get());
+        tippedArrowItem(NMTItems.OBSIDIAN_TIPPED_ARROW.get());
     }
 
     // Models
+    public void tippedArrowItem(Item item) {
+        String itemName = getItemName(item);
+        float[] potionId = {0.0f};
+
+        String baseTexture = "lava_tipped_arrow";
+
+        getBuilder(itemName)
+                .parent(new ModelFile.UncheckedModelFile("item/generated"))
+                .texture("layer0", NoMoreThings.rl("item/" + baseTexture));
+
+        NMTPotions.POTIONS.getEntries().forEach(potionHolder -> {
+            String potion = potionHolder.getKey().location().getPath();
+            if (potion.startsWith("long_") || potion.startsWith("strong_")) {
+                potion = potion.substring(potion.indexOf('_') + 1);
+            }
+
+            String potionName = potion + "_tipped_arrow";
+
+            getBuilder(itemName).override()
+                    .predicate(NMTItemProperties.potionTypePredicate, potionId[0] + 1.0f)
+                    .model(new ModelFile.UncheckedModelFile(NoMoreThings.rl("item/" + potionName)))
+                    .end();
+
+            getBuilder("item/" + potionName)
+                    .parent(new ModelFile.UncheckedModelFile("item/generated"))
+                    .texture("layer0", NoMoreThings.rl("item/" + potionName));
+
+            potionId[0] += 1.0f;
+        });
+    }
+
     public void potionItem(Item item) {
         String itemName = getItemName(item);
         float[] potionId = {0.0f};

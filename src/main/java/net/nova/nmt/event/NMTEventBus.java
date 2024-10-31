@@ -96,6 +96,7 @@ public class NMTEventBus {
             });
             DispenserBlock.registerProjectileBehavior(NMTItems.SPLASH_OBSIDIAN_POTION);
             DispenserBlock.registerProjectileBehavior(NMTItems.LINGERING_OBSIDIAN_POTION);
+            DispenserBlock.registerProjectileBehavior(NMTItems.OBSIDIAN_TIPPED_ARROW);
 
             // Obsidian Bottle/Lava Bottle CauldronInteractions
             CauldronInteraction.LAVA.map().put(NMTItems.OBSIDIAN_GLASS_BOTTLE.get(), (state, level, pos, player, hand, emptyStack) -> {

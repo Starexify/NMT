@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "nmt:item/dimness_tipped_arrow"
+  }
+}

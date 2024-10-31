@@ -19,6 +19,7 @@ public class NMTItemProperties {
         makePotion(NMTItems.OBSIDIAN_POTION.get());
         makePotion(NMTItems.SPLASH_OBSIDIAN_POTION.get());
         makePotion(NMTItems.LINGERING_OBSIDIAN_POTION.get());
+        makePotion(NMTItems.OBSIDIAN_TIPPED_ARROW.get());
     }
 
     public static void makePotion(Item item) {

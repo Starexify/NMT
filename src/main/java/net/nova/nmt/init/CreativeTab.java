@@ -47,6 +47,7 @@ public class CreativeTab {
                             generatePotionEffectTypes(output, NMTItems.OBSIDIAN_POTION.get());
                             generatePotionEffectTypes(output, NMTItems.SPLASH_OBSIDIAN_POTION.get());
                             generatePotionEffectTypes(output, NMTItems.LINGERING_OBSIDIAN_POTION.get());
+                            generatePotionEffectTypes(output, NMTItems.OBSIDIAN_TIPPED_ARROW.get());
                         });
 
             }).build()

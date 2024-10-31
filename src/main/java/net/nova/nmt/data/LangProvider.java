@@ -26,6 +26,9 @@ public class LangProvider extends LanguageProvider {
         addBlock(NMTBlocks.ENDER_WART_BLOCK, "Ender Wart Block");
 
         // Items
+        addItem(NMTItems.ENDER_WART, "Ender Wart");
+
+        /// Obsidian Glass Bottle
         addItem(NMTItems.OBSIDIAN_GLASS_BOTTLE, "Obsidian Glass Bottle");
         /// Obsidian Potions
         addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.LAVA, "Lava Bottle");
@@ -67,8 +70,19 @@ public class LangProvider extends LanguageProvider {
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.SICKNESS, "Lingering Potion of Sickness");
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.UNLUCK, "Lingering Potion of Unluck");
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.WITHERING, "Lingering Potion of Withering");
-
-        addItem(NMTItems.ENDER_WART, "Ender Wart");
+        addObsidianPotion(NMTItems.OBSIDIAN_TIPPED_ARROW, NMTPotions.LAVA, "Arrow of Burning");
+        addObsidianPotion(NMTItems.OBSIDIAN_TIPPED_ARROW, NMTPotions.AWFULLY, "Tipped Arrow");
+        addObsidianPotion(NMTItems.OBSIDIAN_TIPPED_ARROW, NMTPotions.FORTIFYING, "Arrow of Fortifying");
+        addObsidianPotion(NMTItems.OBSIDIAN_TIPPED_ARROW, NMTPotions.CECITY, "Arrow of Cecity");
+        addObsidianPotion(NMTItems.OBSIDIAN_TIPPED_ARROW, NMTPotions.DIMNESS, "Arrow of Dimness");
+        addObsidianPotion(NMTItems.OBSIDIAN_TIPPED_ARROW, NMTPotions.QUICKNESS, "Arrow of Quickness");
+        addObsidianPotion(NMTItems.OBSIDIAN_TIPPED_ARROW, NMTPotions.TITAN, "Arrow of the Titan");
+        addObsidianPotion(NMTItems.OBSIDIAN_TIPPED_ARROW, NMTPotions.STARVATION, "Arrow of Starvation");
+        addObsidianPotion(NMTItems.OBSIDIAN_TIPPED_ARROW, NMTPotions.FLOATING, "Arrow of Floating");
+        addObsidianPotion(NMTItems.OBSIDIAN_TIPPED_ARROW, NMTPotions.EXHAUSTION, "Arrow of Exhaustion");
+        addObsidianPotion(NMTItems.OBSIDIAN_TIPPED_ARROW, NMTPotions.SICKNESS, "Arrow of Sickness");
+        addObsidianPotion(NMTItems.OBSIDIAN_TIPPED_ARROW, NMTPotions.UNLUCK, "Arrow of Unluck");
+        addObsidianPotion(NMTItems.OBSIDIAN_TIPPED_ARROW, NMTPotions.WITHERING, "Arrow of Withering");
 
         // Creative Tab
         add(CreativeTab.MAIN_TAB_TITLE, "No More Things");
