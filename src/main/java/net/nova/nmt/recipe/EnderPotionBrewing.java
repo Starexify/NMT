@@ -9,7 +9,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionContents;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.brewing.BrewingRecipeRegistry;
 import net.neoforged.neoforge.common.brewing.IBrewingRecipe;
@@ -93,17 +92,15 @@ public class EnderPotionBrewing {
 
     public boolean hasPotionMix(ItemStack reagent, ItemStack potionItem) {
         Optional<Holder<Potion>> optional = reagent.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).potion();
-        if (optional.isEmpty()) {
-            return false;
-        } else {
-            for (EnderPotionBrewing.Mix<Potion> mix : this.potionMixes) {
+        if (optional.isPresent()) {
+            for (Mix<Potion> mix : this.potionMixes) {
                 if (mix.from.is(optional.get()) && mix.ingredient.test(potionItem)) {
                     return true;
                 }
             }
 
-            return false;
         }
+        return false;
     }
 
     public ItemStack mix(ItemStack potion, ItemStack potionItem) {
@@ -161,6 +158,15 @@ public class EnderPotionBrewing {
         builder.addStartMix(Items.GOLDEN_PICKAXE, NMTPotions.QUICKNESS);
         builder.addMix(NMTPotions.QUICKNESS, Items.REDSTONE, NMTPotions.LONG_QUICKNESS);
         builder.addMix(NMTPotions.QUICKNESS, Items.GLOWSTONE_DUST, NMTPotions.STRONG_QUICKNESS);
+        builder.addStartMix(Items.TOTEM_OF_UNDYING, NMTPotions.TITAN);
+        builder.addMix(NMTPotions.TITAN, Items.REDSTONE, NMTPotions.LONG_TITAN);
+        builder.addMix(NMTPotions.TITAN, Items.GLOWSTONE_DUST, NMTPotions.STRONG_TITAN);
+        builder.addStartMix(Items.ROTTEN_FLESH, NMTPotions.STARVATION);
+        builder.addMix(NMTPotions.STARVATION, Items.REDSTONE, NMTPotions.LONG_STARVATION);
+        builder.addMix(NMTPotions.STARVATION, Items.GLOWSTONE_DUST, NMTPotions.STRONG_STARVATION);
+        builder.addStartMix(Items.FEATHER, NMTPotions.FLOATING);
+        builder.addMix(NMTPotions.FLOATING, Items.REDSTONE, NMTPotions.LONG_FLOATING);
+        builder.addMix(NMTPotions.FLOATING, Items.GLOWSTONE_DUST, NMTPotions.STRONG_FLOATING);
     }
 
     public static class Builder {

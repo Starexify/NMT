@@ -84,6 +84,60 @@
       "predicate": {
         "nmt:potion_type": 14.0
       }
+    },
+    {
+      "model": "nmt:item/splash_titan_potion",
+      "predicate": {
+        "nmt:potion_type": 15.0
+      }
+    },
+    {
+      "model": "nmt:item/splash_titan_potion",
+      "predicate": {
+        "nmt:potion_type": 16.0
+      }
+    },
+    {
+      "model": "nmt:item/splash_titan_potion",
+      "predicate": {
+        "nmt:potion_type": 17.0
+      }
+    },
+    {
+      "model": "nmt:item/splash_starvation_potion",
+      "predicate": {
+        "nmt:potion_type": 18.0
+      }
+    },
+    {
+      "model": "nmt:item/splash_starvation_potion",
+      "predicate": {
+        "nmt:potion_type": 19.0
+      }
+    },
+    {
+      "model": "nmt:item/splash_starvation_potion",
+      "predicate": {
+        "nmt:potion_type": 20.0
+      }
+    },
+    {
+      "model": "nmt:item/splash_floating_potion",
+      "predicate": {
+        "nmt:potion_type": 21.0
+      }
+    },
+    {
+      "model": "nmt:item/splash_floating_potion",
+      "predicate": {
+        "nmt:potion_type": 22.0
+      }
+    },
+    {
+      "model": "nmt:item/splash_floating_potion",
+      "predicate": {
+        "nmt:potion_type": 23.0
+      }
     }
   ],
   "textures": {

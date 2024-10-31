@@ -35,6 +35,8 @@ public class LangProvider extends LanguageProvider {
         addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.DIMNESS, "Potion of Dimness");
         addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.QUICKNESS, "Potion of Quickness");
         addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.TITAN, "Potion of the Titan");
+        addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.STARVATION, "Potion of Starvation");
+        addObsidianPotion(NMTItems.OBSIDIAN_POTION, NMTPotions.FLOATING, "Potion of Floating");
         addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.LAVA, "Splash Lava Bottle");
         addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.AWFULLY, "Splash Awfully Potion");
         addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.FORTIFYING, "Splash Potion of Fortifying");
@@ -42,6 +44,8 @@ public class LangProvider extends LanguageProvider {
         addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.DIMNESS, "Splash Potion of Dimness");
         addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.QUICKNESS, "Splash Potion of Quickness");
         addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.TITAN, "Splash Potion of the Titan");
+        addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.STARVATION, "Splash Potion of Starvation");
+        addObsidianPotion(NMTItems.SPLASH_OBSIDIAN_POTION, NMTPotions.FLOATING, "Splash Potion of Floating");
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.LAVA, "Lingering Lava Bottle");
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.AWFULLY, "Lingering Awfully Potion");
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.FORTIFYING, "Lingering Potion of Fortifying");
@@ -49,6 +53,8 @@ public class LangProvider extends LanguageProvider {
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.DIMNESS, "Lingering Potion of Dimness");
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.QUICKNESS, "Lingering Potion of Quickness");
         addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.TITAN, "Lingering Potion of the Titan");
+        addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.STARVATION, "Lingering Potion of Starvation");
+        addObsidianPotion(NMTItems.LINGERING_OBSIDIAN_POTION, NMTPotions.FLOATING, "Lingering Potion of Floating");
 
         addItem(NMTItems.ENDER_WART, "Ender Wart");
 

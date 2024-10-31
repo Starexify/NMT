@@ -181,7 +181,7 @@ public class NMTPotions {
             return false;
         }
     });
-    public static final Holder<Potion> TITAN = POTIONS.register("titan", () -> new Potion(new MobEffectInstance(MobEffects.DIG_SPEED, 3600)) {
+    public static final Holder<Potion> TITAN = POTIONS.register("titan", () -> new Potion(new MobEffectInstance(MobEffects.HEALTH_BOOST, 3600)) {
         @Override
         public boolean isEnabled(FeatureFlagSet enabledFeatures) {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
@@ -217,5 +217,76 @@ public class NMTPotions {
             return false;
         }
     });
-
+    public static final Holder<Potion> STARVATION = POTIONS.register("starvation", () -> new Potion(new MobEffectInstance(MobEffects.HUNGER, 1800)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
+    public static final Holder<Potion> LONG_STARVATION = POTIONS.register("long_starvation", () -> new Potion("starvation", new MobEffectInstance(MobEffects.HUNGER, 4800)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
+    public static final Holder<Potion> STRONG_STARVATION = POTIONS.register("strong_starvation", () -> new Potion("starvation", new MobEffectInstance(MobEffects.HUNGER, 400, 1)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
+    public static final Holder<Potion> FLOATING = POTIONS.register("floating", () -> new Potion(new MobEffectInstance(MobEffects.LEVITATION, 1800)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
+    public static final Holder<Potion> LONG_FLOATING = POTIONS.register("long_floating", () -> new Potion("floating", new MobEffectInstance(MobEffects.LEVITATION, 4800)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
+    public static final Holder<Potion> STRONG_FLOATING = POTIONS.register("strong_floating", () -> new Potion("floating", new MobEffectInstance(MobEffects.LEVITATION, 400, 1)) {
+        @Override
+        public boolean isEnabled(FeatureFlagSet enabledFeatures) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement element : stackTrace) {
+                if (element.getClassName().contains("EnderPotionBrewing")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    });
 }
