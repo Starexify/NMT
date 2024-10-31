@@ -22,7 +22,8 @@ import static net.nova.nmt.NoMoreThings.MODID;
 public class NMTLootTableProvider extends LootTableProvider {
     public NMTLootTableProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, Set.of(), List.of(
-                new SubProviderEntry(BlockLootTables::new, LootContextParamSets.BLOCK)
+                new SubProviderEntry(BlockLootTables::new, LootContextParamSets.BLOCK),
+                new SubProviderEntry(ChestLoot::new, LootContextParamSets.CHEST)
         ), registries);
     }
 
