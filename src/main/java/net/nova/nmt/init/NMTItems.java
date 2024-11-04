@@ -28,5 +28,5 @@ public class NMTItems {
     // Tear of the Nether
     public static final DeferredItem<Item> TEAR_OF_THE_NETHER = ITEMS.register("tear_of_the_nether", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> BLAZING_WITHER_SOUL = ITEMS.register("blazing_wither_soul", () -> new Item(new Item.Properties()));
-    public static final DeferredItem<Item> HEART_OF_THE_HELL = ITEMS.register("blazing_wither_soul", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> HEART_OF_THE_HELL = ITEMS.register("heart_of_the_hell", () -> new Item(new Item.Properties()));
 }
