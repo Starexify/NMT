@@ -64,7 +64,7 @@ No More Things just adds some things to minecraft, look at Features to see the n
       <td style="padding: 10px; text-align: left; border: none;">New crop, <strong>Ender Wart</strong>.</td>
     </tr>
     <tr>
-      <td style="padding: 10px; text-align: left; border: none;"><strong> Brewing</strong></td>
+      <td style="padding: 10px; text-align: left; border: none;"><strong>⚗️ Brewing</strong></td>
       <td style="padding: 10px; text-align: left; border: none;">New Brewing Stand which lets you brew a new variety of Potions.</td>
     </tr>
   </tbody>
