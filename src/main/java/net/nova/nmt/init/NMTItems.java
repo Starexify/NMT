@@ -24,4 +24,9 @@ public class NMTItems {
     public static final DeferredItem<Item> SPLASH_OBSIDIAN_POTION = ITEMS.register("splash_obsidian_potion", () -> new SplashObsidianPotionItem(new Item.Properties().stacksTo(1).component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.LAVA)).fireResistant()));
     public static final DeferredItem<Item> LINGERING_OBSIDIAN_POTION = ITEMS.register("lingering_obsidian_potion", () -> new LingeringObsidianPotionItem(new Item.Properties().stacksTo(1).component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.LAVA)).fireResistant()));
     public static final DeferredItem<Item> OBSIDIAN_TIPPED_ARROW = ITEMS.register("obsidian_tipped_arrow", () -> new TippedArrowItem(new Item.Properties().component(DataComponents.POTION_CONTENTS, new PotionContents(NMTPotions.LAVA))));
+
+    // Tear of the Nether
+    public static final DeferredItem<Item> TEAR_OF_THE_NETHER = ITEMS.register("tear_of_the_nether", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> BLAZING_WITHER_SOUL = ITEMS.register("blazing_wither_soul", () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> HEART_OF_THE_HELL = ITEMS.register("blazing_wither_soul", () -> new Item(new Item.Properties()));
 }

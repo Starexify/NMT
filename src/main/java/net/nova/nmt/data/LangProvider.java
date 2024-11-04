@@ -84,6 +84,10 @@ public class LangProvider extends LanguageProvider {
         addObsidianPotion(NMTItems.OBSIDIAN_TIPPED_ARROW, NMTPotions.UNLUCK, "Arrow of Unluck");
         addObsidianPotion(NMTItems.OBSIDIAN_TIPPED_ARROW, NMTPotions.WITHERING, "Arrow of Withering");
 
+        addItem(NMTItems.TEAR_OF_THE_NETHER, "Tear of the Nether");
+        addItem(NMTItems.BLAZING_WITHER_SOUL, "Blazing Wither Soul");
+        addItem(NMTItems.HEART_OF_THE_HELL, "Heart of the Hell");
+
         // Creative Tab
         add(CreativeTab.MAIN_TAB_TITLE, "No More Things");
         add(CreativeTab.POTIONS_TAB_TITLE, "No More Things Potions");

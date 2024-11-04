@@ -21,7 +21,7 @@ public class CreativeTab {
     public static String POTIONS_TAB_TITLE = MODID + ".creativetab.potions";
 
     public static final Holder<CreativeModeTab> MAIN_TAB = CREATIVE_TAB.register("no_more_things_tab", () -> CreativeModeTab.builder()
-            .icon(() -> new ItemStack(NMTBlocks.ENDER_WART_BLOCK.get())).title(Component.translatable(MAIN_TAB_TITLE))
+            .icon(() -> new ItemStack(NMTItems.TEAR_OF_THE_NETHER.get())).title(Component.translatable(MAIN_TAB_TITLE))
             .withTabsAfter(CreativeTab.POTIONS_TAB.getKey())
             .displayItems((itemDisplayParameters, output) -> {
                 // Blocks
@@ -33,6 +33,10 @@ public class CreativeTab {
                 output.accept(NMTBlocks.ENDER_WART_BLOCK);
                 output.accept(NMTItems.ENDER_WART);
 
+                // Tear of the Nether
+                output.accept(NMTItems.TEAR_OF_THE_NETHER);
+                output.accept(NMTItems.BLAZING_WITHER_SOUL);
+                output.accept(NMTItems.HEART_OF_THE_HELL);
             }).build()
     );
 
@@ -53,7 +57,7 @@ public class CreativeTab {
             }).build()
     );
 
-    private static void generatePotionEffectTypes(CreativeModeTab.Output output, Item item) {
+    public static void generatePotionEffectTypes(CreativeModeTab.Output output, Item item) {
         NMTPotions.POTIONS.getEntries().stream()
                 .map(potion -> PotionContents.createItemStack(item, potion))
                 .forEach(itemStack -> output.accept(itemStack, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS));
