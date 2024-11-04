@@ -4,6 +4,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.nova.nmt.entity.projectile.FireballProjectile;
 import net.nova.nmt.entity.projectile.ThrownObsidianPotion;
 
 import java.util.function.Supplier;
@@ -20,4 +21,13 @@ public class NMTEntityType {
                     .updateInterval(10)
                     .build("obsidian_potion")
     );
+
+    public static final Supplier<EntityType<FireballProjectile>> FIREBALL_PROJECTILE = ENTITY_TYPES.register("fireball_projectile",
+            () -> EntityType.Builder.<FireballProjectile>of(FireballProjectile::new, MobCategory.MISC)
+                    .sized(0.25F, 0.25F)
+                    .clientTrackingRange(4)
+                    .updateInterval(10)
+                    .build("fireball_projectile")
+    );
+
 }
