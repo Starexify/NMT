@@ -8,6 +8,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
+import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.brewing.BrewingRecipeRegistry;
@@ -22,10 +23,10 @@ import java.util.Optional;
 
 public class EnderPotionBrewing {
     public static final EnderPotionBrewing EMPTY = new EnderPotionBrewing(List.of(), List.of(), List.of());
-    private final List<Ingredient> containers;
-    private final List<EnderPotionBrewing.Mix<Potion>> potionMixes;
-    private final List<EnderPotionBrewing.Mix<Item>> containerMixes;
-    private final BrewingRecipeRegistry registry;
+    public final List<Ingredient> containers;
+    public final List<EnderPotionBrewing.Mix<Potion>> potionMixes;
+    public final List<EnderPotionBrewing.Mix<Item>> containerMixes;
+    public final BrewingRecipeRegistry registry;
 
     EnderPotionBrewing(List<Ingredient> containers, List<EnderPotionBrewing.Mix<Potion>> potionMixes, List<EnderPotionBrewing.Mix<Item>> containerMixes) {
         this(containers, potionMixes, containerMixes, List.of());
@@ -68,6 +69,16 @@ public class EnderPotionBrewing {
     public boolean isPotionIngredient(ItemStack stack) {
         for (EnderPotionBrewing.Mix<Potion> mix : this.potionMixes) {
             if (mix.ingredient.test(stack)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean isBrewablePotion(Holder<Potion> potion) {
+        for (EnderPotionBrewing.Mix<Potion> mix : this.potionMixes) {
+            if (mix.to.is(potion)) {
                 return true;
             }
         }
@@ -191,7 +202,7 @@ public class EnderPotionBrewing {
             this.enabledFeatures = enabledFeatures;
         }
 
-        private static void expectPotion(Item item) {
+        public static void expectPotion(Item item) {
             if (!(item instanceof ObsidianPotionItem)) {
                 throw new IllegalArgumentException("Expected a potion, got: " + BuiltInRegistries.ITEM.getKey(item));
             }
@@ -240,7 +251,7 @@ public class EnderPotionBrewing {
         }
     }
 
-    record Mix<T>(Holder<T> from, Ingredient ingredient, Holder<T> to, boolean preserveEffect) {
+    public record Mix<T>(Holder<T> from, Ingredient ingredient, Holder<T> to, boolean preserveEffect) {
         public Mix(Holder<T> from, Ingredient ingredient, Holder<T> to) {
             this(from, ingredient, to, false);
         }

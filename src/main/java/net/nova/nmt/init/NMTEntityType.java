@@ -22,12 +22,12 @@ public class NMTEntityType {
                     .build("obsidian_potion")
     );
 
-    public static final Supplier<EntityType<FireballProjectile>> FIREBALL_PROJECTILE = ENTITY_TYPES.register("fireball_projectile",
+/*    public static final Supplier<EntityType<FireballProjectile>> FIREBALL_PROJECTILE = ENTITY_TYPES.register("fireball_projectile",
             () -> EntityType.Builder.<FireballProjectile>of(FireballProjectile::new, MobCategory.MISC)
                     .sized(0.25F, 0.25F)
                     .clientTrackingRange(4)
                     .updateInterval(10)
                     .build("fireball_projectile")
-    );
+    );*/
 
 }

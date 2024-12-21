@@ -97,6 +97,9 @@ public class LangProvider extends LanguageProvider {
 
         // Block Entity
         add("container.ender_brewing", "Ender Brewing Stand");
+
+        // EMI
+        add("emi.category.nmt.ender_brewing", "Ender Brewing");
     }
 
     public void addObsidianPotion(Supplier<? extends Item> key, Holder<Potion> potionName, String name) {
