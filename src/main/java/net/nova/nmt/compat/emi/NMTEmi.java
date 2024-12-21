@@ -1,12 +1,11 @@
 package net.nova.nmt.compat.emi;
 
-import com.google.common.collect.Lists;
 import dev.emi.emi.api.EmiEntrypoint;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
-import dev.emi.emi.api.recipe.EmiCraftingRecipe;
 import dev.emi.emi.api.recipe.EmiRecipe;
 import dev.emi.emi.api.recipe.EmiRecipeCategory;
+import dev.emi.emi.api.recipe.EmiRecipeSorting;
 import dev.emi.emi.api.recipe.EmiWorldInteractionRecipe;
 import dev.emi.emi.api.render.EmiTexture;
 import dev.emi.emi.api.stack.EmiIngredient;
@@ -16,28 +15,27 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionContents;
-import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.item.crafting.*;
-import net.minecraft.world.level.block.ShulkerBoxBlock;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.material.Fluids;
 import net.nova.nmt.NoMoreThings;
 import net.nova.nmt.init.NMTBlocks;
 import net.nova.nmt.init.NMTItems;
 import net.nova.nmt.init.NMTPotions;
+import net.nova.nmt.item.ObsidianPotionItem;
 import net.nova.nmt.recipe.EnderPotionBrewing;
-import net.nova.nmt.recipe.ObsidianTippedArrowRecipe;
 
-import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 @EmiEntrypoint
 public class NMTEmi implements EmiPlugin {
     public static final EmiRecipeCategory ENDER_BREWING = new EmiRecipeCategory(NoMoreThings.rl("ender_brewing"), EmiStack.of(NMTBlocks.ENDER_BREWING_STAND),
-            new EmiTexture(NoMoreThings.rl("textures/gui/emi_simplified_textures.png"), 0, 0, 16, 16));
+            new EmiTexture(id("emi", "textures/gui/widgets.png"), 224, 224, 16, 16), EmiRecipeSorting.none());
 
     @Override
     public void register(EmiRegistry registry) {
@@ -87,7 +85,7 @@ public class NMTEmi implements EmiPlugin {
                                     EmiStack.of(setPotion(new ItemStack(recipe.to().value()), potion)), id));
                         }
                     };
-                    if ((recipe.from().value() instanceof PotionItem)) {
+                    if ((recipe.from().value() instanceof ObsidianPotionItem)) {
                         BuiltInRegistries.POTION.holders().forEach(potionRecipeGen);
                     } else {
                         potionRecipeGen.accept(NMTPotions.AWFULLY);
