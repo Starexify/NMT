@@ -192,11 +192,11 @@ public class EnderPotionBrewing {
     }
 
     public static class Builder {
-        private final List<Ingredient> containers = new ArrayList<>();
-        private final List<EnderPotionBrewing.Mix<Potion>> potionMixes = new ArrayList<>();
-        private final List<EnderPotionBrewing.Mix<Item>> containerMixes = new ArrayList<>();
-        private final List<IBrewingRecipe> recipes = new ArrayList<>();
-        private final FeatureFlagSet enabledFeatures;
+        public final List<Ingredient> containers = new ArrayList<>();
+        public final List<EnderPotionBrewing.Mix<Potion>> potionMixes = new ArrayList<>();
+        public final List<EnderPotionBrewing.Mix<Item>> containerMixes = new ArrayList<>();
+        public final List<IBrewingRecipe> recipes = new ArrayList<>();
+        public final FeatureFlagSet enabledFeatures;
 
         public Builder(FeatureFlagSet enabledFeatures) {
             this.enabledFeatures = enabledFeatures;
