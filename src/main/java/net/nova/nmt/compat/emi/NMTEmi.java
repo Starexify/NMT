@@ -1,13 +1,13 @@
 package net.nova.nmt.compat.emi;
 
+import com.google.common.collect.Lists;
 import dev.emi.emi.api.EmiEntrypoint;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
+import dev.emi.emi.api.recipe.EmiCraftingRecipe;
 import dev.emi.emi.api.recipe.EmiRecipe;
 import dev.emi.emi.api.recipe.EmiRecipeCategory;
-import dev.emi.emi.api.recipe.EmiRecipeSorting;
 import dev.emi.emi.api.recipe.EmiWorldInteractionRecipe;
-import dev.emi.emi.api.render.EmiRenderable;
 import dev.emi.emi.api.render.EmiTexture;
 import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
@@ -16,32 +16,23 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.PotionItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.level.block.ShulkerBoxBlock;
 import net.minecraft.world.level.material.Fluids;
-import net.neoforged.neoforge.common.brewing.BrewingRecipe;
-import net.neoforged.neoforge.common.brewing.IBrewingRecipe;
 import net.nova.nmt.NoMoreThings;
 import net.nova.nmt.init.NMTBlocks;
 import net.nova.nmt.init.NMTItems;
 import net.nova.nmt.init.NMTPotions;
 import net.nova.nmt.recipe.EnderPotionBrewing;
+import net.nova.nmt.recipe.ObsidianTippedArrowRecipe;
 
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
-
-import static dev.emi.emi.api.recipe.VanillaEmiRecipeCategories.*;
-import static dev.emi.emi.api.recipe.VanillaEmiRecipeCategories.INFO;
-import static net.nova.nmt.NoMoreThings.MODID;
 
 @EmiEntrypoint
 public class NMTEmi implements EmiPlugin {
@@ -65,7 +56,7 @@ public class NMTEmi implements EmiPlugin {
                 for (EnderPotionBrewing.Mix<Potion> recipe : enderBrewing.potionMixes) {
                     try {
                         if (recipe.ingredient().getItems().length > 0) {
-                            ResourceLocation id = NoMoreThings.rl("/ender_brewing/" + pid
+                            ResourceLocation id = id("emi", "/ender_brewing/" + pid
                                     + "/" + subId(recipe.ingredient().getItems()[0].getItem())
                                     + "/" + subId(BuiltInRegistries.POTION.getKey(recipe.from().value()))
                                     + "/" + subId(BuiltInRegistries.POTION.getKey(recipe.to().value())));
@@ -89,7 +80,7 @@ public class NMTEmi implements EmiPlugin {
                     Consumer<Holder<Potion>> potionRecipeGen = entry -> {
                         Potion potion = entry.value();
                         if (enderBrewing.isBrewablePotion(entry)) {
-                            ResourceLocation id = NoMoreThings.rl("/ender_brewing/item/"
+                            ResourceLocation id = id("emi", "/ender_brewing/item/"
                                     + subId(entry.unwrapKey().get().location()) + "/" + gid + "/" + iid + "/" + oid);
                             registry.addRecipe(new EmiEnderBrewingRecipe(
                                     EmiStack.of(setPotion(new ItemStack(recipe.from().value()), potion)), EmiIngredient.of(recipe.ingredient()),
@@ -99,7 +90,7 @@ public class NMTEmi implements EmiPlugin {
                     if ((recipe.from().value() instanceof PotionItem)) {
                         BuiltInRegistries.POTION.holders().forEach(potionRecipeGen);
                     } else {
-                        potionRecipeGen.accept(Potions.AWKWARD);
+                        potionRecipeGen.accept(NMTPotions.AWFULLY);
                     }
 
                 }
@@ -110,9 +101,7 @@ public class NMTEmi implements EmiPlugin {
     }
 
     public static void addWorldInteraction(EmiRegistry registry) {
-        EmiStack lava = EmiStack.of(Fluids.LAVA, 1000);
-
-        addRecipeSafe(registry, () -> basicWorld(EmiStack.of(NMTItems.OBSIDIAN_GLASS_BOTTLE), lava,
+        addRecipeSafe(registry, () -> basicWorld(EmiStack.of(NMTItems.OBSIDIAN_GLASS_BOTTLE), EmiStack.of(Fluids.LAVA, 1000),
                 EmiStack.of(setPotion(new ItemStack(NMTItems.OBSIDIAN_POTION.get()), NMTPotions.LAVA.value())),
                 synthetic("world/unique", "nmt/lava_bottle")));
 
@@ -135,8 +124,12 @@ public class NMTEmi implements EmiPlugin {
         return stack;
     }
 
+    public static ResourceLocation id(String namespace, String path) {
+        return ResourceLocation.fromNamespaceAndPath(namespace, path);
+    }
+
     public static ResourceLocation synthetic(String type, String name) {
-        return NoMoreThings.rl("/" + type + "/" + name);
+        return id("emi", "/" + type + "/" + name);
     }
 
     public static void addRecipeSafe(EmiRegistry registry, Supplier<EmiRecipe> supplier) {
