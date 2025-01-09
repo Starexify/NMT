@@ -16,7 +16,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.entity.BrewingStandBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -72,7 +71,7 @@ public class EnderBrewingStandBlock extends BaseEntityBlock {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (!level.isClientSide && level.getBlockEntity(pos) instanceof BrewingStandBlockEntity brewingstandblockentity) {
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof EnderBrewingStandBlockEntity brewingstandblockentity) {
             player.openMenu(brewingstandblockentity);
             player.awardStat(Stats.INTERACT_WITH_BREWINGSTAND);
         }
