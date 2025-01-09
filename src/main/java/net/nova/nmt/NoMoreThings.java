@@ -6,7 +6,6 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.registries.RegisterEvent;
-import net.nova.nmt.data.DataGenerators;
 import net.nova.nmt.init.*;
 import net.nova.nmt.recipe.EnderPotionBrewing;
 import org.slf4j.Logger;
@@ -35,7 +34,6 @@ public class NoMoreThings {
         NMTEntityType.ENTITY_TYPES.register(bus);
         NMTRecipeSerializers.RECIPE_SERIALIZERS.register(bus);
 
-        bus.addListener(DataGenerators::gatherData);
         bus.addListener(this::onRegisterComplete);
     }
 

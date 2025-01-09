@@ -13,10 +13,10 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BrewingStandBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -43,7 +43,6 @@ public class EnderBrewingStandBlock extends BaseEntityBlock {
         return CODEC;
     }
 
-
     public EnderBrewingStandBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(
@@ -53,11 +52,6 @@ public class EnderBrewingStandBlock extends BaseEntityBlock {
                         .setValue(HAS_BOTTLE[1], Boolean.FALSE)
                         .setValue(HAS_BOTTLE[2], Boolean.FALSE)
         );
-    }
-
-    @Override
-    protected RenderShape getRenderShape(BlockState state) {
-        return RenderShape.MODEL;
     }
 
     @Override
@@ -78,17 +72,12 @@ public class EnderBrewingStandBlock extends BaseEntityBlock {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (level.isClientSide) {
-            return InteractionResult.SUCCESS;
-        } else {
-            BlockEntity blockentity = level.getBlockEntity(pos);
-            if (blockentity instanceof EnderBrewingStandBlockEntity) {
-                player.openMenu((EnderBrewingStandBlockEntity) blockentity);
-                player.awardStat(Stats.INTERACT_WITH_BREWINGSTAND);
-            }
-
-            return InteractionResult.CONSUME;
+        if (!level.isClientSide && level.getBlockEntity(pos) instanceof BrewingStandBlockEntity brewingstandblockentity) {
+            player.openMenu(brewingstandblockentity);
+            player.awardStat(Stats.INTERACT_WITH_BREWINGSTAND);
         }
+
+        return InteractionResult.SUCCESS;
     }
 
     @Override

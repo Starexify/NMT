@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/brewing_stand_empty0",
+  "textures": {
+    "particle": "nmt:block/ender_brewing_stand",
+    "stand": "nmt:block/ender_brewing_stand"
+  }
+}

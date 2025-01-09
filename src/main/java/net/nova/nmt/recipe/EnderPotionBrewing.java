@@ -8,7 +8,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
-import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.brewing.BrewingRecipeRegistry;
@@ -242,12 +241,7 @@ public class EnderPotionBrewing {
         }
 
         public EnderPotionBrewing build() {
-            return new EnderPotionBrewing(
-                    List.copyOf(this.containers),
-                    List.copyOf(this.potionMixes),
-                    List.copyOf(this.containerMixes),
-                    List.copyOf(this.recipes)
-            );
+            return new EnderPotionBrewing(List.copyOf(this.containers), List.copyOf(this.potionMixes), List.copyOf(this.containerMixes), List.copyOf(this.recipes));
         }
     }
 

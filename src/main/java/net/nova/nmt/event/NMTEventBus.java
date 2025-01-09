@@ -12,8 +12,10 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.world.ItemInteractionResult;
-import net.minecraft.world.item.*;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
@@ -106,7 +108,7 @@ public class NMTEventBus {
                     level.playSound(null, pos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
                     level.gameEvent(null, GameEvent.FLUID_PICKUP, pos);
                 }
-                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+                return InteractionResult.SUCCESS;
             });
             CauldronInteraction.EMPTY.map().put(NMTItems.OBSIDIAN_POTION.get(), (state, level, pos, player, hand, emptyStack) -> {
                 PotionContents potioncontents = emptyStack.get(DataComponents.POTION_CONTENTS);
@@ -120,9 +122,9 @@ public class NMTEventBus {
                         level.playSound(null, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
                         level.gameEvent(null, GameEvent.FLUID_PLACE, pos);
                     }
-                    return ItemInteractionResult.sidedSuccess(level.isClientSide);
+                    return InteractionResult.SUCCESS;
                 } else {
-                    return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+                    return InteractionResult.TRY_WITH_EMPTY_HAND;
                 }
             });
         });

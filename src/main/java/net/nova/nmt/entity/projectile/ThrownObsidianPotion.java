@@ -13,7 +13,6 @@ import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileDeflection;
 import net.minecraft.world.entity.projectile.ThrownPotion;
@@ -32,16 +31,16 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class ThrownObsidianPotion extends ThrownPotion {
-    public ThrownObsidianPotion(EntityType<? extends ThrownPotion> entityType, Level level) {
+    public ThrownObsidianPotion(EntityType<? extends ThrownObsidianPotion> entityType, Level level) {
         super(entityType, level);
     }
 
-    public ThrownObsidianPotion(Level level, Player player) {
-        super(level, player);
+    public ThrownObsidianPotion(Level level, LivingEntity owner, ItemStack item) {
+        super(level, owner, item);
     }
 
-    public ThrownObsidianPotion(Level level, double x, double y, double z) {
-        super(level, x, y, z);
+    public ThrownObsidianPotion(Level level, double x, double y, double z, ItemStack item) {
+        super(level, x, y, z, item);
     }
 
     @Override
@@ -63,28 +62,16 @@ public class ThrownObsidianPotion extends ThrownPotion {
             this.level().gameEvent(GameEvent.PROJECTILE_LAND, blockpos, GameEvent.Context.of(this, this.level().getBlockState(blockpos)));
         }
 
-        if (!this.level().isClientSide) {
+        if (this.level() instanceof ServerLevel serverlevel) {
             ItemStack itemstack = this.getItem();
-            BlockPos pos = this.blockPosition();
             PotionContents potioncontents = itemstack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
             if (potioncontents.hasEffects()) {
                 if (this.isLingering()) {
-                    if (potioncontents.is(NMTPotions.LAVA)) {
-                        ServerLevel level = (ServerLevel) this.level();
-                        level.sendParticles(
-                                ParticleTypes.FLAME,
-                                pos.getX(), pos.getY(), pos.getZ(),
-                                50,
-                                1.0,
-                                0.5,
-                                1.0,
-                                0.1
-                        );
-                    }
+                    if (potioncontents.is(NMTPotions.LAVA))
+                        serverlevel.sendParticles(ParticleTypes.FLAME, getX(), getY(), getZ(), 50, 1.0, 0.5, 1.0, 0.1);
                     this.makeAreaOfEffectCloud(potioncontents);
                 } else {
-                    this.applySplash(
-                            potioncontents.getAllEffects(), result.getType() == HitResult.Type.ENTITY ? ((EntityHitResult) result).getEntity() : null
+                    this.applySplash(serverlevel, potioncontents.getAllEffects(), result.getType() == HitResult.Type.ENTITY ? ((EntityHitResult) result).getEntity() : null
                     );
                 }
 
@@ -94,19 +81,17 @@ public class ThrownObsidianPotion extends ThrownPotion {
             }
 
             if (potioncontents.is(NMTPotions.AWFULLY)) {
-                this.applySplash(
-                        potioncontents.getAllEffects(), result.getType() == HitResult.Type.ENTITY ? ((EntityHitResult) result).getEntity() : null
-                );
+                this.applySplash(serverlevel, potioncontents.getAllEffects(), result.getType() == HitResult.Type.ENTITY ? ((EntityHitResult) result).getEntity() : null);
                 int i = potioncontents.potion().isPresent() && potioncontents.potion().get().value().hasInstantEffects() ? 2007 : 2002;
-                this.level().levelEvent(i, this.blockPosition(), TextColor.parseColor("#f36000").getOrThrow().getValue());
+                serverlevel.levelEvent(i, this.blockPosition(), TextColor.parseColor("#f36000").getOrThrow().getValue());
                 this.discard();
             }
         }
     }
 
-    private void applySplash(Iterable<MobEffectInstance> effects, @Nullable Entity p_entity) {
+    private void applySplash(ServerLevel level, Iterable<MobEffectInstance> effects, @Nullable Entity p_entity) {
         AABB aabb = this.getBoundingBox().inflate(4.0, 2.0, 4.0);
-        List<LivingEntity> list = this.level().getEntitiesOfClass(LivingEntity.class, aabb);
+        List<LivingEntity> list = level.getEntitiesOfClass(LivingEntity.class, aabb);
         if (!list.isEmpty()) {
             Entity entity = this.getEffectSource();
 
@@ -124,7 +109,7 @@ public class ThrownObsidianPotion extends ThrownPotion {
                         for (MobEffectInstance mobeffectinstance : effects) {
                             Holder<MobEffect> holder = mobeffectinstance.getEffect();
                             if (holder.value().isInstantenous()) {
-                                holder.value().applyInstantenousEffect(this, this.getOwner(), livingentity, mobeffectinstance.getAmplifier(), d1);
+                                holder.value().applyInstantenousEffect(level, this, this.getOwner(), livingentity, mobeffectinstance.getAmplifier(), d1);
                             } else {
                                 int i = mobeffectinstance.mapDuration(p_267930_ -> (int) (d1 * (double) p_267930_ + 0.5));
                                 MobEffectInstance mobeffectinstance1 = new MobEffectInstance(

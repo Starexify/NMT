@@ -3,13 +3,16 @@ package net.nova.nmt.gui.ender_brewing_stand;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.*;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
@@ -27,7 +30,7 @@ public class EnderBrewingStandMenu extends AbstractContainerMenu {
     private final ContainerData brewingStandData;
     private final Slot ingredientSlot;
 
-    public EnderBrewingStandMenu(int containerId, Inventory playerInventory, FriendlyByteBuf extraData) {
+    public EnderBrewingStandMenu(int containerId, Inventory playerInventory, RegistryFriendlyByteBuf extraData) {
         this(containerId, playerInventory, new SimpleContainer(5), new SimpleContainerData(2));
     }
 
@@ -38,20 +41,17 @@ public class EnderBrewingStandMenu extends AbstractContainerMenu {
         this.brewingStand = brewingStandContainer;
         this.brewingStandData = brewingStandData;
         EnderPotionBrewing potionbrewing = NoMoreThings.getEnderBrewing();
-
         this.addSlot(new EnderBrewingStandMenu.PotionSlot(potionbrewing, brewingStandContainer, 0, 56, 51));
         this.addSlot(new EnderBrewingStandMenu.PotionSlot(potionbrewing, brewingStandContainer, 1, 79, 58));
         this.addSlot(new EnderBrewingStandMenu.PotionSlot(potionbrewing, brewingStandContainer, 2, 102, 51));
         this.ingredientSlot = this.addSlot(new EnderBrewingStandMenu.IngredientsSlot(potionbrewing, brewingStandContainer, 3, 79, 17));
         this.addSlot(new EnderBrewingStandMenu.FuelSlot(brewingStandContainer, 4, 17, 17));
         this.addDataSlots(brewingStandData);
-
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
                 this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
             }
         }
-
         for (int k = 0; k < 9; k++) {
             this.addSlot(new Slot(playerInventory, k, 8 + k * 18, 142));
         }

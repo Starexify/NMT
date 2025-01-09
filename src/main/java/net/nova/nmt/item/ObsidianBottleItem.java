@@ -6,7 +6,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -24,27 +24,24 @@ public class ObsidianBottleItem extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         BlockHitResult blockhitresult = getPlayerPOVHitResult(level, player, ClipContext.Fluid.SOURCE_ONLY);
-
         if (blockhitresult.getType() == HitResult.Type.BLOCK) {
             BlockPos blockpos = blockhitresult.getBlockPos();
             if (!level.mayInteract(player, blockpos)) {
-                return InteractionResultHolder.pass(itemstack);
+                return InteractionResult.PASS;
             }
 
             if (level.getFluidState(blockpos).is(FluidTags.LAVA)) {
                 level.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.BOTTLE_FILL, SoundSource.NEUTRAL, 1.0F, 1.0F);
                 level.gameEvent(player, GameEvent.FLUID_PICKUP, blockpos);
 
-                return InteractionResultHolder.sidedSuccess(
-                        this.turnBottleIntoItem(itemstack, player, new ItemStack(NMTItems.OBSIDIAN_POTION.get())), level.isClientSide()
-                );
+                return InteractionResult.SUCCESS.heldItemTransformedTo(this.turnBottleIntoItem(itemstack, player, new ItemStack(NMTItems.OBSIDIAN_POTION.get())));
             }
         }
 
-        return InteractionResultHolder.pass(itemstack);
+        return InteractionResult.PASS;
     }
 
     protected ItemStack turnBottleIntoItem(ItemStack bottleStack, Player player, ItemStack filledBottleStack) {

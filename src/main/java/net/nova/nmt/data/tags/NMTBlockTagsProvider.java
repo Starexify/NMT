@@ -4,7 +4,6 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.nova.nmt.init.NMTBlocks;
 
 import java.util.concurrent.CompletableFuture;
@@ -12,8 +11,8 @@ import java.util.concurrent.CompletableFuture;
 import static net.nova.nmt.NoMoreThings.MODID;
 
 public class NMTBlockTagsProvider extends BlockTagsProvider {
-    public NMTBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
-        super(output, lookupProvider, MODID, existingFileHelper);
+    public NMTBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(output, lookupProvider, MODID);
     }
 
     @Override

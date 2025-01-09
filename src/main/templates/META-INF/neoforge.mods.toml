@@ -1,0 +1,45 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+
+# A URL to query for updates for this mod. See the JSON update specification https://docs.neoforged.net/docs/misc/updatechecker/
+#updateJSONURL="https://change.me.example.invalid/updates.json"
+
+displayURL="https://github.com/Starexify/NMT"
+issueTrackerURL="https://github.com/Starexify/NMT/issues"
+logoFile= "../../resources/nmt_logo.png"
+#credits=""
+authors="${mod_authors}"
+description='''${mod_description}'''
+
+[modproperties.modmenu]
+#links=["big_swords_r.modrinth=modrinth.com/mod/big-swords-r", "big_swords_r.curseforge=www.curseforge.com/minecraft/mc-mods/big-swords-r", "big_swords_r.wiki=https://github.com/Starexify/BigSwordsR/wiki"]
+sources="https://github.com/Starexify/NMT"
+
+[[mixins]]
+config="nmt.mixins.json"
+
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="${neo_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+# Features are specific properties of the game environment, that you may want to declare you require. This example declares
+# that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't
+# stop your mod loading on the server for example.
+#[features.${mod_id}]
+#openGLVersion="[3.2,)"

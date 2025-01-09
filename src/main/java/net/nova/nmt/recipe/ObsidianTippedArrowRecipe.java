@@ -18,7 +18,7 @@ public class ObsidianTippedArrowRecipe extends CustomRecipe {
     }
 
     public boolean matches(CraftingInput input, Level level) {
-        if (input.width() == 3 && input.height() == 3) {
+        if (input.width() == 3 && input.height() == 3 && input.ingredientCount() == 9) {
             for (int i = 0; i < input.height(); i++) {
                 for (int j = 0; j < input.width(); j++) {
                     ItemStack itemstack = input.getItem(j, i);
@@ -54,12 +54,7 @@ public class ObsidianTippedArrowRecipe extends CustomRecipe {
     }
 
     @Override
-    public boolean canCraftInDimensions(int width, int height) {
-        return width >= 3 && height >= 3;
-    }
-
-    @Override
-    public RecipeSerializer<?> getSerializer() {
+    public RecipeSerializer<ObsidianTippedArrowRecipe> getSerializer() {
         return NMTRecipeSerializers.OBSIDIAN_TIPPED_ARROW.get();
     }
 }

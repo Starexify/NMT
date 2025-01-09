@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "stained_glass_pane",
   "key": {
-    "#": {
-      "item": "nmt:obsidian_glass"
-    }
+    "#": "nmt:obsidian_glass"
   },
   "pattern": [
     "###",

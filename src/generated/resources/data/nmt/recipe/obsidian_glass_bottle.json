@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "nmt:obsidian_glass"
-    }
+    "#": "nmt:obsidian_glass"
   },
   "pattern": [
     "# #",

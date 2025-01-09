@@ -3,12 +3,8 @@
   "category": "building",
   "group": "obsidian_glass",
   "key": {
-    "#": {
-      "item": "minecraft:obsidian"
-    },
-    "O": {
-      "tag": "c:glass_blocks/cheap"
-    }
+    "#": "minecraft:obsidian",
+    "O": "#c:glass_blocks/cheap"
   },
   "pattern": [
     "###",

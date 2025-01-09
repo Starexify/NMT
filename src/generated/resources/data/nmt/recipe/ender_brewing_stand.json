@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:obsidian"
-    },
-    "B": {
-      "item": "minecraft:end_rod"
-    },
-    "S": {
-      "item": "minecraft:brewing_stand"
-    }
+    "#": "minecraft:obsidian",
+    "B": "minecraft:end_rod",
+    "S": "minecraft:brewing_stand"
   },
   "pattern": [
     " B ",

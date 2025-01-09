@@ -15,7 +15,7 @@ public class NMTDataMapProvider extends DataMapProvider {
     }
 
     @Override
-    protected void gather() {
+    protected void gather(HolderLookup.Provider provider) {
         builder(NeoForgeDataMaps.COMPOSTABLES)
                 .add(NMTItems.ENDER_WART, new Compostable(0.65F), false);
     }

@@ -44,7 +44,6 @@ public class EnderBrewingStandBlockEntity extends BaseContainerBlockEntity imple
     private boolean[] lastPotionCount;
     private Item ingredient;
     int fuel;
-
     protected final ContainerData dataAccess = new ContainerData() {
         @Override
         public int get(int p_59038_) {
@@ -178,16 +177,15 @@ public class EnderBrewingStandBlockEntity extends BaseContainerBlockEntity imple
             items.set(i, potionbrewing.mix(itemstack, items.get(i)));
         }
 
-        if (itemstack.hasCraftingRemainingItem()) {
-            ItemStack itemstack1 = itemstack.getCraftingRemainingItem();
-            itemstack.shrink(1);
+        ItemStack itemstack1 = itemstack.getCraftingRemainder();
+        itemstack.shrink(1);
+        if (!itemstack1.isEmpty()) {
             if (itemstack.isEmpty()) {
                 itemstack = itemstack1;
             } else {
                 Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), itemstack1);
             }
         }
-        else itemstack.shrink(1);
 
         items.set(3, itemstack);
         level.levelEvent(1035, pos, 0);
@@ -209,9 +207,9 @@ public class EnderBrewingStandBlockEntity extends BaseContainerBlockEntity imple
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
-        tag.putShort("BrewTime", (short)this.brewTime);
+        tag.putShort("BrewTime", (short) this.brewTime);
         ContainerHelper.saveAllItems(tag, this.items, registries);
-        tag.putByte("Fuel", (byte)this.fuel);
+        tag.putByte("Fuel", (byte) this.fuel);
     }
 
     @Override

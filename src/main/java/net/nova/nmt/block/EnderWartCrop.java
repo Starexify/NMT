@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.NetherWartBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.CommonHooks;
+import net.nova.nmt.init.NMTBlocks;
 import net.nova.nmt.init.NMTItems;
 
 public class EnderWartCrop extends NetherWartBlock {
@@ -38,7 +39,7 @@ public class EnderWartCrop extends NetherWartBlock {
     }
 
     @Override
-    public ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state) {
-        return new ItemStack(NMTItems.ENDER_WART.get());
+    protected ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean bool) {
+        return new ItemStack(NMTBlocks.ENDER_WART.asItem());
     }
 }
