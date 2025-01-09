@@ -66,7 +66,7 @@ public class CraftingRecipes extends NMTRecipeProvider {
         SpecialRecipeBuilder.special(ObsidianTippedArrowRecipe::new).save(recipeOutput, NoMoreThings.rl("obsidian_tipped_arrow"));
 
         // Heart of the Hell
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, NMTItems.HEART_OF_THE_HELL)
+/*        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, NMTItems.HEART_OF_THE_HELL)
                 .group(getItemName(NMTBlocks.OBSIDIAN_GLASS))
                 .define('#', NMTItems.TEAR_OF_THE_NETHER)
                 .define('H', Items.HEART_OF_THE_SEA)
@@ -74,6 +74,6 @@ public class CraftingRecipes extends NMTRecipeProvider {
                 .pattern("#H#")
                 .pattern("###")
                 .unlockedBy("has_" + getItemName(NMTItems.TEAR_OF_THE_NETHER), has(NMTItems.TEAR_OF_THE_NETHER))
-                .save(recipeOutput);
+                .save(recipeOutput);*/
     }
 }

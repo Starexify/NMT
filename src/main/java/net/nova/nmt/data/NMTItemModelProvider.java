@@ -25,8 +25,8 @@ public class NMTItemModelProvider extends ItemModelProvider {
         potionItem(NMTItems.SPLASH_OBSIDIAN_POTION.get());
         potionItem(NMTItems.LINGERING_OBSIDIAN_POTION.get());
         tippedArrowItem(NMTItems.OBSIDIAN_TIPPED_ARROW.get());
-        basicItem(NMTItems.TEAR_OF_THE_NETHER.get());
-        basicItem(NMTItems.BLAZING_WITHER_SOUL.get());
+        /*basicItem(NMTItems.TEAR_OF_THE_NETHER.get());
+        basicItem(NMTItems.BLAZING_WITHER_SOUL.get());*/
     }
 
     // Models
