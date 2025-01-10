@@ -14,7 +14,7 @@ public class NMTModelProvider extends ModelProvider {
 
     @Override
     protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
-        new NMTBlockModelGenerator(blockModels.blockStateOutput, itemModels.itemModelOutput, blockModels.modelOutput).run();
+        new NMTBlockModelGenerator(blockModels.blockStateOutput, blockModels.itemModelOutput, blockModels.modelOutput).run();
         new NMTItemModelGenerator(itemModels.itemModelOutput, itemModels.modelOutput).run();
     }
 }

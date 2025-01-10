@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.nova.nmt.init.NMTBlocks;
+import org.w3c.dom.Text;
 
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -29,6 +30,7 @@ public class NMTBlockModelGenerator extends BlockModelGenerators {
     // Models
     public void createBrewingStand(Block block) {
         this.registerSimpleFlatItemModel(block.asItem());
+        this.registerSimpleItemModel(block.asItem(), TextureMapping.getBlockTexture(block));
         this.blockStateOutput.accept(MultiPartGenerator.multiPart(block).with(Variant.variant().with(VariantProperties.MODEL, TextureMapping.getBlockTexture(block))).with(Condition.condition().term(BlockStateProperties.HAS_BOTTLE_0, true), Variant.variant().with(VariantProperties.MODEL, TextureMapping.getBlockTexture(block, "_bottle0"))).with(Condition.condition().term(BlockStateProperties.HAS_BOTTLE_1, true), Variant.variant().with(VariantProperties.MODEL, TextureMapping.getBlockTexture(block, "_bottle1"))).with(Condition.condition().term(BlockStateProperties.HAS_BOTTLE_2, true), Variant.variant().with(VariantProperties.MODEL, TextureMapping.getBlockTexture(block, "_bottle2"))).with(Condition.condition().term(BlockStateProperties.HAS_BOTTLE_0, false), Variant.variant().with(VariantProperties.MODEL, TextureMapping.getBlockTexture(block, "_empty0"))).with(Condition.condition().term(BlockStateProperties.HAS_BOTTLE_1, false), Variant.variant().with(VariantProperties.MODEL, TextureMapping.getBlockTexture(block, "_empty1"))).with(Condition.condition().term(BlockStateProperties.HAS_BOTTLE_2, false), Variant.variant().with(VariantProperties.MODEL, TextureMapping.getBlockTexture(block, "_empty2"))));
     }
 }
