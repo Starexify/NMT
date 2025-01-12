@@ -7,6 +7,10 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.event.RegisterRangeSelectItemModelPropertyEvent;
+import net.neoforged.neoforge.client.event.RegisterSelectItemModelPropertyEvent;
+import net.nova.nmt.NoMoreThings;
+import net.nova.nmt.client.renderer.item.PotionContentsProperty;
 import net.nova.nmt.gui.ender_brewing_stand.EnderBrewingStandScreen;
 import net.nova.nmt.init.NMTBlocks;
 import net.nova.nmt.init.NMTMenuType;
@@ -30,5 +34,11 @@ public class NMTClientEventBus {
     @SubscribeEvent
     public static void registerScreens(RegisterMenuScreensEvent event) {
         event.register(NMTMenuType.ENDER_BREWING_STAND.get(), EnderBrewingStandScreen::new);
+    }
+
+    // Item Property
+    @SubscribeEvent
+    public static void addItemProperty(RegisterSelectItemModelPropertyEvent event) {
+        event.register(NoMoreThings.rl("potion_content"), PotionContentsProperty.TYPE);
     }
 }

@@ -19,7 +19,7 @@ public class NMTItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
 
     // Ender Wart
-    public static final DeferredItem<BlockItem> ENDER_WART = ITEMS.registerSimpleBlockItem(NMTBlocks.ENDER_WART);
+    public static final DeferredItem<BlockItem> ENDER_WART = ITEMS.registerItem("ender_wart", properties -> new BlockItem(NMTBlocks.ENDER_WART.get(), properties));
 
     // Obsidian Bottle
     public static final DeferredItem<Item> OBSIDIAN_GLASS_BOTTLE = ITEMS.registerItem("obsidian_glass_bottle", properties -> new ObsidianBottleItem(properties.fireResistant()));
