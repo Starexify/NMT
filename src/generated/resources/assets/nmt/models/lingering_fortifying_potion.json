@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "nmt:lingering_fortifying_potion"
+    "layer0": "nmt:item/lingering_fortifying_potion"
   }
 }

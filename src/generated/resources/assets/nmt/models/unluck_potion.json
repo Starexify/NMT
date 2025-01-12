@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "nmt:unluck_potion"
+    "layer0": "nmt:item/unluck_potion"
   }
 }

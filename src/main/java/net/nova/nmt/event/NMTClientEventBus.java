@@ -7,7 +7,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
-import net.neoforged.neoforge.client.event.RegisterRangeSelectItemModelPropertyEvent;
 import net.neoforged.neoforge.client.event.RegisterSelectItemModelPropertyEvent;
 import net.nova.nmt.NoMoreThings;
 import net.nova.nmt.client.renderer.item.PotionContentsProperty;
@@ -28,7 +27,6 @@ public class NMTClientEventBus {
         ItemBlockRenderTypes.setRenderLayer(NMTBlocks.OBSIDIAN_GLASS.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(NMTBlocks.OBSIDIAN_GLASS_PANE.get(), RenderType.translucent());
     }
-
 
     // Connect Screen to Menu
     @SubscribeEvent

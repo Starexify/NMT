@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "nmt:lingering_lava_bottle"
+    "layer0": "nmt:item/lingering_lava_bottle"
   }
 }

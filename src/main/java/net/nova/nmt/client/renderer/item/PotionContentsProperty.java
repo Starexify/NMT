@@ -29,7 +29,21 @@ public record PotionContentsProperty() implements SelectItemModelProperty<Resour
         if (contents == null || contents.potion().isEmpty()) {
             return null;
         }
-        return contents.potion().get().unwrapKey().orElse(null);
+        return contents.potion()
+                .filter(holder -> NMTPotions.POTIONS.getEntries().contains(holder))
+                .flatMap(holder -> {
+                    ResourceKey<Potion> key = holder.getKey();
+                    String potionPath = key.location().getPath();
+                    if (potionPath.startsWith("long_") || potionPath.startsWith("strong_")) {
+                        String baseName = potionPath.substring(potionPath.indexOf('_') + 1);
+                        return NMTPotions.POTIONS.getEntries().stream()
+                                .filter(p -> p.getKey().location().getPath().equals(baseName))
+                                .findFirst()
+                                .map(h -> h.unwrapKey().orElse(key));
+                    }
+                    return holder.unwrapKey();
+                })
+                .orElse(null);
     }
 
     public SelectItemModelProperty.Type<PotionContentsProperty, ResourceKey<Potion>> type() {

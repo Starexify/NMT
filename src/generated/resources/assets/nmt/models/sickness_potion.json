@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "nmt:sickness_potion"
+    "layer0": "nmt:item/sickness_potion"
   }
 }
