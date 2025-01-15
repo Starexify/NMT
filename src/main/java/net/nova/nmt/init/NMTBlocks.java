@@ -2,11 +2,12 @@ package net.nova.nmt.init;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.StainedGlassBlock;
+import net.minecraft.world.level.block.StainedGlassPaneBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -18,7 +19,6 @@ import net.nova.nmt.block.EnderBrewingStandBlock;
 import net.nova.nmt.block.EnderWartCrop;
 
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 import static net.nova.nmt.NoMoreThings.MODID;
 

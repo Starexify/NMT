@@ -5,91 +5,91 @@
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:lava_bottle"
+          "model": "nmt:item/lava_bottle"
         },
         "when": "nmt:lava"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:awfully_potion"
+          "model": "nmt:item/awfully_potion"
         },
         "when": "nmt:awfully"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:fortifying_potion"
+          "model": "nmt:item/fortifying_potion"
         },
         "when": "nmt:fortifying"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:cecity_potion"
+          "model": "nmt:item/cecity_potion"
         },
         "when": "nmt:cecity"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:dimness_potion"
+          "model": "nmt:item/dimness_potion"
         },
         "when": "nmt:dimness"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:quickness_potion"
+          "model": "nmt:item/quickness_potion"
         },
         "when": "nmt:quickness"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:titan_potion"
+          "model": "nmt:item/titan_potion"
         },
         "when": "nmt:titan"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:starvation_potion"
+          "model": "nmt:item/starvation_potion"
         },
         "when": "nmt:starvation"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:floating_potion"
+          "model": "nmt:item/floating_potion"
         },
         "when": "nmt:floating"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:exhaustion_potion"
+          "model": "nmt:item/exhaustion_potion"
         },
         "when": "nmt:exhaustion"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:sickness_potion"
+          "model": "nmt:item/sickness_potion"
         },
         "when": "nmt:sickness"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:unluck_potion"
+          "model": "nmt:item/unluck_potion"
         },
         "when": "nmt:unluck"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:withering_potion"
+          "model": "nmt:item/withering_potion"
         },
         "when": "nmt:withering"
       }

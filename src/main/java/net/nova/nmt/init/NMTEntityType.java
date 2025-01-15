@@ -5,7 +5,6 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.projectile.ThrownPotion;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.nova.nmt.NoMoreThings;
 import net.nova.nmt.entity.projectile.ThrownObsidianPotion;

@@ -5,91 +5,91 @@
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:lingering_lava_bottle"
+          "model": "nmt:item/lingering_lava_bottle"
         },
         "when": "nmt:lava"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:lingering_awfully_potion"
+          "model": "nmt:item/lingering_awfully_potion"
         },
         "when": "nmt:awfully"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:lingering_fortifying_potion"
+          "model": "nmt:item/lingering_fortifying_potion"
         },
         "when": "nmt:fortifying"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:lingering_cecity_potion"
+          "model": "nmt:item/lingering_cecity_potion"
         },
         "when": "nmt:cecity"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:lingering_dimness_potion"
+          "model": "nmt:item/lingering_dimness_potion"
         },
         "when": "nmt:dimness"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:lingering_quickness_potion"
+          "model": "nmt:item/lingering_quickness_potion"
         },
         "when": "nmt:quickness"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:lingering_titan_potion"
+          "model": "nmt:item/lingering_titan_potion"
         },
         "when": "nmt:titan"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:lingering_starvation_potion"
+          "model": "nmt:item/lingering_starvation_potion"
         },
         "when": "nmt:starvation"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:lingering_floating_potion"
+          "model": "nmt:item/lingering_floating_potion"
         },
         "when": "nmt:floating"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:lingering_exhaustion_potion"
+          "model": "nmt:item/lingering_exhaustion_potion"
         },
         "when": "nmt:exhaustion"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:lingering_sickness_potion"
+          "model": "nmt:item/lingering_sickness_potion"
         },
         "when": "nmt:sickness"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:lingering_unluck_potion"
+          "model": "nmt:item/lingering_unluck_potion"
         },
         "when": "nmt:unluck"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:lingering_withering_potion"
+          "model": "nmt:item/lingering_withering_potion"
         },
         "when": "nmt:withering"
       }

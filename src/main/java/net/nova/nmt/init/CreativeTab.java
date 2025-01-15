@@ -7,10 +7,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.alchemy.PotionContents;
-import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.function.Supplier;
 
 import static net.nova.nmt.NoMoreThings.MODID;
 
@@ -34,9 +31,9 @@ public class CreativeTab {
                 output.accept(NMTItems.ENDER_WART);
 
                 // Tear of the Nether
-                /*output.accept(NMTItems.TEAR_OF_THE_NETHER);
+                output.accept(NMTItems.TEAR_OF_THE_NETHER);
                 output.accept(NMTItems.BLAZING_WITHER_SOUL);
-                output.accept(NMTItems.HEART_OF_THE_HELL);*/
+                output.accept(NMTItems.HEART_OF_THE_HELL);
             }).build()
     );
 

@@ -5,91 +5,91 @@
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:lava_tipped_arrow"
+          "model": "nmt:item/lava_tipped_arrow"
         },
         "when": "nmt:lava"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:awfully_tipped_arrow"
+          "model": "nmt:item/awfully_tipped_arrow"
         },
         "when": "nmt:awfully"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:fortifying_tipped_arrow"
+          "model": "nmt:item/fortifying_tipped_arrow"
         },
         "when": "nmt:fortifying"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:cecity_tipped_arrow"
+          "model": "nmt:item/cecity_tipped_arrow"
         },
         "when": "nmt:cecity"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:dimness_tipped_arrow"
+          "model": "nmt:item/dimness_tipped_arrow"
         },
         "when": "nmt:dimness"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:quickness_tipped_arrow"
+          "model": "nmt:item/quickness_tipped_arrow"
         },
         "when": "nmt:quickness"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:titan_tipped_arrow"
+          "model": "nmt:item/titan_tipped_arrow"
         },
         "when": "nmt:titan"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:starvation_tipped_arrow"
+          "model": "nmt:item/starvation_tipped_arrow"
         },
         "when": "nmt:starvation"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:floating_tipped_arrow"
+          "model": "nmt:item/floating_tipped_arrow"
         },
         "when": "nmt:floating"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:exhaustion_tipped_arrow"
+          "model": "nmt:item/exhaustion_tipped_arrow"
         },
         "when": "nmt:exhaustion"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:sickness_tipped_arrow"
+          "model": "nmt:item/sickness_tipped_arrow"
         },
         "when": "nmt:sickness"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:unluck_tipped_arrow"
+          "model": "nmt:item/unluck_tipped_arrow"
         },
         "when": "nmt:unluck"
       },
       {
         "model": {
           "type": "minecraft:model",
-          "model": "nmt:withering_tipped_arrow"
+          "model": "nmt:item/withering_tipped_arrow"
         },
         "when": "nmt:withering"
       }

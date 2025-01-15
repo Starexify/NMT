@@ -13,6 +13,6 @@ public class NMTBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, MODID);
 
     public static final Supplier<BlockEntityType<EnderBrewingStandBlockEntity>> ENDER_BREWING_STAND = BLOCK_ENTITIES.register("ender_brewing_stand",
-            () -> new BlockEntityType(EnderBrewingStandBlockEntity::new, NMTBlocks.ENDER_BREWING_STAND.get())
+            () -> new BlockEntityType<>(EnderBrewingStandBlockEntity::new, NMTBlocks.ENDER_BREWING_STAND.get())
     );
 }

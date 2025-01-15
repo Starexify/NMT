@@ -30,8 +30,9 @@ public class NMTItemModelGenerator extends ItemModelGenerators {
         generateEnderPotion(NMTItems.SPLASH_OBSIDIAN_POTION.get(), "splash_");
         generateEnderPotion(NMTItems.LINGERING_OBSIDIAN_POTION.get(), "lingering_");
         generateEnderTippedArrow(NMTItems.OBSIDIAN_TIPPED_ARROW.get());
-        /*basicItem(NMTItems.TEAR_OF_THE_NETHER.get());
-        basicItem(NMTItems.BLAZING_WITHER_SOUL.get());*/
+        generateFlatItem(NMTItems.TEAR_OF_THE_NETHER.get(), ModelTemplates.FLAT_ITEM);
+        generateFlatItem(NMTItems.BLAZING_WITHER_SOUL.get(), ModelTemplates.FLAT_ITEM);
+        declareCustomModelItem(NMTItems.HEART_OF_THE_HELL.get());
     }
 
     public void generateEnderPotion(Item potionItem, String prefix) {
@@ -53,7 +54,7 @@ public class NMTItemModelGenerator extends ItemModelGenerators {
                     };
 
                     ItemModel.Unbaked potionModel = ItemModelUtils.plainModel(
-                            ModelTemplates.FLAT_ITEM.create(NoMoreThings.rl(potionName), TextureMapping.layer0(NoMoreThings.rl(potionName).withPrefix("item/")), this.modelOutput));
+                            ModelTemplates.FLAT_ITEM.create(NoMoreThings.rl(potionName).withPrefix("item/"), TextureMapping.layer0(NoMoreThings.rl(potionName).withPrefix("item/")), this.modelOutput));
                     list.add(ItemModelUtils.when(potionHolder.getKey(), potionModel));
                 });
 
@@ -79,7 +80,7 @@ public class NMTItemModelGenerator extends ItemModelGenerators {
                     String potionName = potion + "_tipped_arrow";
 
                     ItemModel.Unbaked potionModel = ItemModelUtils.plainModel(
-                            ModelTemplates.FLAT_ITEM.create(NoMoreThings.rl(potionName), TextureMapping.layer0(NoMoreThings.rl(potionName).withPrefix("item/")), this.modelOutput));
+                            ModelTemplates.FLAT_ITEM.create(NoMoreThings.rl(potionName).withPrefix("item/"), TextureMapping.layer0(NoMoreThings.rl(potionName).withPrefix("item/")), this.modelOutput));
                     list.add(ItemModelUtils.when(potionHolder.getKey(), potionModel));
                 });
 
