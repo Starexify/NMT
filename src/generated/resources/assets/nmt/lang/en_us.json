@@ -7,7 +7,9 @@
   "container.ender_brewing": "Ender Brewing Stand",
   "effect.nmt.burn": "Burn",
   "emi.category.nmt.ender_brewing": "Ender Brewing",
+  "item.nmt.blazing_wither_soul": "Blazing Wither Soul",
   "item.nmt.ender_wart": "Ender Wart",
+  "item.nmt.heart_of_the_hell": "Heart of the Hell",
   "item.nmt.lingering_obsidian_potion.effect.awfully": "Lingering Awfully Potion",
   "item.nmt.lingering_obsidian_potion.effect.cecity": "Lingering Potion of Cecity",
   "item.nmt.lingering_obsidian_potion.effect.dimness": "Lingering Potion of Dimness",
@@ -61,6 +63,7 @@
   "item.nmt.splash_obsidian_potion.effect.titan": "Splash Potion of the Titan",
   "item.nmt.splash_obsidian_potion.effect.unluck": "Splash Potion of Unluck",
   "item.nmt.splash_obsidian_potion.effect.withering": "Splash Potion of Withering",
+  "item.nmt.tear_of_the_nether": "Tear of the Nether",
   "nmt.creativetab.main": "No More Things",
   "nmt.creativetab.potions": "No More Things Potions"
 }
