@@ -25,7 +25,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.nova.nmt.blockentity.EnderBrewingStandBlockEntity;
+import net.nova.nmt.block.entity.EnderBrewingStandBlockEntity;
 import net.nova.nmt.init.NMTBlockEntities;
 
 import javax.annotation.Nullable;
@@ -44,12 +44,10 @@ public class EnderBrewingStandBlock extends BaseEntityBlock {
 
     public EnderBrewingStandBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(
-                this.stateDefinition
-                        .any()
-                        .setValue(HAS_BOTTLE[0], Boolean.FALSE)
-                        .setValue(HAS_BOTTLE[1], Boolean.FALSE)
-                        .setValue(HAS_BOTTLE[2], Boolean.FALSE)
+        this.registerDefaultState(this.stateDefinition.any()
+                .setValue(HAS_BOTTLE[0], Boolean.FALSE)
+                .setValue(HAS_BOTTLE[1], Boolean.FALSE)
+                .setValue(HAS_BOTTLE[2], Boolean.FALSE)
         );
     }
 

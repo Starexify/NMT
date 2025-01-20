@@ -85,7 +85,7 @@ public class LangProvider extends LanguageProvider {
         addObsidianPotion(NMTItems.OBSIDIAN_TIPPED_ARROW, NMTPotions.WITHERING, "Arrow of Withering");
 
         addItem(NMTItems.TEAR_OF_THE_NETHER, "Tear of the Nether");
-        addItem(NMTItems.BLAZING_WITHER_SOUL, "Blazing Wither Soul");
+        addItem(NMTItems.BLAZING_WITHERED_SOUL, "Blazing Withered Soul");
         addItem(NMTItems.HEART_OF_THE_HELL, "Heart of the Hell");
 
         // Creative Tab

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "nmt:item/blazing_wither_soul"
+    "layer0": "nmt:item/blazing_withered_soul"
   }
 }

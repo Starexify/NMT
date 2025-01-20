@@ -32,6 +32,6 @@ public class NMTItems {
 
     // Tear of the Nether
     public static final DeferredItem<Item> TEAR_OF_THE_NETHER = ITEMS.registerSimpleItem("tear_of_the_nether");
-    public static final DeferredItem<Item> BLAZING_WITHER_SOUL = ITEMS.registerSimpleItem("blazing_wither_soul");
+    public static final DeferredItem<Item> BLAZING_WITHERED_SOUL = ITEMS.registerSimpleItem("blazing_withered_soul");
     public static final DeferredItem<Item> HEART_OF_THE_HELL = ITEMS.registerSimpleItem("heart_of_the_hell");
 }

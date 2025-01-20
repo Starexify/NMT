@@ -31,7 +31,7 @@ public class NMTItemModelGenerator extends ItemModelGenerators {
         generateEnderPotion(NMTItems.LINGERING_OBSIDIAN_POTION.get(), "lingering_");
         generateEnderTippedArrow(NMTItems.OBSIDIAN_TIPPED_ARROW.get());
         generateFlatItem(NMTItems.TEAR_OF_THE_NETHER.get(), ModelTemplates.FLAT_ITEM);
-        generateFlatItem(NMTItems.BLAZING_WITHER_SOUL.get(), ModelTemplates.FLAT_ITEM);
+        generateFlatItem(NMTItems.BLAZING_WITHERED_SOUL.get(), ModelTemplates.FLAT_ITEM);
         declareCustomModelItem(NMTItems.HEART_OF_THE_HELL.get());
     }
 

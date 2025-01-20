@@ -27,7 +27,7 @@ public class CraftingRecipes extends NMTRecipeProvider {
                 .pattern(" B ")
                 .pattern(" S ")
                 .pattern("###")
-                .unlockedBy("has_" + getItemName(Items.BREWING_STAND), has(Items.BREWING_STAND))
+                .unlockedBy(getHasName(Items.BREWING_STAND), has(Items.BREWING_STAND))
                 .save(output);
 
         // Obsidian Glass
@@ -38,7 +38,7 @@ public class CraftingRecipes extends NMTRecipeProvider {
                 .pattern("###")
                 .pattern("#O#")
                 .pattern("###")
-                .unlockedBy("has_" + getItemName(Items.OBSIDIAN), has(Items.OBSIDIAN))
+                .unlockedBy(getHasName(Items.OBSIDIAN), has(Items.OBSIDIAN))
                 .save(output);
 
         stainedGlassPaneFromStainedGlass(NMTBlocks.OBSIDIAN_GLASS_PANE, NMTBlocks.OBSIDIAN_GLASS);
@@ -48,21 +48,21 @@ public class CraftingRecipes extends NMTRecipeProvider {
                 .define('#', NMTBlocks.OBSIDIAN_GLASS)
                 .pattern("# #")
                 .pattern(" # ")
-                .unlockedBy("has_" + getItemName(NMTBlocks.OBSIDIAN_GLASS), has(NMTBlocks.OBSIDIAN_GLASS))
+                .unlockedBy(getHasName(NMTBlocks.OBSIDIAN_GLASS), has(NMTBlocks.OBSIDIAN_GLASS))
                 .save(output);
 
         // Tipped Arrows
         SpecialRecipeBuilder.special(ObsidianTippedArrowRecipe::new).save(output, "obsidian_tipped_arrow");
 
         // Heart of the Hell
-/*        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, NMTItems.HEART_OF_THE_HELL)
+        shaped(RecipeCategory.MISC, NMTItems.HEART_OF_THE_HELL)
                 .group(getItemName(NMTBlocks.OBSIDIAN_GLASS))
                 .define('#', NMTItems.TEAR_OF_THE_NETHER)
                 .define('H', Items.HEART_OF_THE_SEA)
                 .pattern("###")
                 .pattern("#H#")
                 .pattern("###")
-                .unlockedBy("has_" + getItemName(NMTItems.TEAR_OF_THE_NETHER), has(NMTItems.TEAR_OF_THE_NETHER))
-                .save(recipeOutput);*/
+                .unlockedBy(getHasName(NMTItems.TEAR_OF_THE_NETHER), has(NMTItems.TEAR_OF_THE_NETHER))
+                .save(output);
     }
 }

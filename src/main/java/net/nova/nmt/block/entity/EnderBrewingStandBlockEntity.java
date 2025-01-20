@@ -1,4 +1,4 @@
-package net.nova.nmt.blockentity;
+package net.nova.nmt.block.entity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

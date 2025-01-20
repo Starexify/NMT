@@ -32,7 +32,7 @@ public class CreativeTab {
 
                 // Tear of the Nether
                 output.accept(NMTItems.TEAR_OF_THE_NETHER);
-                output.accept(NMTItems.BLAZING_WITHER_SOUL);
+                output.accept(NMTItems.BLAZING_WITHERED_SOUL);
                 output.accept(NMTItems.HEART_OF_THE_HELL);
             }).build()
     );
