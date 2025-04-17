@@ -1,99 +1,33 @@
 {
-	"credit": "Made with Blockbench",
-	"textures": {
-		"layer0": "nmt:item/heart_of_the_hell"
-	},
-	"elements": [
-		{
-			"name": "pos1",
-			"from": [7, 7, 7],
-			"to": [9, 9, 9],
-			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
-			"faces": {
-				"north": {"uv": [0, 0, 4, 4], "texture": "#layer0"},
-				"east": {"uv": [0, 0, 4, 4], "texture": "#layer0"},
-				"south": {"uv": [0, 0, 4, 4], "texture": "#layer0"},
-				"west": {"uv": [0, 0, 4, 4], "texture": "#layer0"},
-				"up": {"uv": [0, 0, 4, 4], "texture": "#layer0"},
-				"down": {"uv": [0, 0, 4, 4], "texture": "#layer0"}
-			}
-		},
-		{
-			"name": "pos2",
-			"from": [7, 7.25, 7],
-			"to": [9, 9.25, 9],
-			"rotation": {"angle": 22.5, "axis": "y", "origin": [8, 8.25, 8]},
-			"faces": {
-				"north": {"uv": [4, 0, 8, 4], "texture": "#layer0"},
-				"east": {"uv": [4, 0, 8, 4], "texture": "#layer0"},
-				"south": {"uv": [4, 0, 8, 4], "texture": "#layer0"},
-				"west": {"uv": [4, 0, 8, 4], "texture": "#layer0"},
-				"up": {"uv": [4, 0, 8, 4], "texture": "#layer0"},
-				"down": {"uv": [4, 0, 8, 4], "texture": "#layer0"}
-			}
-		},
-		{
-			"name": "pos3",
-			"from": [7, 7, 7],
-			"to": [9, 9, 9],
-			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8]},
-			"faces": {
-				"north": {"uv": [0, 4, 4, 8], "texture": "#layer0"},
-				"east": {"uv": [0, 4, 4, 8], "texture": "#layer0"},
-				"south": {"uv": [0, 4, 4, 8], "texture": "#layer0"},
-				"west": {"uv": [0, 4, 4, 8], "texture": "#layer0"},
-				"up": {"uv": [0, 4, 4, 8], "texture": "#layer0"},
-				"down": {"uv": [0, 4, 4, 8], "texture": "#layer0"}
-			}
-		},
-		{
-			"name": "pos4",
-			"from": [7, 6.75, 7],
-			"to": [9, 8.75, 9],
-			"rotation": {"angle": -22.5, "axis": "y", "origin": [8, 7.75, 8]},
-			"faces": {
-				"north": {"uv": [4, 4, 8, 8], "texture": "#layer0"},
-				"east": {"uv": [4, 4, 8, 8], "texture": "#layer0"},
-				"south": {"uv": [4, 4, 8, 8], "texture": "#layer0"},
-				"west": {"uv": [4, 4, 8, 8], "texture": "#layer0"},
-				"up": {"uv": [4, 4, 8, 8], "rotation": 270, "texture": "#layer0"},
-				"down": {"uv": [4, 4, 8, 8], "rotation": 90, "texture": "#layer0"}
-			}
-		}
-	],
-	"display": {
-		"thirdperson_righthand": {
-			"translation": [0, 3, 2]
-		},
-		"thirdperson_lefthand": {
-			"translation": [0, 3, 2]
-		},
-		"firstperson_righthand": {
-			"translation": [0, 3, 2]
-		},
-		"firstperson_lefthand": {
-			"translation": [0, 3, 2]
-		},
-		"ground": {
-			"translation": [0, 2, 0],
-			"scale": [2, 2, 2]
-		},
-		"gui": {
-			"scale": [3, 3, 3]
-		},
-		"head": {
-			"translation": [-4, 0, -5.75]
-		},
-		"fixed": {
-			"scale": [3, 3, 3]
-		}
-	},
-	"groups": [
-		{
-			"name": "heart",
-			"origin": [8, 8, 8],
-			"color": 0,
-			"children": [0, 1, 2, 3]
-		}
-	]
+  "gui_light": "front",
+  "textures": {
+    "particle": "nmt:item/heart_of_the_hell"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "translation": [0, 3, 2]
+    },
+    "thirdperson_lefthand": {
+      "translation": [0, 3, 2]
+    },
+    "firstperson_righthand": {
+      "translation": [0, 3, 2]
+    },
+    "firstperson_lefthand": {
+      "translation": [0, 3, 2]
+    },
+    "ground": {
+      "translation": [0, 2, 0],
+      "scale": [2, 2, 2]
+    },
+    "gui": {
+      "scale": [3, 3, 3]
+    },
+    "head": {
+      "translation": [-4, 0, -5.75]
+    },
+    "fixed": {
+      "scale": [3, 3, 3]
+    }
+  }
 }

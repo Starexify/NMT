@@ -145,7 +145,7 @@ public class NMTPotions {
             return false;
         }
     });
-    public static final Holder<Potion> QUICKNESS = POTIONS.register("quickness", () -> new Potion("quickness", new MobEffectInstance(MobEffects.DIG_SPEED, 3600)) {
+    public static final Holder<Potion> QUICKNESS = POTIONS.register("quickness", () -> new Potion("quickness", new MobEffectInstance(MobEffects.HASTE, 3600)) {
         @Override
         public boolean isEnabled(FeatureFlagSet enabledFeatures) {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
@@ -157,7 +157,7 @@ public class NMTPotions {
             return false;
         }
     });
-    public static final Holder<Potion> LONG_QUICKNESS = POTIONS.register("long_quickness", () -> new Potion("quickness", new MobEffectInstance(MobEffects.DIG_SPEED, 9600)) {
+    public static final Holder<Potion> LONG_QUICKNESS = POTIONS.register("long_quickness", () -> new Potion("quickness", new MobEffectInstance(MobEffects.HASTE, 9600)) {
         @Override
         public boolean isEnabled(FeatureFlagSet enabledFeatures) {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
@@ -169,7 +169,7 @@ public class NMTPotions {
             return false;
         }
     });
-    public static final Holder<Potion> STRONG_QUICKNESS = POTIONS.register("strong_quickness", () -> new Potion("quickness", new MobEffectInstance(MobEffects.DIG_SPEED, 1800, 1)) {
+    public static final Holder<Potion> STRONG_QUICKNESS = POTIONS.register("strong_quickness", () -> new Potion("quickness", new MobEffectInstance(MobEffects.HASTE, 1800, 1)) {
         @Override
         public boolean isEnabled(FeatureFlagSet enabledFeatures) {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
@@ -289,7 +289,7 @@ public class NMTPotions {
             return false;
         }
     });
-    public static final Holder<Potion> EXHAUSTION = POTIONS.register("exhaustion", () -> new Potion("exhaustion", new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 1800)) {
+    public static final Holder<Potion> EXHAUSTION = POTIONS.register("exhaustion", () -> new Potion("exhaustion", new MobEffectInstance(MobEffects.MINING_FATIGUE, 1800)) {
         @Override
         public boolean isEnabled(FeatureFlagSet enabledFeatures) {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
@@ -301,7 +301,7 @@ public class NMTPotions {
             return false;
         }
     });
-    public static final Holder<Potion> LONG_EXHAUSTION = POTIONS.register("long_exhaustion", () -> new Potion("exhaustion", new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 4800)) {
+    public static final Holder<Potion> LONG_EXHAUSTION = POTIONS.register("long_exhaustion", () -> new Potion("exhaustion", new MobEffectInstance(MobEffects.MINING_FATIGUE, 4800)) {
         @Override
         public boolean isEnabled(FeatureFlagSet enabledFeatures) {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
@@ -313,7 +313,7 @@ public class NMTPotions {
             return false;
         }
     });
-    public static final Holder<Potion> STRONG_EXHAUSTION = POTIONS.register("strong_exhaustion", () -> new Potion("exhaustion", new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 400, 1)) {
+    public static final Holder<Potion> STRONG_EXHAUSTION = POTIONS.register("strong_exhaustion", () -> new Potion("exhaustion", new MobEffectInstance(MobEffects.MINING_FATIGUE, 400, 1)) {
         @Override
         public boolean isEnabled(FeatureFlagSet enabledFeatures) {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
@@ -325,7 +325,7 @@ public class NMTPotions {
             return false;
         }
     });
-    public static final Holder<Potion> SICKNESS = POTIONS.register("sickness", () -> new Potion("sickness", new MobEffectInstance(MobEffects.CONFUSION, 1800)) {
+    public static final Holder<Potion> SICKNESS = POTIONS.register("sickness", () -> new Potion("sickness", new MobEffectInstance(MobEffects.NAUSEA, 1800)) {
         @Override
         public boolean isEnabled(FeatureFlagSet enabledFeatures) {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
@@ -337,7 +337,7 @@ public class NMTPotions {
             return false;
         }
     });
-    public static final Holder<Potion> LONG_SICKNESS = POTIONS.register("long_sickness", () -> new Potion("sickness", new MobEffectInstance(MobEffects.CONFUSION, 4800)) {
+    public static final Holder<Potion> LONG_SICKNESS = POTIONS.register("long_sickness", () -> new Potion("sickness", new MobEffectInstance(MobEffects.NAUSEA, 4800)) {
         @Override
         public boolean isEnabled(FeatureFlagSet enabledFeatures) {
             StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();

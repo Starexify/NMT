@@ -1,0 +1,9 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "nmt:item/heart_of_the_Hell",
+    "model": {
+      "type": "nmt:orb"
+    }
+  }
+}

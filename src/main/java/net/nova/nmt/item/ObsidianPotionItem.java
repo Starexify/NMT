@@ -14,7 +14,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -23,8 +22,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.nova.nmt.init.NMTItems;
 import net.nova.nmt.init.NMTPotions;
-
-import java.util.List;
 
 public class ObsidianPotionItem extends Item {
     public ObsidianPotionItem(Properties properties) {
@@ -51,10 +48,10 @@ public class ObsidianPotionItem extends Item {
             player.setItemInHand(context.getHand(), ItemUtils.createFilledResult(itemstack, player, new ItemStack(NMTItems.OBSIDIAN_GLASS_BOTTLE.get())));
             player.awardStat(Stats.ITEM_USED.get(itemstack.getItem()));
             if (!level.isClientSide) {
-                ServerLevel serverlevel = (ServerLevel)level;
+                ServerLevel serverlevel = (ServerLevel) level;
 
                 for (int i = 0; i < 5; i++) {
-                    serverlevel.sendParticles(ParticleTypes.LAVA, (double)blockpos.getX() + level.random.nextDouble(), (double)(blockpos.getY() + 1), (double)blockpos.getZ() + level.random.nextDouble(), 1, 0.0, 0.0, 0.0, 1.0);
+                    serverlevel.sendParticles(ParticleTypes.LAVA, (double) blockpos.getX() + level.random.nextDouble(), (double) (blockpos.getY() + 1), (double) blockpos.getZ() + level.random.nextDouble(), 1, 0.0, 0.0, 0.0, 1.0);
                 }
             }
 
@@ -69,15 +66,7 @@ public class ObsidianPotionItem extends Item {
 
     @Override
     public Component getName(ItemStack stack) {
-        PotionContents potioncontents = (PotionContents)stack.get(DataComponents.POTION_CONTENTS);
-        return potioncontents != null ? potioncontents.getName(this.descriptionId + ".effect.") : super.getName(stack);
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         PotionContents potioncontents = stack.get(DataComponents.POTION_CONTENTS);
-        if (potioncontents != null) {
-            potioncontents.addPotionTooltip(tooltipComponents::add, 1.0F, context.tickRate());
-        }
+        return potioncontents != null ? potioncontents.getName(this.descriptionId + ".effect.") : super.getName(stack);
     }
 }

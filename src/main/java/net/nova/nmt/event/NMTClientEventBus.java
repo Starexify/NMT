@@ -6,13 +6,18 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterSelectItemModelPropertyEvent;
+import net.neoforged.neoforge.client.event.RegisterSpecialModelRendererEvent;
 import net.nova.nmt.NoMoreThings;
+import net.nova.nmt.client.model.OrbModel;
+import net.nova.nmt.client.renderer.item.OrbSpecialRenderer;
 import net.nova.nmt.client.renderer.item.PotionContentsProperty;
 import net.nova.nmt.gui.ender_brewing_stand.EnderBrewingStandScreen;
 import net.nova.nmt.init.NMTBlocks;
 import net.nova.nmt.init.NMTMenuType;
+import net.nova.nmt.init.NMTModelLayers;
 
 import static net.nova.nmt.NoMoreThings.MODID;
 
@@ -26,6 +31,18 @@ public class NMTClientEventBus {
 
         ItemBlockRenderTypes.setRenderLayer(NMTBlocks.OBSIDIAN_GLASS.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(NMTBlocks.OBSIDIAN_GLASS_PANE.get(), RenderType.translucent());
+    }
+
+    // Entity Layers
+    @SubscribeEvent
+    public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(NMTModelLayers.HEART_OF_THE_HELL, OrbModel::createBodyLayer);
+    }
+
+    // Special Model Renderers
+    @SubscribeEvent
+    public static void registerSpecialRenderers(RegisterSpecialModelRendererEvent event) {
+        event.register(NoMoreThings.rl("orb"), OrbSpecialRenderer.Unbaked.MAP_CODEC);
     }
 
     // Connect Screen to Menu

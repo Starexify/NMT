@@ -1,5 +1,6 @@
 package net.nova.nmt.client.renderer.item;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.properties.select.SelectItemModelProperty;
@@ -11,17 +12,12 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionContents;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
 import net.nova.nmt.init.NMTPotions;
 import org.jetbrains.annotations.Nullable;
 
-@OnlyIn(Dist.CLIENT)
 public record PotionContentsProperty() implements SelectItemModelProperty<ResourceKey<Potion>> {
-    public static final SelectItemModelProperty.Type<PotionContentsProperty, ResourceKey<Potion>> TYPE;
-
-    public PotionContentsProperty() {
-    }
+    public static final Codec<ResourceKey<Potion>> VALUE_CODEC = ResourceKey.codec(Registries.POTION);
+    public static final SelectItemModelProperty.Type<PotionContentsProperty, ResourceKey<Potion>> TYPE = SelectItemModelProperty.Type.create(MapCodec.unit(new PotionContentsProperty()), VALUE_CODEC);
 
     @Nullable
     public ResourceKey<Potion> get(ItemStack stack, @Nullable ClientLevel level, @Nullable LivingEntity entity, int seed, ItemDisplayContext displayContext) {
@@ -46,11 +42,13 @@ public record PotionContentsProperty() implements SelectItemModelProperty<Resour
                 .orElse(null);
     }
 
+    @Override
     public SelectItemModelProperty.Type<PotionContentsProperty, ResourceKey<Potion>> type() {
         return TYPE;
     }
 
-    static {
-        TYPE = Type.create(MapCodec.unit(new PotionContentsProperty()), ResourceKey.codec(Registries.POTION));
+    @Override
+    public Codec<ResourceKey<Potion>> valueCodec() {
+        return VALUE_CODEC;
     }
 }

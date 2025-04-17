@@ -6,15 +6,16 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractThrownPotion;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ProjectileItem;
 import net.minecraft.world.level.Level;
-import net.nova.nmt.entity.projectile.ThrownObsidianPotion;
 
-public class ThrowableObsidianPotionItem extends ObsidianPotionItem implements ProjectileItem {
+public abstract class ThrowableObsidianPotionItem extends ObsidianPotionItem implements ProjectileItem {
     public static float PROJECTILE_SHOOT_POWER = 0.5F;
 
     public ThrowableObsidianPotionItem(Item.Properties properties) {
@@ -25,7 +26,7 @@ public class ThrowableObsidianPotionItem extends ObsidianPotionItem implements P
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         if (level instanceof ServerLevel serverlevel) {
-            Projectile.spawnProjectileFromRotation(ThrownObsidianPotion::new, serverlevel, itemstack, player, -20.0F, PROJECTILE_SHOOT_POWER, 1.0F);
+            Projectile.spawnProjectileFromRotation(this::createPotion, serverlevel, itemstack, player, -20.0F, PROJECTILE_SHOOT_POWER, 1.0F);
         }
 
         player.awardStat(Stats.ITEM_USED.get(this));
@@ -33,9 +34,13 @@ public class ThrowableObsidianPotionItem extends ObsidianPotionItem implements P
         return InteractionResult.SUCCESS;
     }
 
+    protected abstract AbstractThrownPotion createPotion(ServerLevel serverLevel, LivingEntity livingEntity, ItemStack stack);
+
+    protected abstract AbstractThrownPotion createPotion(Level level, Position pos, ItemStack stack);
+
     @Override
     public Projectile asProjectile(Level level, Position pos, ItemStack stack, Direction direction) {
-        return new ThrownObsidianPotion(level, pos.x(), pos.y(), pos.z(), stack);
+        return this.createPotion(level, pos, stack);
     }
 
     @Override

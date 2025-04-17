@@ -38,6 +38,8 @@ public class EnderBrewingStandBlockEntity extends BaseContainerBlockEntity imple
     public static final int DATA_BREW_TIME = 0;
     public static final int DATA_FUEL_USES = 1;
     public static final int NUM_DATA_VALUES = 2;
+    private static final short DEFAULT_BREW_TIME = 0;
+    private static final byte DEFAULT_FUEL = 0;
 
     private NonNullList<ItemStack> items = NonNullList.withSize(5, ItemStack.EMPTY);
     int brewTime;
@@ -132,7 +134,7 @@ public class EnderBrewingStandBlockEntity extends BaseContainerBlockEntity imple
             }
 
             for (int i = 0; i < EnderBrewingStandBlock.HAS_BOTTLE.length; i++) {
-                blockstate = blockstate.setValue(EnderBrewingStandBlock.HAS_BOTTLE[i], Boolean.valueOf(aboolean[i]));
+                blockstate = blockstate.setValue(EnderBrewingStandBlock.HAS_BOTTLE[i], aboolean[i]);
             }
 
             level.setBlock(pos, blockstate, 2);
@@ -196,12 +198,12 @@ public class EnderBrewingStandBlockEntity extends BaseContainerBlockEntity imple
         super.loadAdditional(tag, registries);
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         ContainerHelper.loadAllItems(tag, this.items, registries);
-        this.brewTime = tag.getShort("BrewTime");
+        this.brewTime = tag.getShortOr("BrewTime", (short) 0);
         if (this.brewTime > 0) {
             this.ingredient = this.items.get(3).getItem();
         }
 
-        this.fuel = tag.getByte("Fuel");
+        this.fuel = tag.getByteOr("Fuel", (byte) 0);
     }
 
     @Override

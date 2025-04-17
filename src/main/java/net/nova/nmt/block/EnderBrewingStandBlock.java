@@ -3,6 +3,7 @@ package net.nova.nmt.block;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
@@ -45,9 +46,9 @@ public class EnderBrewingStandBlock extends BaseEntityBlock {
     public EnderBrewingStandBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any()
-                .setValue(HAS_BOTTLE[0], Boolean.FALSE)
-                .setValue(HAS_BOTTLE[1], Boolean.FALSE)
-                .setValue(HAS_BOTTLE[2], Boolean.FALSE)
+                .setValue(HAS_BOTTLE[0], false)
+                .setValue(HAS_BOTTLE[1], false)
+                .setValue(HAS_BOTTLE[2], false)
         );
     }
 
@@ -86,9 +87,8 @@ public class EnderBrewingStandBlock extends BaseEntityBlock {
     }
 
     @Override
-    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
-        Containers.dropContentsOnDestroy(state, newState, level, pos);
-        super.onRemove(state, level, pos, newState, isMoving);
+    protected void affectNeighborsAfterRemoval(BlockState state, ServerLevel serverLevel, BlockPos pos, boolean p_394308_) {
+        Containers.updateNeighboursAfterDestroy(state, serverLevel, pos);
     }
 
     @Override

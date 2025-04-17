@@ -4,6 +4,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.level.block.Block;
 import net.nova.nmt.init.NMTItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -11,8 +12,8 @@ import java.util.concurrent.CompletableFuture;
 import static net.nova.nmt.NoMoreThings.MODID;
 
 public class NMTItemTagsProvider extends ItemTagsProvider {
-    public NMTItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, NMTBlockTagsProvider provider) {
-        super(output, lookupProvider, provider.contentsGetter(), MODID);
+    public NMTItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTags) {
+        super(output, lookupProvider, blockTags, MODID);
     }
 
     @Override
