@@ -5,10 +5,8 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.resources.ResourceLocation;
 
 public class OrbModel extends Model {
-    public static final ResourceLocation TEXTURE = ResourceLocation.withDefaultNamespace("textures/item/heart_of_the_hell.png");
     public final ModelPart heart;
 
     public OrbModel(ModelPart root) {

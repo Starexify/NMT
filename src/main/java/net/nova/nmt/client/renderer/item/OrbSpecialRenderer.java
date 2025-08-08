@@ -4,16 +4,18 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.client.model.geom.EntityModelSet;
-import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.special.NoDataSpecialModelRenderer;
 import net.minecraft.client.renderer.special.SpecialModelRenderer;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemDisplayContext;
+import net.nova.nmt.NoMoreThings;
 import net.nova.nmt.client.model.OrbModel;
 import net.nova.nmt.init.NMTModelLayers;
 
 public class OrbSpecialRenderer implements NoDataSpecialModelRenderer {
+    public static final ResourceLocation TEXTURE = NoMoreThings.rl("textures/item/heart_of_the_hell.png");
     public final OrbModel model;
 
     public OrbSpecialRenderer(OrbModel model) {
@@ -24,7 +26,7 @@ public class OrbSpecialRenderer implements NoDataSpecialModelRenderer {
     public void render(ItemDisplayContext displayContext, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay, boolean hasFoilType) {
         poseStack.pushPose();
         poseStack.scale(1.0F, -1.0F, -1.0F);
-        VertexConsumer vertexconsumer = ItemRenderer.getFoilBuffer(bufferSource, this.model.renderType(OrbModel.TEXTURE), false, hasFoilType);
+        VertexConsumer vertexconsumer = ItemRenderer.getFoilBuffer(bufferSource, this.model.renderType(TEXTURE), false, hasFoilType);
         this.model.renderToBuffer(poseStack, vertexconsumer, packedLight, packedOverlay);
         poseStack.popPose();
     }
